@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --color-volcanoBlack: #101010;
+  --color-volcanoCrimson: #e63946;
+  --color-volcanoOrange: #ff7a18;
+  --color-volcanoPeach: #ffd4b8;
+  --color-volcanoWhite: #fdfdfd;
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --volcanoBlack: #0a0a0a;
+  --volcanoCrimson: #e63946;
+  --volcanoOrange: #ff7a18;
+  --volcanoPeach: #ffd4b8;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a #0a0a0a;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #101010;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a1515;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e63946;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: #101010;
+}
+
+/* Accordion mechanics without clunky JS layout shifts */
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary svg {
+  transform: rotate(45deg);
+  color: #ff7a18;
+}
+details {
+  max-height: 56px;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+details[open] {
+  max-height: 500px;
+}
+details.faq-short[open] {
+  max-height: 300px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 40px rgba(230, 57, 70, 0.15);
+  border-color: var(--volcanoCrimson);
+}
+.line-draw {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--volcanoCrimson), var(--volcanoOrange));
+  z-index: 60;
+  transition: width 0.1s linear;
+}
+
+.industry-card {
+  cursor: pointer;
+}
+.industry-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+  opacity: 0;
+}
+.industry-card.open .industry-detail {
+  max-height: 260px;
+  opacity: 1;
+}
+.industry-card.open .chev {
+  transform: rotate(45deg);
+  color: var(--volcanoOrange);
+}
+.chev {
+  transition: transform 0.35s ease;
+}
+
+#cursor-glow {
+  position: fixed;
+  width: 480px;
+  height: 480px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(230, 57, 70, 0.06), transparent 70%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.logo-mark {
+  filter: drop-shadow(0 0 10px rgba(255, 122, 24, 0.35));
+}
+
+.grid-fade {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
