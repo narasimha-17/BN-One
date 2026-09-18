@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Services Gateway — BNS ONE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        volcanoBlack: '#101010',
+                        volcanoCrimson: '#E63946',
+                        volcanoOrange: '#FF7A18',
+                        volcanoPeach: '#FFD4B8',
+                        volcanoWhite: '#FDFDFD',
+                    },
+                    animation: { 'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #101010; }
+        ::-webkit-scrollbar-thumb { background: #2a1515; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #E63946; }
+        .grid-fade { animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-volcanoBlack text-volcanoWhite antialiased font-sans selection:bg-volcanoCrimson/30 selection:text-volcanoPeach min-h-screen overflow-x-hidden">
+
+    <div class="absolute top-[-10%] left-[-20%] w-[120vw] sm:w-[80vw] h-[120vw] sm:h-[80vw] rounded-full bg-gradient-to-tr from-volcanoCrimson/10 to-volcanoOrange/5 blur-[100px] sm:blur-[140px] pointer-events-none z-0 animate-pulse-slow"></div>
+    <div class="absolute bottom-[10%] right-[-20%] w-[100vw] sm:w-[60vw] h-[100vw] sm:h-[60vw] rounded-full bg-gradient-to-br from-volcanoOrange/5 to-transparent blur-[100px] sm:blur-[140px] pointer-events-none z-0"></div>
+
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-6xl z-50">
+        <nav class="border border-white/5 bg-volcanoBlack/60 backdrop-blur-xl rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-[0_12px_40px_-12px_rgba(0,0,0,0.8)]">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gradient-to-r from-volcanoCrimson to-volcanoOrange shadow-[0_0_12px_#E63946]"></span>
+                <a href="/index.html" class="text-base sm:text-lg font-bold tracking-tighter bg-gradient-to-r from-volcanoWhite via-volcanoPeach to-zinc-500 bg-clip-text text-transparent">BNS ONE</a>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider uppercase text-zinc-400">
+                <a href="/index.html" class="hover:text-volcanoOrange transition-colors duration-200">Home</a>
+                <a href="/services.html" class="text-volcanoWhite border-b border-volcanoCrimson pb-0.5 tracking-wide">Services Router</a>
+            </div>
+            <div>
+                <a href="index.html#contact" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-[10px] sm:text-xs font-bold tracking-wider uppercase rounded-full group bg-gradient-to-br from-volcanoCrimson to-volcanoOrange text-volcanoWhite">
+                    <span class="relative px-3 py-1.5 sm:px-4 sm:py-2 bg-volcanoBlack rounded-full transition-all duration-300 group-hover:bg-transparent">Get Started</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 pt-28 sm:pt-36 pb-20 sm:pb-24 space-y-16 sm:space-y-20">
+        
+        <section id="matrix-anchor" class="space-y-3 sm:space-y-4 max-w-2xl text-center md:text-left mx-auto md:mx-0">
+            <div class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-volcanoCrimson uppercase">// DISPATCH SYSTEM v2.6</div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-volcanoWhite">Capabilities Pipeline</h1>
+            <p class="text-xs sm:text-sm md:text-base text-zinc-400 leading-relaxed">Select a core client infrastructure division card below to reveal our underlying operational frameworks and project ledgers.</p>
+        </section>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <button onclick="selectClientTier('business', this)" class="tier-card group text-left border border-white/5 bg-[#141414]/40 p-6 sm:p-8 rounded-3xl transition-all duration-500 hover:border-volcanoCrimson/40 flex flex-col justify-between min-h-[200px] sm:min-h-[240px]">
+                <div class="space-y-3 w-full">
+                    <div class="flex justify-between items-center font-mono text-[9px] sm:text-[10px] text-zinc-500">
+                        <span>WING_01 // COM_PRODUCTION</span>
+                        <span class="tier-indicator hidden text-volcanoCrimson font-bold">● SELECTED</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-volcanoWhite group-hover:text-volcanoCrimson transition-colors tracking-tight">Business Solutions</h3>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">Tailored commercial applications, administrative automation tools, conversion flows, and secure data schemas engineered for industry scaling parameters.</p>
+                </div>
+                <div class="text-[9px] sm:text-[10px] font-mono text-zinc-600 mt-4 uppercase">// View Solutions Repository</div>
+            </button>
+
+            <button onclick="selectClientTier('community', this)" class="tier-card group text-left border border-white/5 bg-[#141414]/40 p-6 sm:p-8 rounded-3xl transition-all duration-500 hover:border-volcanoOrange/40 flex flex-col justify-between min-h-[200px] sm:min-h-[240px]">
+                <div class="space-y-3 w-full">
+                    <div class="flex justify-between items-center font-mono text-[9px] sm:text-[10px] text-zinc-500">
+                        <span>WING_02 // PUBLIC_UTILITY</span>
+                        <span class="tier-indicator hidden text-volcanoOrange font-bold">● SELECTED</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-volcanoWhite group-hover:text-volcanoOrange transition-colors tracking-tight">Community Systems</h3>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">Real-time public telemetry panels, informational coordination networks, and accessible data feeds built securely to serve regional citizen networks.</p>
+                </div>
+                <div class="text-[9px] sm:text-[10px] font-mono text-zinc-600 mt-4 uppercase">// View Systems Repository</div>
+            </button>
+
+            <button onclick="selectClientTier('college', this)" class="tier-card group text-left border border-white/5 bg-[#141414]/40 p-6 sm:p-8 rounded-3xl transition-all duration-500 hover:border-volcanoPeach/40 flex flex-col justify-between min-h-[200px] sm:min-h-[240px] sm:col-span-2 md:col-span-1">
+                <div class="space-y-3 w-full">
+                    <div class="flex justify-between items-center font-mono text-[9px] sm:text-[10px] text-zinc-500">
+                        <span>WING_03 // ACADEMIC_LABS</span>
+                        <span class="tier-indicator hidden text-volcanoPeach font-bold">● SELECTED</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-volcanoWhite group-hover:text-volcanoPeach transition-colors tracking-tight">College Projects</h3>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">Review-ready conceptual models and framework source configurations complete with validation materials designed for university research tracks.</p>
+                </div>
+                <div class="text-[9px] sm:text-[10px] font-mono text-zinc-600 mt-4 uppercase">// Explore Specialized Domains</div>
+            </button>
+        </section>
+
+        <section id="college-domain-nav" class="hidden grid-fade space-y-4 sm:space-y-6 pt-6 border-t border-zinc-900">
+            <div class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-volcanoPeach/80 text-center sm:text-left">// SELECT DISCIPLINE SUB-NODE</div>
+            <div class="grid grid-cols-1 min-[400px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+                <button onclick="switchCollegeDomain('fullstack', this)" class="domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-volcanoCrimson bg-gradient-to-b from-[#1c1212] to-volcanoBlack text-volcanoWhite shadow-[0_0_15px_rgba(230,57,70,0.15)]">
+                    <div class="text-[8px] sm:text-[9px] text-volcanoCrimson font-bold">SUB_NODE_01</div>
+                    <div class="text-[11px] sm:text-xs font-bold mt-1 tracking-tight">Full-Stack</div>
+                </button>
+                <button onclick="switchCollegeDomain('aiml', this)" class="domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-zinc-900 bg-[#141414]/30 text-zinc-400 hover:text-volcanoWhite transition-colors">
+                    <div class="text-[8px] sm:text-[9px] text-zinc-600">SUB_NODE_02</div>
+                    <div class="text-[11px] sm:text-xs font-bold mt-1 tracking-tight">AI & ML</div>
+                </button>
+                <button onclick="switchCollegeDomain('datascience', this)" class="domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-zinc-900 bg-[#141414]/30 text-zinc-400 hover:text-volcanoWhite transition-colors">
+                    <div class="text-[8px] sm:text-[9px] text-zinc-600">SUB_NODE_03</div>
+                    <div class="text-[11px] sm:text-xs font-bold mt-1 tracking-tight">Data Science</div>
+                </button>
+                <button onclick="switchCollegeDomain('cybersecurity', this)" class="domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-zinc-900 bg-[#141414]/30 text-zinc-400 hover:text-volcanoWhite transition-colors">
+                    <div class="text-[8px] sm:text-[9px] text-zinc-600">SUB_NODE_04</div>
+                    <div class="text-[11px] sm:text-xs font-bold mt-1 tracking-tight">Cybersecurity</div>
+                </button>
+                <button onclick="switchCollegeDomain('iot', this)" class="domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-zinc-900 bg-[#141414]/30 text-zinc-400 hover:text-volcanoWhite transition-colors">
+                    <div class="text-[8px] sm:text-[9px] text-zinc-600">SUB_NODE_05</div>
+                    <div class="text-[11px] sm:text-xs font-bold mt-1 tracking-tight">IoT Systems</div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Inject block reserved for specific JS loading if needed, corrected ID to prevent conflict -->
+        <div id="dynamic-injection-point" class="mt-4 sm:mt-8 transition-opacity duration-500 opacity-0"></div>
+
+        <section id="ledger-vault" class="hidden space-y-6 sm:space-y-8 pt-4 sm:pt-6 border-t border-zinc-900 mt-8 sm:mt-12">
+            <div id="project-container" class="grid-fade grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            </div>
+        </section>
+
+        <section id="research" class="py-20 sm:py-32 border-t border-zinc-900/60 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-volcanoCrimson/40 to-transparent"></div>
+            
+            <div class="grid lg:grid-cols-12 gap-10 sm:gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-5 sm:space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-volcanoOrange/30 bg-volcanoOrange/5 px-3 py-1.5 sm:px-4 sm:py-1.5 backdrop-blur-sm">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-volcanoOrange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-volcanoOrange"></span>
+                        </span>
+                        <span class="text-[9px] sm:text-[11px] font-mono font-bold tracking-widest uppercase text-volcanoPeach">// MODULE_LAUNCH: ALPHA_PHASE</span>
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-volcanoWhite leading-[1.05] sm:leading-[0.95]">
+                        Research Paper Publishing <br class="hidden sm:block">
+                        <span class="bg-gradient-to-r from-volcanoCrimson via-volcanoOrange to-volcanoPeach bg-clip-text text-transparent">Is Coming Soon.</span>
+                    </h2>
+                    
+                    <p class="text-[11px] sm:text-xs md:text-sm text-zinc-400 leading-relaxed max-w-xl">
+                        We are currently engineering a streamlined archival routing track designed to guide engineering candidates through the rigors of indexing papers in global peer-reviewed repositories. From formatting source architecture records to clearing structural technical documentation checks, we help ensure your breakthroughs survive panel reviews.
+                    </p>
+
+                    <div class="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] text-zinc-500 pt-2 w-full text-left">
+                        <div class="flex items-center justify-center lg:justify-start gap-2">
+                            <span class="text-volcanoCrimson">✓</span>
+                            <span>Formatting Verification Core</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start gap-2">
+                            <span class="text-volcanoOrange">✓</span>
+                            <span>Plagiarism Audit Shields</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start gap-2">
+                            <span class="text-volcanoPeach">✓</span>
+                            <span>Review Panel Simulation</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start gap-2">
+                            <span class="text-zinc-400">✓</span>
+                            <span>Data Analytics Verification</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative mt-6 lg:mt-0">
+                    <div class="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-volcanoCrimson to-volcanoOrange opacity-10 blur-2xl pointer-events-none"></div>
+                    <div class="relative rounded-3xl border border-white/5 bg-[#141414]/60 p-5 sm:p-6 md:p-8 backdrop-blur-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] space-y-5 sm:space-y-6">
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-[9px] sm:text-[10px] text-zinc-500 border-b border-zinc-900/60 pb-3 sm:pb-4 text-center sm:text-left">
+                            <span>REGISTRY_ID: BNS_PUBLISH_CORE</span>
+                            <span class="text-volcanoCrimson font-bold">STATUS: COMPILING...</span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-2 sm:gap-4 text-center font-mono py-2">
+                            <div class="bg-volcanoBlack/50 p-3 sm:p-4 rounded-xl border border-zinc-900">
+                                <div id="countdown-days" class="text-xl sm:text-2xl font-black text-volcanoWhite">--</div>
+                                <div class="text-[8px] sm:text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Days</div>
+                            </div>
+                            <div class="bg-volcanoBlack/50 p-3 sm:p-4 rounded-xl border border-zinc-900">
+                                <div id="countdown-hours" class="text-xl sm:text-2xl font-black text-volcanoOrange">--</div>
+                                <div class="text-[8px] sm:text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Hours</div>
+                            </div>
+                            <div class="bg-volcanoBlack/50 p-3 sm:p-4 rounded-xl border border-zinc-900">
+                                <div id="countdown-mins" class="text-xl sm:text-2xl font-black text-volcanoPeach">--</div>
+                                <div class="text-[8px] sm:text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Mins</div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 sm:space-y-4 pt-3 sm:pt-4 border-t border-zinc-900/60">
+                            <p class="font-mono text-[9px] sm:text-[10px] text-zinc-400 uppercase tracking-wider text-center sm:text-left">// Request Priority Queue Allocation</p>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input type="email" id="waitlist-email" placeholder="academic_endpoint@domain.com" class="w-full bg-volcanoBlack border border-zinc-800 rounded-xl px-4 py-3 font-mono text-[10px] sm:text-xs text-volcanoWhite focus:border-volcanoCrimson focus:outline-none transition-colors">
+                                <button onclick="triggerPriorityQueue()" class="h-11 sm:h-auto w-full sm:w-auto bg-volcanoWhite hover:bg-volcanoCrimson hover:text-volcanoWhite text-volcanoBlack font-mono text-[10px] sm:text-xs font-bold tracking-widest uppercase px-6 rounded-xl transition-all whitespace-nowrap flex items-center justify-center">
+                                    Queue Request
+                                </button>
+                            </div>
+                            <div id="queue-status" class="font-mono text-[9px] sm:text-[10px] text-zinc-600 flex items-center justify-center sm:justify-start gap-2 transition-colors mt-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-zinc-700"></span>
+                                <span>Awaiting secure verification sequence.</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <script>
+            // Set arbitrary milestone target timeline (e.g., 45 days into the future)
+            const targetedTimeline = new Date().getTime() + (45 * 24 * 60 * 60 * 1000);
+
+            function runArchivalCountdown() {
+                const now = new Date().getTime();
+                const difference = targetedTimeline - now;
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById("countdown-days").innerText = String(days).padStart(2, '0');
+                document.getElementById("countdown-hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("countdown-mins").innerText = String(minutes).padStart(2, '0');
+            }
+            setInterval(runArchivalCountdown, 1000);
+            runArchivalCountdown();
+
+            function triggerPriorityQueue() {
+                const emailInput = document.getElementById("waitlist-email");
+                const statusBlock = document.getElementById("queue-status");
+                
+                if(emailInput.value.includes('@') && emailInput.value.length > 5) {
+                    statusBlock.className = "font-mono text-[9px] sm:text-[10px] text-emerald-400 flex items-center justify-center sm:justify-start gap-2 animate-pulse mt-2";
+                    statusBlock.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>SUCCESS: Priority queue slot reserved.</span>`;
+                    emailInput.value = '';
+                } else {
+                    statusBlock.className = "font-mono text-[9px] sm:text-[10px] text-volcanoCrimson flex items-center justify-center sm:justify-start gap-2 mt-2";
+                    statusBlock.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-volcanoCrimson"></span><span>ERROR: Invalid communication endpoint.</span>`;
+                }
+            }
+
+            function loadProjectDomain(domain) {
+                const injectionPoint = document.getElementById('dynamic-injection-point');
+                
+                // Smooth fade effect
+                injectionPoint.style.opacity = '0';
+                
+                setTimeout(() => {
+                    const projectData = {
+                        'medical': `
+                            <h2 class="text-2xl sm:text-3xl font-black text-white mb-6 sm:mb-8">// MEDICAL_ARCHITECTURES</h2>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                                <div class="p-5 sm:p-6 border border-zinc-800 rounded-2xl bg-black">
+                                    <h3 class="font-bold text-volcanoCrimson">Diagnostic AI</h3>
+                                    <p class="text-[10px] sm:text-xs text-zinc-400 mt-2">Real-time image classification for pathology.</p>
+                                </div>
+                            </div>
+                        `,
+                        'travel': `...`
+                    };
+
+                    injectionPoint.innerHTML = projectData[domain] || '<p class="text-zinc-500">Domain data unavailable.</p>';
+                    injectionPoint.style.opacity = '1';
+                    
+                    // Auto-scroll to the new content
+                    injectionPoint.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            }
+        </script>
+
+    </main>
+
+    <footer class="border-t border-zinc-900 bg-volcanoBlack relative z-10 py-8 sm:py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 text-[10px] sm:text-[11px] font-medium text-zinc-600 tracking-wide text-center">
+            <div>&copy; 2026 BNS ONE &bull; One Vision. Infinite Possibilities.</div>
+        </div>
+    </footer>
+
+    <script>
+        const staticDatabase = {
+            business: [
+                { name: "Enterprise LawConnect AI Core", price: "Custom", problem: "Commercial legal practices lose billing velocity due to legacy, unindexed client document structures.", stack: ["React.js", "Flask Array", "PostgreSQL", "RAG Engine"], url: "lawconnect-corp" },
+                { name: "Asymmetric SaaS Billing Router", price: "Custom", problem: "Rigid transaction engines introduce failure overheads during simultaneous tier mutations.", stack: ["NextJS", "FastAPI", "Redis Nodes", "Stripe API"], url: "billing-core" }
+            ],
+            community: [
+                { name: "WaterWatch Public Quality Streamer", price: "OpenSource", problem: "Regional sub-clusters lack unified alerting pathways to track water contamination parameters safely.", stack: ["React.js", "Tailwind CSS", "WebSockets", "InfluxDB"], url: "waterwatch-map" },
+                { name: "AgroCare Cooperative Crop Diagnostic Node", price: "OpenSource", problem: "Isolated smallholder agricultural sectors suffer yield drops from untracked migratory path vectors.", stack: ["Python", "CNN Classification", "Flask Framework", "SQLite"], url: "agrocare-public" }
+            ]
+        };
+
+        const collegeDatabase = {
+            fullstack: [
+                { name: "Multi-Tenant Legal Brief Tracking Interface", price: "₹3,499", problem: "Legacy law institutions experience critical processing friction due to unmonitored tracking pathways.", stack: ["React.js", "Flask Server", "PostgreSQL", "JWT Tokens"], url: "fs-legal" },
+                { name: "Medical Inventory Control Matrix", price: "₹2,999", problem: "Sluggish critical asset logs cause inventory batch decay and stock collision errors in clinics.", stack: ["React.js", "Flask Core", "SQLite", "Tailwind CSS"], url: "fs-medical" },
+                { name: "B2B Supply Chain Broker Ledger", price: "₹3,899", problem: "Asynchronous data writes crash database operations during concurrent order bursts.", stack: ["NextJS", "NodeJS", "PostgreSQL", "Redis Cache"], url: "fs-supply" }
+            ],
+            aiml: [
+                { name: "AgroCare Neural Pathology Classifier", price: "₹3,999", problem: "Manual crop assessment stymies timely leaf diagnosis, triggering structural field decay paths.", stack: ["Python 3.10", "TensorFlow/CNN", "Flask API", "OpenCV Core"], url: "ai-agro" },
+                { name: "Brain Tumor Medical Image Segmenter", price: "₹3,899", problem: "Visual tumor evaluation in dense scans suffers boundary blur, degrading clinical tracing safety.", stack: ["PyTorch Core", "U-Net Node", "Flask Server", "NumPy Matrix"], url: "ai-brain" }
+            ],
+            datascience: [
+                { name: "WaterWatch Core Quality Analytics Matrix", price: "₹3,499", problem: "Unsorted pollution telemetry tables obscure real-time trend visualization routes.", stack: ["Pandas Library", "Scikit-Learn", "Matplotlib", "NumPy Engine"], url: "ds-water" }
+            ],
+            cybersecurity: [
+                { name: "Asymmetric RBAC Token Perimeter Shield", price: "₹3,999", problem: "Flawed application boundaries allow parameter tampering to leak administrative keys.", stack: ["FastAPI Node", "PyJWT Core", "Redis Cache Node", "SQLAlchemy"], url: "sec-token" }
+            ],
+            iot: [
+                { name: "Real-Time Mesh Node Asynchronous Ingester", price: "₹3,999", problem: "High-frequency telemetry data streams crash typical web endpoints, causing packet dropouts.", stack: ["NodeJS Server", "MQTT Sockets", "InfluxDB Node", "C++ Microcode"], url: "iot-mesh" }
+            ]
+        };
+
+        // Inject remaining structural data rows for runtime coverage
+        for (let i = 2; i <= 6; i++) {
+            collegeDatabase.datascience.push({ name: `Data Analysis Node Model _0${i}`, price: `₹${3000 + (i*65)%900}`, problem: "Fragmented historical metrics lose predictive visibility under typical analytic schemas.", stack: ["Pandas", "Scikit-Learn", "Matplotlib"], url: "ds-node" });
+            collegeDatabase.cybersecurity.push({ name: `Hardened Security Verification Module _0${i}`, price: `₹${2999 + (i*70)%999}`, problem: "Unsanitized form inputs allow malicious exploitation parameters to scan data roots.", stack: ["FastAPI", "PyJWT", "PostgreSQL"], url: "sec-node" });
+            collegeDatabase.iot.push({ name: `Asynchronous Sensor Matrix Client _0${i}`, price: `₹${3100 + (i*55)%880}`, problem: "Delayed sensor notifications fail to map operational failures across hardware arrays.", stack: ["NodeJS", "MQTT Protocol", "InfluxDB Core"], url: "iot-node" });
+        }
+
+        let activeTier = '';
+
+        function selectClientTier(tierId, cardElement) {
+            // UI Toggle Reset
+            document.querySelectorAll('.tier-card').forEach(card => {
+                card.className = "tier-card group text-left border border-white/5 bg-[#141414]/40 p-6 sm:p-8 rounded-3xl transition-all duration-500 flex flex-col justify-between min-h-[200px] sm:min-h-[240px] " + (card.classList.contains('sm:col-span-2') ? "sm:col-span-2 md:col-span-1" : "");
+                card.querySelector('.tier-indicator').classList.add('hidden');
+            });
+
+            // Set Active Border Highlight
+            let accent = tierId === 'business' ? 'border-volcanoCrimson/40 shadow-[0_0_20px_rgba(230,57,70,0.05)]' : tierId === 'community' ? 'border-volcanoOrange/40 shadow-[0_0_20px_rgba(255,122,24,0.05)]' : 'border-volcanoPeach/40 shadow-[0_0_20px_rgba(255,212,184,0.05)]';
+            
+            // Preserve col-span logic for the last card
+            let colSpanClasses = cardElement.classList.contains('sm:col-span-2') ? "sm:col-span-2 md:col-span-1" : "";
+            
+            cardElement.className = `tier-card group text-left border ${accent} bg-[#141414]/60 p-6 sm:p-8 rounded-3xl transition-all duration-500 flex flex-col justify-between min-h-[200px] sm:min-h-[240px] ${colSpanClasses}`;
+            cardElement.querySelector('.tier-indicator').classList.remove('hidden');
+
+            activeTier = tierId;
+            const subNav = document.getElementById('college-domain-nav');
+            const vault = document.getElementById('ledger-vault');
+
+            if (tierId === 'college') {
+                subNav.classList.remove('hidden');
+                vault.classList.remove('hidden');
+                // Auto trigger first sub-node
+                const defaultSubBtn = subNav.querySelector('button');
+                switchCollegeDomain('fullstack', defaultSubBtn);
+                
+                // Scroll into view on mobile
+                if(window.innerWidth < 768) subNav.scrollIntoView({behavior: 'smooth', block: 'start'});
+            } else {
+                subNav.classList.add('hidden');
+                vault.classList.remove('hidden');
+                renderProjectGrid(staticDatabase[tierId]);
+                
+                if(window.innerWidth < 768) vault.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+        }
+
+        function switchCollegeDomain(domainId, btnElement) {
+            document.querySelectorAll('.domain-btn').forEach(btn => {
+                btn.className = "domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-zinc-900 bg-[#141414]/30 text-zinc-400 hover:text-volcanoWhite transition-colors";
+                btn.querySelector('div').className = "text-[8px] sm:text-[9px] text-zinc-600";
+            });
+
+            btnElement.className = "domain-btn w-full p-3 sm:p-4 text-left font-mono rounded-xl border border-volcanoCrimson bg-gradient-to-b from-[#1c1212] to-volcanoBlack text-volcanoWhite shadow-[0_0_15px_rgba(230,57,70,0.15)]";
+            btnElement.querySelector('div').className = "text-[8px] sm:text-[9px] text-volcanoCrimson font-bold";
+
+            renderProjectGrid(collegeDatabase[domainId]);
+        }
+
+        function renderProjectGrid(dataset) {
+            const container = document.getElementById('project-container');
+            container.classList.remove('grid-fade');
+            void container.offsetWidth; // Force CSS Reflow frame refresh
+            container.classList.add('grid-fade');
+            container.innerHTML = '';
+
+            dataset.forEach((proj, index) => {
+                const element = document.createElement('div');
+                element.className = "group border border-white/5 bg-[#141414]/40 p-5 sm:p-6 rounded-3xl hover:border-volcanoCrimson/40 hover:bg-white/[0.01] transition-all duration-500 flex flex-col justify-between min-h-[300px] sm:min-h-[350px]";
+                element.innerHTML = `
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between font-mono text-zinc-500">
+                            <span class="text-[9px] sm:text-[10px] tracking-wider uppercase bg-zinc-900/50 px-2 py-1 sm:px-2.5 sm:py-1 rounded border border-zinc-800">BLOCK_${String(index + 1).padStart(2, '0')}</span>
+                            <span class="text-volcanoPeach font-bold tracking-tight font-sans text-sm sm:text-base">${proj.price}</span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-black text-volcanoWhite group-hover:text-volcanoCrimson transition-colors tracking-tight leading-snug">${proj.name}</h3>
+                        <div class="space-y-1 sm:space-y-1.5">
+                            <div class="text-[8px] sm:text-[9px] font-mono text-volcanoOrange uppercase tracking-wider">// Problem Architecture</div>
+                            <p class="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">${proj.problem}</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-4 border-t border-zinc-900/50 mt-5 sm:mt-6">
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[8px] sm:text-[9px]">
+                            ${proj.stack.map(tech => `<span class="bg-volcanoBlack px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded border border-zinc-800 text-zinc-500">${tech}</span>`).join('')}
+                        </div>
+                        <div class="flex items-center justify-between text-[10px] sm:text-[11px] pt-1">
+                            <span class="font-mono text-zinc-600 text-[8px] sm:text-2xs">ASSETS // CORES</span>
+                            <a href="https://demo.bnsone.com/${proj.url}" target="_blank" class="inline-flex h-7 sm:h-8 items-center justify-center rounded-lg border border-volcanoCrimson/30 bg-volcanoCrimson/5 px-2.5 sm:px-3 font-mono text-[9px] sm:text-2xs font-bold uppercase tracking-wider text-volcanoCrimson hover:bg-volcanoCrimson hover:text-volcanoWhite transition-all">Live Target</a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(element);
+            });
+        }
+    </script>
+</body>
+</html>
