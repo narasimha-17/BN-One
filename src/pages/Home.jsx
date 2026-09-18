@@ -1,12 +1,44 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 import Preloader from '../components/Preloader.jsx'
 import FaqItem from '../components/FaqItem.jsx'
 import BookingModal from '../components/BookingModal.jsx'
 import BlueprintModal from '../components/BlueprintModal.jsx'
 import NewsletterSignup from '../components/NewsletterSignup.jsx'
+import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import { features, testimonials, disciplines, faqs, services } from '../data/homeData.js'
+const featuredProducts = [
+  {
+    name: 'PowerLens',
+    category: 'INTELLIGENCE / ANALYTICS',
+    accent: 'text-volcanoCrimson',
+    body: 'Turn complex operational data into clear decisions with a live command view built around your business.',
+    tags: ['Live Insights', 'Signal Mapping', 'Decision Tools'],
+  },
+  {
+    name: 'VIBE',
+    category: 'EXPERIENCE / ENGAGEMENT',
+    accent: 'text-volcanoOrange',
+    body: 'A high-energy digital experience system for brands that need attention, movement, and measurable connection.',
+    tags: ['Brand Systems', 'Interactive UI', 'Conversion Flow'],
+  },
+  {
+    name: 'Code Check',
+    category: 'ENGINEERING / QUALITY',
+    accent: 'text-volcanoPeach',
+    body: 'Bring confidence to every release with structured code review, performance checks, and practical fixes.',
+    tags: ['Code Review', 'Runtime Health', 'Release Ready'],
+  },
+  {
+    name: 'Exam+',
+    category: 'LEARNING / PERFORMANCE',
+    accent: 'text-volcanoCrimson',
+    body: 'A focused preparation system that turns revision into measurable progress before the exam begins.',
+    tags: ['Study Plans', 'Practice Tests', 'Progress Signals'],
+  },
+]
 
 export default function Home() {
   usePageTitle('BN ONE — Next-Gen Digital Architectures')
@@ -118,6 +150,60 @@ export default function Home() {
                   <p className="text-xs text-zinc-400 leading-relaxed">{f.body}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Products */}
+        <section id="products" className="py-20 md:py-32 border-t border-zinc-900/60 space-y-12 md:space-y-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-4 max-w-2xl">
+              <div className="text-xs font-bold tracking-widest text-volcanoOrange uppercase">
+                // Product Systems
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-volcanoWhite">
+                Working Architectures, Ready to Deploy.
+              </h2>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Explore focused systems built for real operational problems, from intelligent
+                diagnostics to resilient business infrastructure.
+              </p>
+            </div>
+            <Link
+              to="/services"
+              className="shrink-0 text-xs font-bold uppercase tracking-widest text-volcanoOrange hover:text-volcanoWhite transition-colors"
+            >
+              View full catalog <span aria-hidden="true">-&gt;</span>
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
+            {featuredProducts.map((product, index) => (
+              <article
+                key={product.name}
+                className="group relative overflow-hidden border border-white/5 bg-[#141414]/50 p-6 sm:p-8 rounded-2xl hover:border-volcanoOrange/40 hover:bg-[#171717] transition-all duration-300"
+              >
+                <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-volcanoCrimson via-volcanoOrange to-volcanoPeach opacity-70" />
+                <div className="flex items-center justify-between gap-4 font-mono text-[9px] sm:text-[10px] tracking-widest">
+                  <span className={product.accent}>{product.category}</span>
+                  <span className="text-zinc-600">NODE_0{index + 1}</span>
+                </div>
+                <div className="mt-8 space-y-3">
+                  <h3 className="text-xl font-black tracking-tight text-volcanoWhite group-hover:text-volcanoOrange transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{product.body}</p>
+                </div>
+                <div className="mt-8 pt-5 border-t border-zinc-900 flex items-end justify-between gap-4">
+                  <div className="flex flex-wrap gap-2">
+                    {product.tags.map((tag) => (
+                      <span key={tag} className="rounded border border-zinc-800 px-2 py-1 font-mono text-[9px] text-zinc-500">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </section>
@@ -403,19 +489,7 @@ export default function Home() {
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
       <BlueprintModal open={blueprintOpen} onClose={() => setBlueprintOpen(false)} />
 
-      <footer className="border-t border-zinc-900 bg-volcanoBlack relative z-10 mt-10 sm:mt-16">
-        <div className="max-w-6xl mx-auto px-6 py-8 md:py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-[11px] font-medium text-zinc-600 tracking-wide text-center sm:text-left">
-          <div>&copy; 2026 BNS ONE &bull; One Vision. Infinite Possibilities.</div>
-          <div className="flex gap-4 sm:gap-6">
-            <a href="#" className="hover:text-volcanoPeach transition-colors">
-              Privacy Paradigm
-            </a>
-            <a href="#" className="hover:text-volcanoPeach transition-colors">
-              Terms of Operations
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

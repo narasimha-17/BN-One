@@ -2,11 +2,18 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { label: 'Sprinto', to: '/#features' },
+  { label: 'Products', to: '/#products' },
   { label: 'Investment', to: '/#pricing' },
   { label: 'About', to: '/about' },
   { label: 'Industry', to: '/industry' },
   { label: 'Services', to: '/services' },
+]
+
+const PRODUCT_LINKS = [
+  { name: 'PowerLens', type: 'Intelligence / Analytics', description: 'See the signal inside your operations.', accent: 'text-volcanoCrimson' },
+  { name: 'VIBE', type: 'Experience / Engagement', description: 'Make every interaction feel alive.', accent: 'text-volcanoOrange' },
+  { name: 'Code Check', type: 'Engineering / Quality', description: 'Ship with confidence, every time.', accent: 'text-volcanoPeach' },
+  { name: 'Exam+', type: 'Learning / Performance', description: 'Turn preparation into progress.', accent: 'text-volcanoCrimson' },
 ]
 
 export default function Navbar() {
@@ -57,12 +64,33 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider uppercase text-zinc-400">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                to={link.to}
-                className="hover:text-volcanoOrange transition-colors duration-200"
-              >
+            <div className="relative group">
+              <Link to="/#products" className="inline-flex items-center gap-2 py-4 hover:text-volcanoOrange transition-colors duration-200">
+                Products
+                <span className="text-[10px] transition-transform duration-300 group-hover:rotate-180" aria-hidden="true">⌄</span>
+              </Link>
+              <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 w-[min(760px,calc(100vw-2rem))] -translate-x-1/2 translate-y-3 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/95 p-px shadow-2xl shadow-black/60 backdrop-blur-2xl">
+                  {PRODUCT_LINKS.map((product) => (
+                    <Link
+                      key={product.name}
+                      to="/#products"
+                      className="group/product min-h-36 bg-[#141414] p-5 transition-colors hover:bg-[#1b1b1b]"
+                    >
+                      <span className={`font-mono text-[9px] tracking-widest ${product.accent}`}>{product.type}</span>
+                      <span className="mt-5 block text-base font-black tracking-tight text-volcanoWhite group-hover/product:text-volcanoOrange transition-colors">
+                        {product.name}
+                      </span>
+                      <span className="mt-2 block text-[10px] normal-case leading-relaxed tracking-normal text-zinc-500">
+                        {product.description}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {NAV_LINKS.slice(1).map((link) => (
+              <Link key={link.label} to={link.to} className="hover:text-volcanoOrange transition-colors duration-200">
                 {link.label}
               </Link>
             ))}

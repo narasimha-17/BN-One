@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import { team } from '../data/teamData.js'
+import SiteFooter from '../components/SiteFooter.jsx'
 
 export default function About() {
   usePageTitle('About — BN ONE')
@@ -70,11 +71,7 @@ export default function About() {
         </section>
       </main>
 
-      <footer className="border-t border-zinc-900 bg-volcanoBlack relative z-10 mt-10 sm:mt-16">
-        <div className="max-w-6xl mx-auto px-6 py-8 md:py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-[11px] font-medium text-zinc-600 tracking-wide text-center sm:text-left">
-          <div>&copy; 2026 BNS ONE &bull; One Vision. Infinite Possibilities.</div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

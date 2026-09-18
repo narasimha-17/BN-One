@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 import Reveal from '../components/Reveal.jsx'
 import IndustryCard from '../components/IndustryCard.jsx'
+import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import {
   services,
@@ -166,49 +167,7 @@ export default function Industry() {
         </div>
       </section>
 
-      <footer id="contact" className="py-16 md:py-32 border-t border-zinc-900 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-10 md:gap-16">
-          <div>
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <svg className="logo-mark" width="26" height="26" viewBox="0 0 40 40" fill="none">
-                <path d="M20 3 L35 33 L5 33 Z" fill="#FF7A18" />
-                <path d="M20 14 L28 33 L12 33 Z" fill="#0a0a0a" opacity="0.55" />
-                <circle cx="20" cy="9" r="2.3" fill="#FFD4B8" />
-              </svg>
-              <h3 className="text-xl sm:text-2xl font-black">BNS ONE</h3>
-            </div>
-            <p className="text-zinc-600 text-sm">
-              Architecting resilient digital futures with precision-engineered infrastructure,
-              tuned to the industry it serves.
-            </p>
-          </div>
-          <div className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <h4 className="text-white font-bold text-sm sm:text-base">Solutions</h4>
-              <ul className="text-zinc-600 text-sm space-y-2">
-                <li>Cloud</li>
-                <li>Security</li>
-                <li>AI</li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-white font-bold text-sm sm:text-base">Industries</h4>
-              <ul className="text-zinc-600 text-sm space-y-2">
-                <li>Healthcare</li>
-                <li>E-Commerce</li>
-                <li>Travel</li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-white font-bold text-sm sm:text-base">Contact</h4>
-              <ul className="text-zinc-600 text-sm space-y-2">
-                <li>bnst17042006@gmail.com</li>
-                <li>Hyderabad</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

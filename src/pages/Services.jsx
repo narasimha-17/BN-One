@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import { staticDatabase, collegeDatabase, collegeDomains } from '../data/servicesData.js'
+import SiteFooter from '../components/SiteFooter.jsx'
 
 const TIER_ACCENTS = {
   business: 'border-volcanoCrimson/40 shadow-[0_0_20px_rgba(230,57,70,0.05)]',
@@ -337,11 +338,7 @@ export default function Services() {
         </section>
       </main>
 
-      <footer className="border-t border-zinc-900 bg-volcanoBlack relative z-10 py-8 sm:py-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 text-[10px] sm:text-[11px] font-medium text-zinc-600 tracking-wide text-center">
-          <div>&copy; 2026 BNS ONE &bull; One Vision. Infinite Possibilities.</div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }
