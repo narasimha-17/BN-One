@@ -62,6 +62,7 @@ export default function FeatureGrid({ features }) {
               className="group relative flex min-h-[15rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#24113F] p-7 sm:col-span-2 md:p-9"
             >
               <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#6D28D9]/45 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full bg-[#00D4C4]/25 blur-3xl" />
               <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 600 300" preserveAspectRatio="none" fill="none" aria-hidden="true">
                 <path d="M-20 240C140 160 260 290 420 210S560 130 640 170" stroke="white" strokeOpacity="0.08" strokeWidth="1.2" />
                 <path d="M-20 280C150 210 280 320 440 250S570 180 640 210" stroke="white" strokeOpacity="0.05" strokeWidth="1.2" />

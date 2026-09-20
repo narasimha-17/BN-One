@@ -1,9 +1,6 @@
-import { useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
-import ContactSection from '../components/ContactSection.jsx'
-import BookingModal from '../components/BookingModal.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import { team } from '../data/teamData.js'
 
@@ -31,8 +28,7 @@ function LinkedInIcon() {
 }
 
 export default function Leadership() {
-  usePageTitle('Leadership — INFOLCON')
-  const [bookingOpen, setBookingOpen] = useState(false)
+  usePageTitle('Leadership — Infortia')
 
   return (
     <div className="relative min-h-[100dvh] overflow-x-clip bg-transparent font-sans text-volcanoWhite antialiased selection:bg-volcanoCrimson/30">
@@ -73,53 +69,75 @@ export default function Leadership() {
           <div className="text-center">
             <h2 className="text-3xl font-extrabold tracking-tighter sm:text-5xl">Meet Our Leaders</h2>
           </div>
-          <div className="mt-8 h-[3px] w-full rounded-full bg-gradient-to-r from-[#6D28D9] to-[#24113F]" />
+          <div className="mt-8 h-[3px] w-full rounded-full bg-gradient-to-r from-[#6D28D9] via-[#4FB3E8] to-[#00D4C4]" />
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {team.map((person, i) => (
               <Reveal
                 key={person.name}
                 style={{ transitionDelay: `${i * 90}ms` }}
-                className="hud-card group overflow-hidden rounded-2xl"
+                className="group relative overflow-hidden rounded-3xl bg-white shadow-[0_1px_2px_rgba(36,17,63,0.05),0_12px_30px_-16px_rgba(109,40,217,0.25)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_34px_60px_-24px_rgba(109,40,217,0.6)]"
               >
-                <div className={`relative aspect-[4/5] overflow-hidden bg-gradient-to-b ${PORTRAIT_BG[i % PORTRAIT_BG.length]}`}>
-                  {person.photo ? (
-                    <img
-                      src={person.photo}
-                      alt={person.name}
-                      className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <Silhouette />
-                  )}
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-[#24113F] via-[#24113F]/85 to-transparent px-5 pb-5 pt-20">
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-b ${PORTRAIT_BG[i % PORTRAIT_BG.length]} transition-transform duration-700 ease-out group-hover:scale-110`}
+                  >
+                    {person.photo ? (
+                      <img src={person.photo} alt={person.name} className="h-full w-full object-cover object-top" />
+                    ) : (
+                      <Silhouette />
+                    )}
+                  </div>
+
+                  {/* Name bar (default state) */}
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-[#24113F] via-[#24113F]/85 to-transparent px-6 pb-6 pt-24 transition-opacity duration-500 lg:group-hover:opacity-0">
                     <div>
                       <h3 className="text-2xl font-semibold text-white">{person.name}</h3>
                       <p className="mt-0.5 text-sm text-white/70">{person.role}</p>
                     </div>
-                    {person.linkedin && (
+                    <a
+                      href={person.linkedin || 'https://www.linkedin.com'}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${person.name} on LinkedIn`}
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#24113F] transition-colors hover:bg-[#0A66C2] hover:text-white"
+                    >
+                      <LinkedInIcon />
+                    </a>
+                  </div>
+
+                  {/* Hover state: photo stays visible, bio slides up over a bottom gradient */}
+                  <div className="pointer-events-none absolute inset-0 hidden flex-col justify-end bg-gradient-to-t from-[#24113F] via-[#24113F]/90 to-transparent p-7 pt-40 opacity-0 transition-opacity duration-500 group-hover:opacity-100 lg:flex">
+                    <p className="translate-y-3 text-sm leading-relaxed text-white/90 transition-transform duration-500 group-hover:translate-y-0">
+                      {person.bio}
+                    </p>
+                    <div className="mt-4 flex items-end justify-between gap-3">
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white">{person.name}</h3>
+                        <p className="mt-0.5 text-sm text-white/70">{person.role}</p>
+                      </div>
                       <a
-                        href={person.linkedin}
+                        href={person.linkedin || 'https://www.linkedin.com'}
                         target="_blank"
                         rel="noreferrer"
                         aria-label={`${person.name} on LinkedIn`}
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#24113F] transition-colors hover:bg-[#6D28D9] hover:text-white"
+                        className="pointer-events-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#24113F] transition-colors hover:bg-[#0A66C2] hover:text-white"
                       >
                         <LinkedInIcon />
                       </a>
-                    )}
+                    </div>
                   </div>
                 </div>
-                <p className="p-6 text-sm leading-relaxed text-zinc-400">{person.bio}</p>
+
+                {/* Bio below the card on screens without hover */}
+                <p className="p-6 text-sm leading-relaxed text-zinc-400 lg:hidden">{person.bio}</p>
               </Reveal>
             ))}
           </div>
         </section>
 
-        <ContactSection onBook={() => setBookingOpen(true)} />
       </main>
 
-      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
       <SiteFooter />
     </div>
   )

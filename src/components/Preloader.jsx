@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useTheme } from '../lib/theme.js'
 
 export default function Preloader() {
   const [visible, setVisible] = useState(() => localStorage.getItem('seenIntro') !== 'true')
   const [dismissed, setDismissed] = useState(false)
+  const theme = useTheme()
 
   useEffect(() => {
     if (!visible) return
@@ -29,8 +31,8 @@ export default function Preloader() {
       style={dismissed ? { opacity: 0, pointerEvents: 'none' } : undefined}
     >
       <img
-        src="/logo.png"
-        alt="INFOLCON"
+        src={theme === 'dark' ? '/logo-on-dark.png' : '/logo.png'}
+        alt="Infortia"
         className="w-64 sm:w-80 h-auto object-contain"
       />
       <div className="relative h-[3px] w-56 overflow-hidden rounded-full bg-black/10">

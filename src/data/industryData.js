@@ -38,7 +38,13 @@ export const serviceIcons = {
     '<rect x="5" y="11" width="14" height="9" rx="1.5" fill="none"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none"/><circle cx="12" cy="15.5" r="1.4"/>',
 }
 
-export const stack = ['Python', 'Flask', 'React.js', 'Tailwind', 'PostgreSQL', 'AWS']
+export const techGroups = [
+  { label: 'Languages', items: ['Python', 'JavaScript', 'C', 'C++'] },
+  { label: 'Frameworks', items: ['React.js', 'Next.js', 'Node.js', 'Flask', 'FastAPI', 'Tailwind CSS'] },
+  { label: 'Data', items: ['PostgreSQL', 'SQLite', 'Redis', 'InfluxDB'] },
+  { label: 'AI & ML', items: ['TensorFlow', 'PyTorch', 'OpenCV', 'Scikit-Learn'] },
+  { label: 'Cloud & IoT', items: ['AWS', 'MQTT'] },
+]
 
 export const projects = [
   { t: 'VULCAN', s: 'FinTech', d: 'High-frequency trading engine.' },

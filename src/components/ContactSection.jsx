@@ -51,6 +51,7 @@ export default function ContactSection({ onBook }) {
     <section id="contact" className="py-16 md:py-24">
       <div className="relative overflow-hidden rounded-[2rem] bg-[#24113F] px-6 py-12 sm:px-10 md:px-14 md:py-16">
         <div className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[#6D28D9]/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full bg-[#00D4C4]/25 blur-3xl" />
         <svg
           className="pointer-events-none absolute inset-0 h-full w-full"
           viewBox="0 0 1200 500"

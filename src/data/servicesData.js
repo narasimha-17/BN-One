@@ -43,7 +43,7 @@ export const collegeDatabase = {
       problem: 'Legacy law institutions experience critical processing friction due to unmonitored tracking pathways.',
       stack: ['React.js', 'Flask Server', 'PostgreSQL', 'JWT Tokens'],
       url: 'fs-legal',
-      buyUrl: 'https://infolcon.gumroad.com/l/fs-legal',
+      buyUrl: 'https://infortia.gumroad.com/l/fs-legal',
     },
     {
       name: 'Medical Inventory Control Matrix',
@@ -51,7 +51,7 @@ export const collegeDatabase = {
       problem: 'Sluggish critical asset logs cause inventory batch decay and stock collision errors in clinics.',
       stack: ['React.js', 'Flask Core', 'SQLite', 'Tailwind CSS'],
       url: 'fs-medical',
-      buyUrl: 'https://infolcon.gumroad.com/l/fs-medical',
+      buyUrl: 'https://infortia.gumroad.com/l/fs-medical',
     },
     {
       name: 'B2B Supply Chain Broker Ledger',
@@ -59,7 +59,7 @@ export const collegeDatabase = {
       problem: 'Asynchronous data writes crash database operations during concurrent order bursts.',
       stack: ['NextJS', 'NodeJS', 'PostgreSQL', 'Redis Cache'],
       url: 'fs-supply',
-      buyUrl: 'https://infolcon.gumroad.com/l/fs-supply',
+      buyUrl: 'https://infortia.gumroad.com/l/fs-supply',
     },
   ],
   aiml: [
@@ -69,7 +69,7 @@ export const collegeDatabase = {
       problem: 'Manual crop assessment stymies timely leaf diagnosis, triggering structural field decay paths.',
       stack: ['Python 3.10', 'TensorFlow/CNN', 'Flask API', 'OpenCV Core'],
       url: 'ai-agro',
-      buyUrl: 'https://infolcon.gumroad.com/l/ai-agro',
+      buyUrl: 'https://infortia.gumroad.com/l/ai-agro',
     },
     {
       name: 'Brain Tumor Medical Image Segmenter',
@@ -77,7 +77,7 @@ export const collegeDatabase = {
       problem: 'Visual tumor evaluation in dense scans suffers boundary blur, degrading clinical tracing safety.',
       stack: ['PyTorch Core', 'U-Net Node', 'Flask Server', 'NumPy Matrix'],
       url: 'ai-brain',
-      buyUrl: 'https://infolcon.gumroad.com/l/ai-brain',
+      buyUrl: 'https://infortia.gumroad.com/l/ai-brain',
     },
   ],
   datascience: [
@@ -87,7 +87,7 @@ export const collegeDatabase = {
       problem: 'Unsorted pollution telemetry tables obscure real-time trend visualization routes.',
       stack: ['Pandas Library', 'Scikit-Learn', 'Matplotlib', 'NumPy Engine'],
       url: 'ds-water',
-      buyUrl: 'https://infolcon.gumroad.com/l/ds-water',
+      buyUrl: 'https://infortia.gumroad.com/l/ds-water',
     },
   ],
   cybersecurity: [
@@ -97,7 +97,7 @@ export const collegeDatabase = {
       problem: 'Flawed application boundaries allow parameter tampering to leak administrative keys.',
       stack: ['FastAPI Node', 'PyJWT Core', 'Redis Cache Node', 'SQLAlchemy'],
       url: 'sec-token',
-      buyUrl: 'https://infolcon.gumroad.com/l/sec-token',
+      buyUrl: 'https://infortia.gumroad.com/l/sec-token',
     },
   ],
   iot: [
@@ -107,7 +107,7 @@ export const collegeDatabase = {
       problem: 'High-frequency telemetry data streams crash typical web endpoints, causing packet dropouts.',
       stack: ['NodeJS Server', 'MQTT Sockets', 'InfluxDB Node', 'C++ Microcode'],
       url: 'iot-mesh',
-      buyUrl: 'https://infolcon.gumroad.com/l/iot-mesh',
+      buyUrl: 'https://infortia.gumroad.com/l/iot-mesh',
     },
   ],
   cbasics: [
@@ -117,7 +117,7 @@ export const collegeDatabase = {
       problem: 'First-year lab submissions need a clean, file-based CRUD system without a database dependency.',
       stack: ['C', 'File I/O', 'Structs'],
       url: 'c-library-mgmt',
-      buyUrl: 'https://infolcon.gumroad.com/l/c-library-mgmt',
+      buyUrl: 'https://infortia.gumroad.com/l/c-library-mgmt',
     },
     {
       name: 'Student Record Management',
@@ -125,7 +125,7 @@ export const collegeDatabase = {
       problem: 'Demonstrates OOP fundamentals — classes, constructors, and file persistence — for a syllabus record-keeping assignment.',
       stack: ['C++', 'OOP', 'File Handling'],
       url: 'cpp-student-records',
-      buyUrl: 'https://infolcon.gumroad.com/l/cpp-student-records',
+      buyUrl: 'https://infortia.gumroad.com/l/cpp-student-records',
     },
     {
       name: 'Bank Account Management System',
@@ -133,7 +133,7 @@ export const collegeDatabase = {
       problem: 'Menu-driven console app covering structs, arrays, and basic transaction logic for a core-C submission.',
       stack: ['C', 'Structs', 'Arrays'],
       url: 'c-bank-mgmt',
-      buyUrl: 'https://infolcon.gumroad.com/l/c-bank-mgmt',
+      buyUrl: 'https://infortia.gumroad.com/l/c-bank-mgmt',
     },
     {
       name: 'Console Snake Game',
@@ -141,7 +141,7 @@ export const collegeDatabase = {
       problem: 'A pointers-and-recursion-driven console game, built to satisfy a "mini project with logic depth" requirement.',
       stack: ['C++', 'Pointers', 'Recursion'],
       url: 'cpp-snake-game',
-      buyUrl: 'https://infolcon.gumroad.com/l/cpp-snake-game',
+      buyUrl: 'https://infortia.gumroad.com/l/cpp-snake-game',
     },
   ],
 }
@@ -154,7 +154,7 @@ for (let i = 2; i <= 6; i++) {
     problem: 'Fragmented historical metrics lose predictive visibility under typical analytic schemas.',
     stack: ['Pandas', 'Scikit-Learn', 'Matplotlib'],
     url: dsUrl,
-    buyUrl: `https://infolcon.gumroad.com/l/${dsUrl}`,
+    buyUrl: `https://infortia.gumroad.com/l/${dsUrl}`,
   })
 
   const secUrl = `sec-node-0${i}`
@@ -164,7 +164,7 @@ for (let i = 2; i <= 6; i++) {
     problem: 'Unsanitized form inputs allow malicious exploitation parameters to scan data roots.',
     stack: ['FastAPI', 'PyJWT', 'PostgreSQL'],
     url: secUrl,
-    buyUrl: `https://infolcon.gumroad.com/l/${secUrl}`,
+    buyUrl: `https://infortia.gumroad.com/l/${secUrl}`,
   })
 
   const iotUrl = `iot-node-0${i}`
@@ -174,7 +174,7 @@ for (let i = 2; i <= 6; i++) {
     problem: 'Delayed sensor notifications fail to map operational failures across hardware arrays.',
     stack: ['NodeJS', 'MQTT Protocol', 'InfluxDB Core'],
     url: iotUrl,
-    buyUrl: `https://infolcon.gumroad.com/l/${iotUrl}`,
+    buyUrl: `https://infortia.gumroad.com/l/${iotUrl}`,
   })
 }
 

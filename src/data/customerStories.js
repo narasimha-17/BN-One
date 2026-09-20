@@ -16,7 +16,7 @@ export const customerStories = [
     industry: 'Commerce',
     product: 'PowerLens',
     tone: 'bg-[#F3EEFA]',
-    quote: 'Our user engagement matrices scaled instantly within one deployment sprint cycle using INFOLCON.',
+    quote: 'Our user engagement matrices scaled instantly within one deployment sprint cycle using Infortia.',
   },
   {
     id: 2,

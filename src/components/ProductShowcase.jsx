@@ -1,14 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductLogo from './ProductLogo.jsx'
 import ProductPreview from './ProductPreview.jsx'
 
 export default function ProductShowcase({ products }) {
   const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
   const product = products[active]
 
+  // Rotate through the products on their own; stop once the visitor hovers, focuses or picks one.
+  useEffect(() => {
+    if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    const id = setInterval(() => setActive((n) => (n + 1) % products.length), 7000)
+    return () => clearInterval(id)
+  }, [paused, products.length])
+
   return (
-    <div className="space-y-10">
+    <div
+      className="space-y-10"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
       <div
         role="tablist"
         aria-label="Products"
@@ -19,7 +33,10 @@ export default function ProductShowcase({ products }) {
             key={p.name}
             role="tab"
             aria-selected={i === active}
-            onClick={() => setActive(i)}
+            onClick={() => {
+              setActive(i)
+              setPaused(true)
+            }}
             className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
               i === active
                 ? 'border-volcanoCrimson bg-volcanoCrimson text-white shadow-[0_10px_24px_-10px_rgba(109,40,217,0.7)]'

@@ -89,7 +89,7 @@ export const testimonials = [
     tag: '01 / RETENTION METRICS',
     color: 'text-volcanoCrimson',
     quote:
-      '"Our user engagement matrices scaled instantly within one deployment sprint cycle using INFOLCON."',
+      '"Our user engagement matrices scaled instantly within one deployment sprint cycle using Infortia."',
   },
   {
     tag: '02 / VELOCITY RECORDING',

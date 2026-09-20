@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 import ProductLogo from '../components/ProductLogo.jsx'
+import Reveal from '../components/Reveal.jsx'
+import InAction from '../components/InAction.jsx'
 import Typewriter from '../components/Typewriter.jsx'
 import PrinciplesSection from '../components/PrinciplesSection.jsx'
 import ContactSection from '../components/ContactSection.jsx'
@@ -57,7 +59,7 @@ const featuredProducts = [
 ]
 
 export default function Home() {
-  usePageTitle('INFOLCON — Next-Gen Digital Architectures')
+  usePageTitle('Infortia — Next-Gen Digital Architectures')
   const [bookingOpen, setBookingOpen] = useState(false)
   const [blueprintOpen, setBlueprintOpen] = useState(false)
 
@@ -150,6 +152,8 @@ export default function Home() {
           <FeatureGrid features={features} />
         </section>
 
+        <InAction />
+
         {/* What We Do */}
         <section id="what-we-do" className="pt-16 pb-4 md:pt-24 md:pb-6 border-t border-zinc-900/60 space-y-12 md:space-y-16">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -161,12 +165,12 @@ export default function Home() {
                 We Engineer Pure Operational Authority.
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed font-sans">
-                We don't just patch layout visuals together. INFOLCON constructs high-performance
+                We don't just patch layout visuals together. Infortia constructs high-performance
                 custom digital systems designed to cleanly capture market share, isolate
                 operational latency, and provide uncompromised accessibility metrics.
               </p>
               <div className="pt-4 hidden lg:block">
-                <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
                   System Runtime status
                 </div>
                 <div className="flex items-center gap-2 mt-1.5">
@@ -191,22 +195,22 @@ export default function Home() {
                 Operational Verticals.
               </h2>
             </div>
-            <p className="text-xs text-zinc-500 max-w-xs md:text-right leading-relaxed font-mono break-all">
-              [SYSTEM_CAPABILITIES // PRODUCTION_READY_MODUELS]
-            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {services.map((s) => (
-              <div
+            {services.map((s, i) => (
+              <Reveal
                 key={s.tag}
-                className={`group border border-black/10 hud-card p-6 sm:p-8 rounded-3xl ${s.hoverBorder} hover:bg-[#F3EEFA] transition-all duration-500 flex flex-col justify-between min-h-[300px] md:min-h-[320px]`}
+                style={{ transitionDelay: `${i * 120}ms` }}
+                className={`group border border-black/10 hud-card p-6 sm:p-8 rounded-3xl ${s.hoverBorder} hover:bg-[#F3EEFA] transition-all duration-500 flex flex-col justify-between min-h-[300px] md:min-h-[320px] fade-text`}
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between font-mono text-zinc-500">
-                    <span className="text-[10px] tracking-wider">// {s.tag}</span>
-                    <span className={`${s.color} font-bold font-mono text-[10px] sm:text-xs`}>
-                      {s.label}
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F3EEFA] text-xs font-bold text-volcanoCrimson">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="rounded-full border border-volcanoCrimson/25 px-3 py-1 text-[11px] font-semibold text-volcanoCrimson">
+                      {s.label.split('_').map((w) => w.charAt(0) + w.slice(1).toLowerCase()).join(' ')}
                     </span>
                   </div>
                   <h3 className={`text-xl font-black text-volcanoWhite ${s.hoverText} transition-colors`}>
@@ -214,12 +218,12 @@ export default function Home() {
                   </h3>
                   <p className="text-xs text-zinc-400 leading-relaxed">{s.body}</p>
                 </div>
-                <div className="pt-6 font-mono text-[9px] sm:text-[10px] text-zinc-500 border-t border-zinc-900/50 flex gap-4 mt-auto">
+                <div className="mt-auto flex flex-wrap gap-2 border-t border-zinc-900/50 pt-6">
                   {s.bullets.map((b) => (
-                    <span key={b}>• {b}</span>
+                    <span key={b} className="rounded-full bg-[#F3EEFA] px-3 py-1 text-xs font-medium text-volcanoCrimson">{b}</span>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -229,7 +233,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl space-y-3 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Customer stories</p>
             <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">
-              Teams that build with INFOLCON
+              Teams that build with Infortia
             </h2>
             <Link to="/customers" className="inline-flex items-center gap-1 pt-1 text-sm font-semibold text-volcanoCrimson">
               Read all customer stories <span aria-hidden="true">→</span>
@@ -242,7 +246,7 @@ export default function Home() {
                 className="group relative flex min-h-[20rem] flex-col justify-between gap-8 overflow-hidden rounded-3xl bg-[#F3EEFA] p-7 transition-transform duration-500 hover:-translate-y-1 sm:p-9"
               >
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#6D28D9] via-[#5b21b6] to-[#24113F] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00D4C4_0%,transparent_50%),linear-gradient(135deg,#6D28D9,#24113F)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   aria-hidden="true"
                 />
                 <div

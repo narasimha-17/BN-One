@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Reveal from '../components/Reveal.jsx'
+import IndustryExplorer from '../components/IndustryExplorer.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
-import ContactSection from '../components/ContactSection.jsx'
 import BookingModal from '../components/BookingModal.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
-import { services, serviceIcons, stack, projects, industries, industryIcons } from '../data/industryData.js'
+import { services, serviceIcons, techGroups, projects, industries } from '../data/industryData.js'
 
 function SectionHeading({ eyebrow, title, body }) {
   return (
@@ -18,7 +18,7 @@ function SectionHeading({ eyebrow, title, body }) {
 }
 
 export default function Industry() {
-  usePageTitle('Industries We Build For — INFOLCON')
+  usePageTitle('Industries We Build For — Infortia')
   const [bookingOpen, setBookingOpen] = useState(false)
 
   return (
@@ -70,50 +70,7 @@ export default function Industry() {
             title="Industries we build for"
             body="From clinical portals to live fleet tracking, here is where we do our best work."
           />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {industries.map((ind, i) => (
-              <Reveal
-                key={ind.key}
-                style={{ transitionDelay: `${(i % 4) * 70}ms` }}
-                className="hud-card group flex scroll-mt-32 flex-col rounded-2xl p-6 hover:-translate-y-1"
-                id={ind.key}
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F3EEFA] text-volcanoCrimson transition-colors duration-300 group-hover:bg-volcanoCrimson group-hover:text-white">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    strokeWidth="0.4"
-                    aria-hidden="true"
-                    dangerouslySetInnerHTML={{ __html: industryIcons[ind.key] }}
-                  />
-                </span>
-                <h3 className="mt-5 text-lg font-bold text-volcanoWhite">{ind.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-400">{ind.blurb}</p>
-                <ul className="mt-5 flex-1 space-y-2.5 border-t border-zinc-900/60 pt-5">
-                  {ind.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-xs text-volcanoWhite">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-volcanoCrimson/10 text-volcanoCrimson">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden="true">
-                          <path d="M5 12l4.5 4.5L19 7" />
-                        </svg>
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={() => setBookingOpen(true)}
-                  className="mt-6 inline-flex items-center gap-1 self-start text-sm font-semibold text-volcanoCrimson"
-                >
-                  Talk to us
-                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </button>
-              </Reveal>
-            ))}
-          </div>
+          <IndustryExplorer onTalk={() => setBookingOpen(true)} />
         </section>
 
         {/* Capabilities */}
@@ -147,19 +104,61 @@ export default function Industry() {
           </div>
         </section>
 
-        {/* Stack */}
-        <section id="stack" className="space-y-10 border-t border-zinc-900/60 py-16 md:py-24">
-          <SectionHeading eyebrow="Technology" title="Tools we trust" />
-          <Reveal className="flex flex-wrap justify-center gap-3">
-            {stack.map((tool) => (
-              <span
-                key={tool}
-                className="hud-card rounded-full px-6 py-3 text-sm font-semibold text-volcanoWhite"
-              >
-                {tool}
-              </span>
-            ))}
-          </Reveal>
+        {/* Technology */}
+        <section id="stack" className="border-t border-zinc-900/60 py-16 md:py-24">
+          <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
+            <div className="space-y-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Technology</p>
+              <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-volcanoWhite sm:text-4xl">
+                Language agnostic by design.
+              </h2>
+              <p className="text-base leading-relaxed text-zinc-400">
+                We don&apos;t start with a favourite tool. We start with your problem, your team and your
+                constraints, then choose the language and stack that fit. If it&apos;s the right tool for the job,
+                we build with it.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  ['Right tool, not our favourite', 'Every choice is made for your outcome, not our habits.'],
+                  ['Fits your existing stack', 'We work with what you already run instead of forcing a rewrite.'],
+                  ['No lock-in', 'Clean code and clear documentation, so you can take it anywhere.'],
+                ].map(([title, body]) => (
+                  <li key={title} className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-volcanoCrimson/10 text-volcanoCrimson">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
+                        <path d="M5 12l4.5 4.5L19 7" />
+                      </svg>
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-volcanoWhite">{title}</span>
+                      <span className="block text-sm text-zinc-400">{body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Reveal className="hud-card space-y-6 rounded-3xl p-6 sm:p-8">
+              {techGroups.map((group) => (
+                <div key={group.label} className="space-y-3">
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-zinc-500">{group.label}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-full border border-black/10 bg-[#F3EEFA] px-4 py-2 text-sm font-medium text-volcanoWhite transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-volcanoCrimson hover:text-white"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <p className="border-t border-zinc-900/60 pt-5 text-xs text-zinc-500">
+                Don&apos;t see your stack? We&apos;ll likely work with it. Just ask.
+              </p>
+            </Reveal>
+          </div>
         </section>
 
         {/* Selected work */}
@@ -180,7 +179,6 @@ export default function Industry() {
           </div>
         </section>
 
-        <ContactSection onBook={() => setBookingOpen(true)} />
       </main>
 
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
-import ContactSection from '../components/ContactSection.jsx'
-import BookingModal from '../components/BookingModal.jsx'
+import ServiceCatalog from '../components/ServiceCatalog.jsx'
+import ServiceModels from '../components/ServiceModels.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
+import { submitEnquiry } from '../lib/enquiry.js'
 import { staticDatabase, collegeDatabase, collegeDomains } from '../data/servicesData.js'
 
 const ICON = {
@@ -105,12 +106,11 @@ const RESEARCH_POINTS = [
 ]
 
 export default function Services() {
-  usePageTitle('Services — INFOLCON')
+  usePageTitle('Services — Infortia')
   const [activeTier, setActiveTier] = useState('business')
   const [activeDomain, setActiveDomain] = useState('fullstack')
   const [email, setEmail] = useState('')
   const [queueStatus, setQueueStatus] = useState(null) // null | 'success' | 'error'
-  const [bookingOpen, setBookingOpen] = useState(false)
   const countdown = useCountdown(45)
 
   const tier = TIERS.find((t) => t.id === activeTier)
@@ -121,8 +121,15 @@ export default function Services() {
     if (id === 'college') setActiveDomain('fullstack')
   }
 
-  const submitQueue = () => {
-    if (email.includes('@') && email.length > 5) {
+  const submitQueue = async () => {
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setQueueStatus('error')
+      return
+    }
+    const subject = encodeURIComponent('Early access: research paper publishing')
+    const body = encodeURIComponent(`Please add me to the early-access queue: ${email}`)
+    const result = await submitEnquiry('Research publishing early access', { email }, `mailto:bnst17042006@gmail.com?subject=${subject}&body=${body}`)
+    if (result.ok) {
       setQueueStatus('success')
       setEmail('')
     } else {
@@ -146,6 +153,8 @@ export default function Services() {
             college-ready builds.
           </p>
         </section>
+
+        <ServiceCatalog />
 
         {/* Tier tabs */}
         <section className="space-y-10" aria-label="Solution tracks">
@@ -215,10 +224,13 @@ export default function Services() {
           </div>
         </section>
 
+        <ServiceModels />
+
         {/* Research paper publishing */}
         <section id="research" className="py-16 md:py-24">
           <div className="relative overflow-hidden rounded-[2rem] bg-[#24113F] px-6 py-12 sm:px-10 md:px-14 md:py-16">
             <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#6D28D9]/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full bg-[#00D4C4]/25 blur-3xl" />
             <svg
               className="pointer-events-none absolute inset-0 h-full w-full"
               viewBox="0 0 1200 500"
@@ -314,10 +326,8 @@ export default function Services() {
           </div>
         </section>
 
-        <ContactSection onBook={() => setBookingOpen(true)} />
       </main>
 
-      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
       <SiteFooter />
     </div>
   )

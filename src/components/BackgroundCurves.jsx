@@ -12,7 +12,7 @@ export default function BackgroundCurves() {
           <linearGradient id="curve-line" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stopColor="#6d28d9" stopOpacity="0" />
             <stop offset="0.35" stopColor="#6d28d9" stopOpacity="0.22" />
-            <stop offset="0.75" stopColor="#6d28d9" stopOpacity="0.12" />
+            <stop offset="0.78" stopColor="#00D4C4" stopOpacity="0.2" />
             <stop offset="1" stopColor="#6d28d9" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="curve-fill" x1="0" y1="0" x2="1" y2="1">
