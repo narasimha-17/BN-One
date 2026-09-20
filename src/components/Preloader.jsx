@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Preloader() {
   const [visible, setVisible] = useState(() => localStorage.getItem('seenIntro') !== 'true')
   const [dismissed, setDismissed] = useState(false)
-  const playerRef = useRef(null)
 
   useEffect(() => {
     if (!visible) return
@@ -15,43 +14,28 @@ export default function Preloader() {
       setDismissed(true)
       document.body.style.overflow = 'auto'
       document.body.style.overflowX = 'hidden'
-      setTimeout(() => setVisible(false), 1000)
+      setTimeout(() => setVisible(false), 700)
     }
 
-    const player = playerRef.current
-    const handleCanPlay = () => {
-      player?.classList.remove('opacity-0')
-      player?.play().catch(() => {})
-    }
-    player?.addEventListener('canplaythrough', handleCanPlay)
-    player?.addEventListener('ended', dismiss)
-
-    const timeout = setTimeout(dismiss, 6000)
-
-    return () => {
-      player?.removeEventListener('canplaythrough', handleCanPlay)
-      player?.removeEventListener('ended', dismiss)
-      clearTimeout(timeout)
-    }
+    const timeout = setTimeout(dismiss, 2000)
+    return () => clearTimeout(timeout)
   }, [visible])
 
   if (!visible) return null
 
   return (
     <div
-      className="fixed inset-0 w-screen h-[100dvh] bg-volcanoBlack z-[9999] flex items-center justify-center transition-all duration-1000 ease-in-out"
+      className="fixed inset-0 w-screen h-[100dvh] bg-volcanoBlack z-[9999] flex flex-col items-center justify-center gap-8 transition-opacity duration-700 ease-in-out"
       style={dismissed ? { opacity: 0, pointerEvents: 'none' } : undefined}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1212_1px,transparent_1px),linear-gradient(to_bottom,#1f1212_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none z-10" />
-      <video
-        ref={playerRef}
-        autoPlay
-        muted
-        playsInline
-        className="w-full h-full object-cover select-none pointer-events-none opacity-100 transition-opacity duration-700"
-      >
-        <source src="/logovideo.mp4" type="video/mp4" />
-      </video>
+      <img
+        src="/logo.png"
+        alt="INFOLCON"
+        className="w-64 sm:w-80 h-auto object-contain"
+      />
+      <div className="relative h-[3px] w-56 overflow-hidden rounded-full bg-black/10">
+        <div className="absolute inset-y-0 left-0 w-full origin-left animate-[load_2s_ease-in-out_forwards] bg-gradient-to-r from-volcanoCrimson to-volcanoOrange" />
+      </div>
     </div>
   )
 }

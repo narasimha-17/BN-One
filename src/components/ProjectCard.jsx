@@ -1,57 +1,69 @@
-export default function ProjectCard({ proj, index }) {
+export default function ProjectCard({ proj, tier, icon }) {
   return (
-    <div className="group border border-white/5 bg-[#141414]/40 p-5 sm:p-6 rounded-3xl hover:border-volcanoCrimson/40 hover:bg-white/[0.01] transition-all duration-500 flex flex-col justify-between min-h-[300px] sm:min-h-[350px]">
-      <div className="space-y-3 sm:space-y-4">
-        <div className="flex items-center justify-between font-mono text-zinc-500">
-          <span className="text-[9px] sm:text-[10px] tracking-wider uppercase bg-zinc-900/50 px-2 py-1 sm:px-2.5 sm:py-1 rounded border border-zinc-800">
-            BLOCK_{String(index + 1).padStart(2, '0')}
-          </span>
-          <span className="text-volcanoPeach font-bold tracking-tight font-sans text-sm sm:text-base">
-            {proj.price}
-          </span>
-        </div>
-        <h3 className="text-base sm:text-lg font-black text-volcanoWhite group-hover:text-volcanoCrimson transition-colors tracking-tight leading-snug">
-          {proj.name}
-        </h3>
-        <div className="space-y-1 sm:space-y-1.5">
-          <div className="text-[8px] sm:text-[9px] font-mono text-volcanoOrange uppercase tracking-wider">
-            // Problem Architecture
-          </div>
-          <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">{proj.problem}</p>
-        </div>
+    <article className="hud-card group flex h-full flex-col overflow-hidden rounded-2xl hover:-translate-y-1">
+      {/* Header band */}
+      <div className="relative flex h-32 items-center justify-center overflow-hidden bg-gradient-to-br from-[#EAE2F7] via-[#F3EEFA] to-white">
+        <div className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full bg-[#6D28D9]/20 blur-2xl" />
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          viewBox="0 0 300 128"
+          preserveAspectRatio="none"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M-10 96C60 60 120 120 190 84S270 40 320 64" stroke="#6D28D9" strokeOpacity="0.18" strokeWidth="1.2" />
+          <path d="M-10 118C70 84 130 140 200 104S280 62 320 84" stroke="#6D28D9" strokeOpacity="0.12" strokeWidth="1.2" />
+        </svg>
+        <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-volcanoCrimson shadow-[0_16px_32px_-14px_rgba(109,40,217,0.55)] transition-transform duration-500 group-hover:scale-110 [&>svg]:h-8 [&>svg]:w-8">
+          {icon}
+        </span>
+        <span className="absolute right-4 top-4 rounded-full bg-[#24113F] px-3 py-1 text-xs font-bold text-white">
+          {proj.price}
+        </span>
+        <span className="absolute left-4 top-4 rounded-full border border-[#6D28D9]/25 bg-white/70 px-3 py-1 text-[11px] font-semibold text-volcanoCrimson">
+          {tier}
+        </span>
       </div>
-      <div className="space-y-4 pt-4 border-t border-zinc-900/50 mt-5 sm:mt-6">
-        <div className="flex flex-wrap gap-1.5 font-mono text-[8px] sm:text-[9px]">
-          {proj.stack.map((tech) => (
-            <span key={tech} className="bg-volcanoBlack px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded border border-zinc-800 text-zinc-500">
-              {tech}
-            </span>
-          ))}
+
+      <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+        <div className="space-y-3">
+          <h3 className="text-lg font-bold leading-snug tracking-tight text-volcanoWhite">{proj.name}</h3>
+          <p className="text-sm leading-relaxed text-zinc-400">{proj.problem}</p>
         </div>
-        <div className="flex items-center justify-between gap-2 text-[10px] sm:text-[11px] pt-1">
-          <span className="font-mono text-zinc-600 text-[8px] sm:text-2xs shrink-0">ASSETS // CORES</span>
+
+        <div className="space-y-5">
+          <div className="flex flex-wrap gap-1.5">
+            {proj.stack.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full bg-[#F3EEFA] px-2.5 py-1 text-[11px] font-medium text-volcanoCrimson"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
           <div className="flex items-center gap-2">
             <a
-              href={`https://demo.bnsone.com/${proj.url}`}
+              href={`https://demo.infolcon.com/${proj.url}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-7 sm:h-8 items-center justify-center rounded-lg border border-volcanoCrimson/30 bg-volcanoCrimson/5 px-2.5 sm:px-3 font-mono text-[9px] sm:text-2xs font-bold uppercase tracking-wider text-volcanoCrimson hover:bg-volcanoCrimson hover:text-volcanoWhite transition-all whitespace-nowrap"
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-full border border-volcanoCrimson/30 px-4 text-sm font-semibold text-volcanoCrimson transition-all hover:bg-volcanoCrimson hover:text-white"
             >
-              {proj.buyUrl ? 'Preview' : 'Live Target'}
+              {proj.buyUrl ? 'Preview' : 'Live demo'}
             </a>
             {proj.buyUrl && (
               <a
                 href={proj.buyUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-7 sm:h-8 items-center justify-center rounded-lg bg-linear-to-r from-volcanoCrimson to-volcanoOrange px-2.5 sm:px-3 font-mono text-[9px] sm:text-2xs font-bold uppercase tracking-wider text-volcanoWhite hover:opacity-90 transition-all whitespace-nowrap"
+                className="neon-btn inline-flex h-10 flex-1 items-center justify-center rounded-full px-4 text-sm font-bold"
               >
-                Buy Now
+                Buy now
               </a>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </article>
   )
 }

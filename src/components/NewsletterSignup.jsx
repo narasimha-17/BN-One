@@ -16,7 +16,7 @@ export default function NewsletterSignup() {
 
   return (
     <section id="newsletter" className="py-16 md:py-20 border-t border-zinc-900/60">
-      <div className="rounded-[2rem] md:rounded-3xl border border-zinc-800 bg-[#141414]/60 p-6 sm:p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden">
+      <div className="rounded-[2rem] md:rounded-3xl border border-zinc-800 hud-card p-6 sm:p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden">
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-volcanoOrange/10 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="relative grid md:grid-cols-2 gap-8 md:gap-10 items-center">

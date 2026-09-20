@@ -5,12 +5,12 @@ export default function BlueprintModal({ open, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/40 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-zinc-800 bg-[#141414] p-5 sm:p-8 space-y-6 sm:space-y-8 relative shadow-[0_40px_100px_-30px_rgba(230,57,70,0.25)]"
+        className="w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-zinc-800 hud-card p-5 sm:p-8 space-y-6 sm:space-y-8 relative shadow-[0_40px_100px_-30px_rgba(139,61,255,0.25)]"
       >
         <button
           onClick={onClose}

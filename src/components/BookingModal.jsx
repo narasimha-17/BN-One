@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useSpeechToText from '../hooks/useSpeechToText.js'
 
-const GREETING = 'Welcome to BN One. How can I help you? Please enter your details to confirm your slot.'
+const GREETING = 'Welcome to Infolcon. How can I help you? Please enter your details to confirm your slot.'
 
 const FEMALE_VOICE_HINTS = [
   'female',
@@ -111,12 +111,12 @@ export default function BookingModal({ open, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/40 backdrop-blur-sm"
       onClick={handleClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full sm:max-w-md max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-zinc-800 bg-[#141414] p-5 sm:p-8 space-y-5 sm:space-y-6 relative shadow-[0_40px_100px_-30px_rgba(230,57,70,0.25)]"
+        className="w-full sm:max-w-md max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-zinc-800 hud-card p-5 sm:p-8 space-y-5 sm:space-y-6 relative shadow-[0_40px_100px_-30px_rgba(139,61,255,0.25)]"
       >
         <button
           onClick={handleClose}
@@ -222,7 +222,7 @@ export default function BookingModal({ open, onClose }) {
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between gap-2">
                   <label className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-500">
-                    <svg className="w-3.5 h-3.5 text-volcanoOrange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-3.5 h-3.5 text-volcanoCrimson" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"

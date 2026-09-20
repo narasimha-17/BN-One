@@ -11,7 +11,7 @@ export const blueprintSteps = [
   },
   {
     phase: 'PHASE_02',
-    color: 'text-volcanoOrange',
+    color: 'text-volcanoCrimson',
     dot: 'bg-volcanoOrange',
     ring: 'ring-volcanoOrange/30',
     title: 'Architecture',
@@ -41,7 +41,7 @@ export const blueprintSteps = [
   },
   {
     phase: 'PHASE_05',
-    color: 'text-volcanoOrange',
+    color: 'text-volcanoCrimson',
     dot: 'bg-volcanoOrange',
     ring: 'ring-volcanoOrange/30',
     title: 'SLA',
@@ -89,11 +89,11 @@ export const testimonials = [
     tag: '01 / RETENTION METRICS',
     color: 'text-volcanoCrimson',
     quote:
-      '"Our user engagement matrices scaled instantly within one deployment sprint cycle using BNS ONE."',
+      '"Our user engagement matrices scaled instantly within one deployment sprint cycle using INFOLCON."',
   },
   {
     tag: '02 / VELOCITY RECORDING',
-    color: 'text-volcanoOrange',
+    color: 'text-volcanoCrimson',
     quote:
       '"Stunning attention to visual spacing combined with exceptionally professional asset compression metrics."',
   },
@@ -119,7 +119,7 @@ export const disciplines = [
   {
     tag: 'DISCIPLINE_02',
     label: 'INTEGRATION_CORE',
-    color: 'text-volcanoOrange',
+    color: 'text-volcanoCrimson',
     hoverBorder: 'hover:border-volcanoOrange/30',
     hoverText: 'group-hover:text-volcanoOrange',
     title: 'High-Velocity Pipeline Integration',
@@ -179,7 +179,7 @@ export const services = [
   {
     tag: 'CAPABILITY_02',
     label: 'HIGH_VELOCITY',
-    color: 'text-volcanoOrange',
+    color: 'text-volcanoCrimson',
     hoverBorder: 'hover:border-volcanoOrange/40',
     hoverText: 'group-hover:text-volcanoOrange',
     title: 'Full-Stack Web Services',

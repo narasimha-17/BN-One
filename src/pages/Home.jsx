@@ -1,17 +1,27 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
+import ProductLogo from '../components/ProductLogo.jsx'
+import Typewriter from '../components/Typewriter.jsx'
+import PrinciplesSection from '../components/PrinciplesSection.jsx'
+import ContactSection from '../components/ContactSection.jsx'
+import FeatureGrid from '../components/FeatureGrid.jsx'
+import TrustedBrands from '../components/TrustedBrands.jsx'
+import RotatingWords from '../components/RotatingWords.jsx'
+import StackedCards from '../components/StackedCards.jsx'
+import ProductShowcase from '../components/ProductShowcase.jsx'
 import Preloader from '../components/Preloader.jsx'
-import FaqItem from '../components/FaqItem.jsx'
 import BookingModal from '../components/BookingModal.jsx'
 import BlueprintModal from '../components/BlueprintModal.jsx'
 import NewsletterSignup from '../components/NewsletterSignup.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
-import { features, testimonials, disciplines, faqs, services } from '../data/homeData.js'
+import { features, testimonials, disciplines, services } from '../data/homeData.js'
 const featuredProducts = [
   {
     name: 'PowerLens',
+    tile: 'from-[#F3EEFA]0 to-purple-700',
+    initial: 'P',
     category: 'INTELLIGENCE / ANALYTICS',
     accent: 'text-volcanoCrimson',
     body: 'Turn complex operational data into clear decisions with a live command view built around your business.',
@@ -19,13 +29,17 @@ const featuredProducts = [
   },
   {
     name: 'VIBE',
+    tile: 'from-fuchsia-500 to-violet-600',
+    initial: 'V',
     category: 'EXPERIENCE / ENGAGEMENT',
-    accent: 'text-volcanoOrange',
+    accent: 'text-volcanoCrimson',
     body: 'A high-energy digital experience system for brands that need attention, movement, and measurable connection.',
     tags: ['Brand Systems', 'Interactive UI', 'Conversion Flow'],
   },
   {
     name: 'Code Check',
+    tile: 'from-indigo-500 to-blue-600',
+    initial: 'C',
     category: 'ENGINEERING / QUALITY',
     accent: 'text-volcanoPeach',
     body: 'Bring confidence to every release with structured code review, performance checks, and practical fixes.',
@@ -33,6 +47,8 @@ const featuredProducts = [
   },
   {
     name: 'Exam+',
+    tile: 'from-cyan-400 to-sky-600',
+    initial: 'E',
     category: 'LEARNING / PERFORMANCE',
     accent: 'text-volcanoCrimson',
     body: 'A focused preparation system that turns revision into measurable progress before the exam begins.',
@@ -41,12 +57,12 @@ const featuredProducts = [
 ]
 
 export default function Home() {
-  usePageTitle('BN ONE — Next-Gen Digital Architectures')
+  usePageTitle('INFOLCON — Next-Gen Digital Architectures')
   const [bookingOpen, setBookingOpen] = useState(false)
   const [blueprintOpen, setBlueprintOpen] = useState(false)
 
   return (
-    <div className="relative bg-volcanoBlack text-volcanoWhite antialiased font-sans selection:bg-volcanoCrimson/30 selection:text-volcanoPeach min-h-[100dvh] overflow-x-hidden">
+    <div className="relative text-volcanoWhite antialiased font-sans selection:bg-volcanoCrimson/30 selection:text-volcanoPeach min-h-[100dvh] overflow-x-clip">
       <Preloader />
 
       <div className="absolute top-[-10%] left-[-20%] w-[80vw] h-[80vw] rounded-full bg-gradient-to-tr from-volcanoCrimson/10 to-volcanoOrange/5 blur-[140px] pointer-events-none z-0 animate-pulse-slow" />
@@ -54,67 +70,62 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 pt-32 md:pt-48">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 pt-24 md:pt-28">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-12 md:py-24 max-w-7xl mx-auto">
-          <div className="space-y-6 md:space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-volcanoCrimson/20 bg-volcanoCrimson/5 px-4 py-1.5 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volcanoCrimson opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-volcanoCrimson" />
-              </span>
-              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] uppercase text-volcanoPeach">
-                Next-Gen Interface Labs
-              </span>
-            </div>
+        <section className="mx-auto max-w-4xl space-y-7 py-8 text-center md:py-14">
+          <h1 className="text-4xl font-black leading-[1.05] tracking-tighter sm:text-5xl lg:text-7xl">
+            Your Business
+            <span className="block min-h-[1.05em]">
+              <Typewriter
+                phrases={['Deserves Elite', 'Demands Modern', 'Deserves Scalable', 'Deserves Secure']}
+                className="neon-text"
+                holdMs={2200}
+              />
+            </span>
+            Architecture.
+          </h1>
+          <p className="text-xl font-semibold text-volcanoWhite sm:text-2xl">
+            We build{' '}
+            <RotatingWords
+              words={['Websites', 'Web Apps', 'AI Systems', 'Digital Platforms']}
+              className="text-volcanoOrange"
+            />
+          </p>
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+            We completely ditch identical, uninspired structural
+              templates. We produce lightning-fast interactive storefronts, applications, and
+              portfolios designed to hook engagement and never let go.
+          </p>
+          <div className="flex flex-col justify-center gap-4 pt-2 sm:flex-row">
+            <button
+              onClick={() => setBookingOpen(true)}
+              className="neon-btn w-full rounded-full px-8 py-4 text-sm font-bold sm:w-auto"
+            >
+              INITIATE PROJECT
+            </button>
+            <button
+              onClick={() => setBlueprintOpen(true)}
+              className="w-full rounded-full border border-black/10 bg-white px-8 py-4 text-sm font-bold text-volcanoWhite transition-all hover:border-volcanoCrimson/50 hover:text-volcanoCrimson sm:w-auto"
+            >
+              VIEW BLUEPRINT
+            </button>
+          </div>
+        </section>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] md:leading-[0.9]">
-              Your Business <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-volcanoCrimson to-volcanoOrange bg-clip-text text-transparent">
-                Deserves Elite
-              </span>
-              <br />
-              Architecture.
-            </h1>
-
-            <p className="text-zinc-400 max-w-lg leading-relaxed text-base md:text-lg">
-              We completely ditch identical, uninspired structural templates. We produce
-              lightning-fast interactive storefronts, applications, and portfolios designed to
-              hook engagement and never let go.
+        <TrustedBrands />
+        {/* Products */}
+        <section id="products" className="space-y-12 py-20 md:space-y-14 md:py-28">
+          <div className="mx-auto max-w-2xl space-y-4 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Products</p>
+            <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">
+              Working Architectures, Ready to Deploy.
+            </h2>
+            <p className="text-sm leading-relaxed text-zinc-400 md:text-base">
+              Explore focused systems built for real operational problems, from intelligent
+              diagnostics to resilient business infrastructure.
             </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
-              <button
-                onClick={() => setBookingOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 bg-volcanoWhite text-volcanoBlack rounded-full font-bold text-sm hover:bg-volcanoCrimson hover:text-white transition-all"
-              >
-                INITIATE PROJECT
-              </button>
-              <button
-                onClick={() => setBlueprintOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 border border-zinc-800 text-zinc-400 rounded-full font-bold text-sm hover:border-volcanoOrange transition-all"
-              >
-                VIEW BLUEPRINT
-              </button>
-            </div>
           </div>
-
-          <div className="relative mt-8 lg:mt-0">
-            <div className="bg-[#1a1a1a] p-1.5 sm:p-2 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 shadow-2xl">
-              <div className="bg-[#101010] p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-white/5 space-y-6">
-                <div className="bg-[#181818] p-6 sm:p-8 rounded-2xl border border-white/5 flex items-center justify-center">
-                  <img src="/logo.png" alt="BNS ONE" className="h-12 sm:h-16 w-auto object-contain" />
-                </div>
-                <div className="bg-gradient-to-br from-[#1c1212] to-black p-5 sm:p-6 rounded-2xl border border-volcanoCrimson/20">
-                  <h3 className="text-xl sm:text-2xl font-bold leading-tight">
-                    <span className="text-volcanoCrimson">From Vision to Reality,</span>
-                    <br />
-                    We Build Digital...
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductShowcase products={featuredProducts} />
         </section>
 
         {/* Capabilities Matrix */}
@@ -136,185 +147,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f) => (
-              <div
-                key={f.n}
-                className="group border border-zinc-900 bg-[#141414]/40 p-6 md:p-8 rounded-2xl hover:border-volcanoCrimson/40 hover:bg-white/[0.01] transition-all duration-300 flex flex-col justify-between min-h-[200px] md:min-h-[220px]"
-              >
-                <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center text-sm font-bold border border-zinc-800 text-zinc-400 group-hover:text-volcanoOrange group-hover:border-volcanoOrange/30 transition-colors">
-                  {f.n}
-                </div>
-                <div className="space-y-2 pt-6 md:pt-8">
-                  <h3 className="text-base font-bold text-volcanoWhite">{f.title}</h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{f.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Products */}
-        <section id="products" className="py-20 md:py-32 border-t border-zinc-900/60 space-y-12 md:space-y-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-4 max-w-2xl">
-              <div className="text-xs font-bold tracking-widest text-volcanoOrange uppercase">
-                // Product Systems
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-volcanoWhite">
-                Working Architectures, Ready to Deploy.
-              </h2>
-              <p className="text-sm text-zinc-400 leading-relaxed">
-                Explore focused systems built for real operational problems, from intelligent
-                diagnostics to resilient business infrastructure.
-              </p>
-            </div>
-            <Link
-              to="/services"
-              className="shrink-0 text-xs font-bold uppercase tracking-widest text-volcanoOrange hover:text-volcanoWhite transition-colors"
-            >
-              View full catalog <span aria-hidden="true">-&gt;</span>
-            </Link>
-          </div>
-
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
-            {featuredProducts.map((product, index) => (
-              <article
-                key={product.name}
-                className="group relative overflow-hidden border border-white/5 bg-[#141414]/50 p-6 sm:p-8 rounded-2xl hover:border-volcanoOrange/40 hover:bg-[#171717] transition-all duration-300"
-              >
-                <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-volcanoCrimson via-volcanoOrange to-volcanoPeach opacity-70" />
-                <div className="flex items-center justify-between gap-4 font-mono text-[9px] sm:text-[10px] tracking-widest">
-                  <span className={product.accent}>{product.category}</span>
-                  <span className="text-zinc-600">NODE_0{index + 1}</span>
-                </div>
-                <div className="mt-8 space-y-3">
-                  <h3 className="text-xl font-black tracking-tight text-volcanoWhite group-hover:text-volcanoOrange transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{product.body}</p>
-                </div>
-                <div className="mt-8 pt-5 border-t border-zinc-900 flex items-end justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {product.tags.map((tag) => (
-                      <span key={tag} className="rounded border border-zinc-800 px-2 py-1 font-mono text-[9px] text-zinc-500">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-16 md:py-20 border-t border-zinc-900">
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <div key={t.tag} className="space-y-3">
-                <div className={`text-xs font-mono ${t.color}`}>{t.tag}</div>
-                <p className="text-sm text-zinc-300 leading-relaxed italic">{t.quote}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section id="pricing" className="py-20 md:py-32 space-y-12 md:space-y-16">
-          <div className="max-w-xl space-y-4">
-            <div className="text-xs font-bold tracking-widest text-volcanoCrimson uppercase">
-              // Scaled Access
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-volcanoWhite">
-              Fixed Architecture Tiering.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 items-stretch">
-            <div className="border border-zinc-900 bg-volcanoBlack/40 p-6 md:p-8 rounded-2xl flex flex-col justify-between space-y-8 hover:border-zinc-800 transition-all duration-300">
-              <div className="space-y-4">
-                <div className="text-xs font-bold tracking-wider uppercase text-zinc-500">
-                  Core Footprint
-                </div>
-                <h3 className="text-xl font-bold text-volcanoWhite">Starter</h3>
-                <div className="text-3xl font-black text-volcanoWhite tracking-tight">₹2,999</div>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Perfect for essential high-impact local presence nodes.
-                </p>
-              </div>
-              <ul className="space-y-3 text-xs text-zinc-400 border-t border-zinc-900 pt-6">
-                <li className="flex items-center gap-2">🔥 1 Bespoke Production Page</li>
-                <li className="flex items-center gap-2">🔥 Full Mobile Adaptive Scaling</li>
-                <li className="flex items-center gap-2">🔥 Standard Direct Intake Form</li>
-              </ul>
-              <a
-                href="#contact"
-                className="w-full inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 text-xs font-bold uppercase tracking-wider text-zinc-200 border border-zinc-800 hover:bg-zinc-800 transition-colors mt-auto"
-              >
-                Select Framework
-              </a>
-            </div>
-
-            <div className="border-2 border-volcanoCrimson bg-gradient-to-b from-volcanoBlack to-zinc-900/20 p-6 md:p-8 rounded-2xl flex flex-col justify-between space-y-8 relative shadow-2xl shadow-volcanoCrimson/5">
-              <span className="absolute -top-3 right-6 rounded-full bg-volcanoCrimson px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-volcanoWhite">
-                Recommended
-              </span>
-              <div className="space-y-4">
-                <div className="text-xs font-bold tracking-wider uppercase text-volcanoOrange">
-                  Growth Catalyst
-                </div>
-                <h3 className="text-xl font-bold text-volcanoWhite">Business</h3>
-                <div className="text-3xl font-black text-volcanoWhite tracking-tight">₹6,999</div>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Engineered for full-scale marketplace authority indexing.
-                </p>
-              </div>
-              <ul className="space-y-3 text-xs text-zinc-300 border-t border-zinc-900 pt-6">
-                <li className="flex items-center gap-2 text-volcanoOrange">
-                  🔥 5 Articulated Custom Core Pages
-                </li>
-                <li className="flex items-center gap-2">🔥 Built-In Deep Metadata Mapping</li>
-                <li className="flex items-center gap-2">🔥 Consolidated Analytics Routing</li>
-              </ul>
-              <a
-                href="#contact"
-                className="w-full inline-flex h-10 items-center justify-center rounded-xl bg-volcanoCrimson text-xs font-bold uppercase tracking-wider text-volcanoWhite shadow hover:bg-volcanoCrimson/80 transition-colors mt-auto"
-              >
-                Launch Deployment
-              </a>
-            </div>
-
-            <div className="border border-zinc-900 bg-volcanoBlack/40 p-6 md:p-8 rounded-2xl flex flex-col justify-between space-y-8 hover:border-zinc-800 transition-all duration-300">
-              <div className="space-y-4">
-                <div className="text-xs font-bold tracking-wider uppercase text-zinc-500">
-                  Unrestricted Core
-                </div>
-                <h3 className="text-xl font-bold text-volcanoWhite">Premium</h3>
-                <div className="text-3xl font-black text-volcanoWhite tracking-tight">Custom</div>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Bespoke layout builds with complex multi-service wiring.
-                </p>
-              </div>
-              <ul className="space-y-3 text-xs text-zinc-400 border-t border-zinc-900 pt-6">
-                <li className="flex items-center gap-2">🔥 Unlimited Application Pages</li>
-                <li className="flex items-center gap-2">🔥 Bespoke Interaction Engineering</li>
-                <li className="flex items-center gap-2">🔥 Dedicated 24-Hour Developer SLA</li>
-              </ul>
-              <a
-                href="#contact"
-                className="w-full inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 text-xs font-bold uppercase tracking-wider text-zinc-200 border border-zinc-800 hover:bg-zinc-800 transition-colors mt-auto"
-              >
-                Contact Strategy Advisor
-              </a>
-            </div>
-          </div>
+          <FeatureGrid features={features} />
         </section>
 
         {/* What We Do */}
-        <section id="what-we-do" className="py-20 md:py-32 border-t border-zinc-900/60 space-y-12 md:space-y-16">
+        <section id="what-we-do" className="pt-16 pb-4 md:pt-24 md:pb-6 border-t border-zinc-900/60 space-y-12 md:space-y-16">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+            <div className="lg:col-span-5 space-y-6">
               <div className="text-xs font-bold tracking-widest text-volcanoCrimson uppercase">
                 // Core Directives
               </div>
@@ -322,7 +161,7 @@ export default function Home() {
                 We Engineer Pure Operational Authority.
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed font-sans">
-                We don't just patch layout visuals together. BNS ONE constructs high-performance
+                We don't just patch layout visuals together. INFOLCON constructs high-performance
                 custom digital systems designed to cleanly capture market share, isolate
                 operational latency, and provide uncompromised accessibility metrics.
               </p>
@@ -337,53 +176,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6">
-              {disciplines.map((d) => (
-                <div
-                  key={d.tag}
-                  className={`group border border-white/5 bg-[#141414]/40 p-6 sm:p-8 rounded-2xl ${d.hoverBorder} transition-all duration-300 space-y-4`}
-                >
-                  <div className="flex items-center justify-between font-mono text-zinc-500">
-                    <span className="text-xs tracking-wider">// {d.tag}</span>
-                    <span className={`${d.color} font-bold`}>{d.label}</span>
-                  </div>
-                  <h3 className={`text-xl font-black text-volcanoWhite ${d.hoverText} transition-colors`}>
-                    {d.title}
-                  </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{d.body}</p>
-                  <div className="pt-2 flex flex-wrap gap-2 font-mono text-[10px] text-zinc-500">
-                    {d.chips.map((c) => (
-                      <span key={c} className="bg-volcanoBlack px-2.5 py-1 rounded border border-zinc-900">
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section id="faq" className="py-20 md:py-32 max-w-3xl mx-auto space-y-12 md:space-y-16">
-          <div className="text-center space-y-4">
-            <div className="text-xs font-bold tracking-widest text-volcanoCrimson uppercase">
-              // Strategic Alignment
-            </div>
-            <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite">
-              Operational Protocol Intel
-            </h2>
-          </div>
-
-          <div className="space-y-3">
-            {faqs.map((f) => (
-              <FaqItem key={f.q} q={f.q} a={f.a} />
-            ))}
+            <StackedCards items={disciplines} />
           </div>
         </section>
 
         {/* Services */}
-        <section id="services" className="py-20 md:py-32 border-t border-zinc-900/60 space-y-12 md:space-y-16">
+        <section id="services" className="pt-10 pb-16 md:pt-14 md:pb-24 border-t border-zinc-900/60 space-y-12 md:space-y-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-4">
               <div className="text-xs font-bold tracking-widest text-volcanoCrimson uppercase">
@@ -402,7 +200,7 @@ export default function Home() {
             {services.map((s) => (
               <div
                 key={s.tag}
-                className={`group border border-white/5 bg-[#141414]/40 p-6 sm:p-8 rounded-3xl ${s.hoverBorder} hover:bg-white/[0.01] transition-all duration-500 flex flex-col justify-between min-h-[300px] md:min-h-[320px]`}
+                className={`group border border-black/10 hud-card p-6 sm:p-8 rounded-3xl ${s.hoverBorder} hover:bg-[#F3EEFA] transition-all duration-500 flex flex-col justify-between min-h-[300px] md:min-h-[320px]`}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between font-mono text-zinc-500">
@@ -426,64 +224,67 @@ export default function Home() {
           </div>
         </section>
 
-        <NewsletterSignup />
-
-        {/* Contact */}
-        <section id="contact" className="py-16 md:py-20">
-          <div className="rounded-[2rem] md:rounded-3xl border border-zinc-800 bg-[#141414]/80 p-6 sm:p-8 md:p-16 text-center max-w-4xl mx-auto space-y-10 md:space-y-12 relative overflow-hidden shadow-[0_40px_100px_-30px_rgba(230,57,70,0.15)]">
-            <div className="absolute -bottom-32 -right-32 sm:-bottom-48 sm:-right-48 w-64 h-64 sm:w-96 sm:h-96 bg-volcanoCrimson/10 blur-[80px] sm:blur-[100px] rounded-full pointer-events-none" />
-
-            <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-volcanoWhite">
-                Let's Construct Something Memorable.
-              </h2>
-              <p className="text-zinc-400 max-w-md mx-auto text-xs sm:text-sm leading-relaxed">
-                Partner with us to create premium interface platforms tailored precisely to secure
-                absolute authority within your local industry sector.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 pt-4 sm:pt-6">
-              <a
-                href="tel:+919381472064"
-                className="p-5 sm:p-6 rounded-2xl border border-zinc-800 bg-volcanoBlack/40 hover:border-volcanoCrimson/50 transition-all group flex flex-col items-center"
+        {/* Testimonials */}
+        <section id="stories" className="space-y-10 border-t border-zinc-900/60 py-16 md:py-24">
+          <div className="mx-auto max-w-2xl space-y-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Customer stories</p>
+            <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">
+              Teams that build with INFOLCON
+            </h2>
+            <Link to="/customers" className="inline-flex items-center gap-1 pt-1 text-sm font-semibold text-volcanoCrimson">
+              Read all customer stories <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure
+                key={t.tag}
+                className="group relative flex min-h-[20rem] flex-col justify-between gap-8 overflow-hidden rounded-3xl bg-[#F3EEFA] p-7 transition-transform duration-500 hover:-translate-y-1 sm:p-9"
               >
-                <div className="text-[10px] font-mono text-volcanoCrimson uppercase tracking-widest mb-2">
-                  Direct Line
-                </div>
-                <div className="text-xs font-bold text-volcanoWhite group-hover:text-volcanoCrimson transition-colors">
-                  +91 9381472064
-                </div>
-              </a>
-              <a
-                href="mailto:bnst17042006@gmail.com"
-                className="p-5 sm:p-6 rounded-2xl border border-zinc-800 bg-volcanoBlack/40 hover:border-volcanoOrange/50 transition-all group flex flex-col items-center"
-              >
-                <div className="text-[10px] font-mono text-volcanoOrange uppercase tracking-widest mb-2">
-                  Secure Endpoint
-                </div>
-                <div className="text-[11px] sm:text-xs font-bold text-volcanoWhite group-hover:text-volcanoOrange transition-colors break-all">
-                  bnst17042006@gmail.com
-                </div>
-              </a>
-              <div className="p-5 sm:p-6 rounded-2xl border border-zinc-800 bg-volcanoBlack/40 hover:border-volcanoPeach/50 transition-all group flex flex-col items-center">
-                <div className="text-[10px] font-mono text-volcanoPeach uppercase tracking-widest mb-2">
-                  Base Station
-                </div>
-                <div className="text-xs font-bold text-volcanoWhite">Hyderabad, India</div>
-              </div>
-            </div>
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#6D28D9] via-[#5b21b6] to-[#24113F] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  aria-hidden="true"
+                />
+                <div
+                  className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-white/15 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                  aria-hidden="true"
+                />
 
-            <div className="pt-2 sm:pt-4">
-              <button
-                onClick={() => setBookingOpen(true)}
-                className="inline-flex w-full sm:w-auto h-14 sm:h-12 items-center justify-center rounded-full bg-volcanoWhite px-6 sm:px-10 text-xs font-bold uppercase tracking-widest text-volcanoBlack shadow-lg hover:bg-volcanoCrimson hover:text-volcanoWhite transition-all transform hover:-translate-y-0.5"
-              >
-                Book Free Consultation
-              </button>
-            </div>
+                <div className="relative space-y-6">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#6D28D9]/25 bg-white text-volcanoCrimson transition-colors duration-500 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden="true">
+                      <path d="M4 17.5C4 12 6.5 8.5 11 7l.8 1.7C9.6 9.7 8.6 11 8.4 12.8H11V18H4v-.5zM13 17.5C13 12 15.5 8.5 20 7l.8 1.7c-2.2 1-3.2 2.3-3.4 4.1H20V18h-7v-.5z" />
+                    </svg>
+                  </span>
+                  <blockquote className="text-lg leading-relaxed text-volcanoWhite transition-colors duration-500 group-hover:text-white">
+                    {t.quote}
+                  </blockquote>
+                </div>
+
+                <div className="relative flex items-center justify-between gap-4">
+                  <figcaption className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson transition-colors duration-500 group-hover:text-white/80">
+                    {t.tag}
+                  </figcaption>
+                  <Link
+                    to="/customers"
+                    className="inline-flex h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-[#24113F]/40 px-5 text-sm font-semibold text-volcanoWhite transition-all duration-500 group-hover:border-[#24113F] group-hover:bg-[#24113F] group-hover:text-white"
+                  >
+                    Read story
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+                      <path d="M7 17L17 7M8 7h9v9" />
+                    </svg>
+                  </Link>
+                </div>
+              </figure>
+            ))}
           </div>
         </section>
+
+        <PrinciplesSection />
+
+        <NewsletterSignup />
+
+        <ContactSection onBook={() => setBookingOpen(true)} />
       </main>
 
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
