@@ -6,24 +6,28 @@ export const team = [
     initial: 'N',
     name: 'Narasimha',
     role: 'Founder & CEO',
+    photo: '/team/narasimha.jpg',
     bio: 'Sets the vision and strategy, leads the company and makes the major decisions.',
   },
   {
     initial: 'M',
     name: 'Manas',
     role: 'Co-Founder & CTO (Chief Technology Officer)',
+    photo: '/team/manas.jpg',
     bio: 'Leads technology strategy, architecture and engineering.',
   },
   {
     initial: 'T',
     name: 'Thanuja',
     role: 'COO (Chief Operating Officer)',
+    photo: '/team/thanuja.jpg',
     bio: 'Runs operations, delivery, processes and execution.',
   },
   {
     initial: 'V',
     name: 'Vinay',
     role: 'CCO (Chief Consulting Officer)',
+    photo: '/team/vinay.jpg',
     bio: 'Leads sales, client relationships, partnerships and revenue.',
   },
   {
