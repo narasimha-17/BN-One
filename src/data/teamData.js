@@ -17,11 +17,11 @@ export const team = [
     bio: 'Leads technology strategy, architecture and engineering.',
   },
   {
-    initial: 'T',
-    name: 'Thanuja',
-    role: 'COO (Chief Operating Officer)',
-    photo: '/team/thanuja.jpg',
-    bio: 'Runs operations, delivery, processes and execution.',
+    initial: 'P',
+    name: 'Pavani',
+    role: 'CPO (Chief Product Officer)',
+    photo: '/team/pavani.jpg',
+    bio: 'Owns products, the SaaS, PaaS and TaaS roadmap, UX and product strategy.',
   },
   {
     initial: 'V',
@@ -31,10 +31,11 @@ export const team = [
     bio: 'Leads sales, client relationships, partnerships and revenue.',
   },
   {
-    initial: 'P',
-    name: 'Pavani',
-    role: 'CPO (Chief Product Officer)',
-    bio: 'Owns products, the SaaS, PaaS and TaaS roadmap, UX and product strategy.',
+    initial: 'T',
+    name: 'Thanuja',
+    role: 'COO (Chief Operating Officer)',
+    photo: '/team/thanuja.jpg',
+    bio: 'Runs operations, delivery, processes and execution.',
   },
   {
     initial: 'S',
