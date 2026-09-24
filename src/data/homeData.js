@@ -84,27 +84,6 @@ export const features = [
   },
 ]
 
-export const testimonials = [
-  {
-    tag: '01 / RETENTION METRICS',
-    color: 'text-volcanoCrimson',
-    quote:
-      '"Our user engagement matrices scaled instantly within one deployment sprint cycle using Agentosys."',
-  },
-  {
-    tag: '02 / VELOCITY RECORDING',
-    color: 'text-volcanoCrimson',
-    quote:
-      '"Stunning attention to visual spacing combined with exceptionally professional asset compression metrics."',
-  },
-  {
-    tag: '03 / COMPOSITION INTEGRITY',
-    color: 'text-volcanoPeach',
-    quote:
-      '"An absolute anomaly in web engineering. Clean architecture, transparent delivery targets, and unmatched ongoing support models."',
-  },
-]
-
 export const disciplines = [
   {
     tag: 'DISCIPLINE_01',

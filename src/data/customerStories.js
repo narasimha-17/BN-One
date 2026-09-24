@@ -1,5 +1,6 @@
 // Customer reviews shown on the /customers page.
 // The Industry and Product filters are built from these entries, so a new industry or product appears automatically.
+// featured: true also shows the review on the home page (up to three).
 // Optional: add logo: '/clients/your-file.svg' to show a client's logo on the card.
 // Use summary (instead of quote) to describe a project in our own words until the client sends a review.
 
@@ -8,6 +9,7 @@ export const customerStories = [
     id: 7,
     size: 'medium',
     company: 'Lakshmi Agency',
+    featured: true,
     logo: '/clients/lakshmi-agency.png',
     showName: true,
     iconClass: 'max-h-24',
@@ -35,6 +37,7 @@ export const customerStories = [
     id: 5,
     size: 'medium',
     company: 'Quick Prints',
+    featured: true,
     logo: '/clients/quick-prints.png',
     showName: true,
     industry: 'Commerce',
@@ -70,6 +73,7 @@ export const customerStories = [
     id: 9,
     size: 'short',
     company: 'Torfin',
+    featured: true,
     logo: '/clients/torfin.png',
     person: 'Torfin',
     role: 'Game development company',

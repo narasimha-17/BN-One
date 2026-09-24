@@ -18,7 +18,11 @@ import BlueprintModal from '../components/BlueprintModal.jsx'
 import NewsletterSignup from '../components/NewsletterSignup.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
-import { features, testimonials, disciplines, services } from '../data/homeData.js'
+import { features, disciplines, services } from '../data/homeData.js'
+import { customerStories } from '../data/customerStories.js'
+
+const featuredStories = customerStories.filter((s) => s.featured && s.quote).slice(0, 3)
+
 const featuredProducts = [
   {
     name: 'PowerLens',
@@ -240,9 +244,9 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
+            {featuredStories.map((t) => (
               <figure
-                key={t.tag}
+                key={t.id}
                 className="group relative flex min-h-[20rem] flex-col justify-between gap-8 overflow-hidden rounded-3xl bg-[#F3EEFA] p-7 transition-transform duration-500 hover:-translate-y-1 sm:p-9"
               >
                 <div
@@ -261,13 +265,13 @@ export default function Home() {
                     </svg>
                   </span>
                   <blockquote className="text-lg leading-relaxed text-volcanoWhite transition-colors duration-500 group-hover:text-white">
-                    {t.quote}
+                    “{t.quote}”
                   </blockquote>
                 </div>
 
                 <div className="relative flex items-center justify-between gap-4">
                   <figcaption className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson transition-colors duration-500 group-hover:text-white/80">
-                    {t.tag}
+                    {t.company} / {t.industry}
                   </figcaption>
                   <Link
                     to="/customers"
