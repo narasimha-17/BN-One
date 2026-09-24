@@ -1,10 +1,7 @@
 // Customer reviews shown on the /customers page.
-// Replace the placeholder entries (placeholder: true) with real customer feedback.
+// The Industry and Product filters are built from these entries, so a new industry or product appears automatically.
 // Optional: add logo: '/clients/your-file.svg' to show a client's logo on the card.
 // Use summary (instead of quote) to describe a project in our own words until the client sends a review.
-export const industries = ['Agriculture', 'Healthcare', 'Commerce', 'Travel', 'Finance', 'Education', 'Logistics']
-export const products = ['PowerLens', 'VIBE', 'Code Check', 'Exam+', 'E-commerce', 'Website']
-
 
 export const customerStories = [
   {
@@ -22,40 +19,6 @@ export const customerStories = [
     quote: 'Our customers now order agri products online and get them delivered. Agentosys built us an e-commerce site that is easy to use.',
   },
   {
-    id: 1,
-    size: 'tall',
-    company: 'Client name',
-    person: 'Client name',
-    role: 'Role, Company',
-    industry: 'Commerce',
-    product: 'PowerLens',
-    tone: 'bg-[#F3EEFA]',
-    quote: 'Our user engagement matrices scaled instantly within one deployment sprint cycle using Agentosys.',
-  },
-  {
-    id: 2,
-    size: 'short',
-    company: 'Client name',
-    person: 'Client name',
-    role: 'Role, Company',
-    industry: 'Travel',
-    product: 'VIBE',
-    tone: 'bg-[#EAE2F7]',
-    quote: 'Stunning attention to visual spacing combined with exceptionally professional asset compression metrics.',
-  },
-  {
-    id: 3,
-    size: 'text',
-    company: 'Client name',
-    person: 'Client name',
-    role: 'Role, Company',
-    industry: 'Finance',
-    product: 'Code Check',
-    tone: 'bg-[#F3EEFA]',
-    quote:
-      'An absolute anomaly in web engineering. Clean architecture, transparent delivery targets, and unmatched ongoing support models.',
-  },
-  {
     id: 4,
     size: 'medium',
     company: 'LVS Mobiles',
@@ -64,7 +27,9 @@ export const customerStories = [
     industry: 'Commerce',
     product: 'Website',
     tone: 'bg-[#EAE2F7]',
-    summary: 'We built the LVS Mobiles website.',
+    person: 'LVS Mobiles',
+    role: 'Mobile store',
+    quote: 'Agentosys built our website, and now customers can find LVS Mobiles online and reach us easily.',
   },
   {
     id: 5,
@@ -75,7 +40,9 @@ export const customerStories = [
     industry: 'Commerce',
     product: 'Website',
     tone: 'bg-[#F3EEFA]',
-    summary: 'We built the Quick Prints website.',
+    person: 'Quick Prints',
+    role: 'Printing services',
+    quote: 'Agentosys built us a clean, simple website. Customers can now find Quick Prints online and get in touch in seconds.',
   },
   {
     id: 6,
@@ -85,7 +52,8 @@ export const customerStories = [
     industry: 'Commerce',
     product: 'Website',
     tone: 'bg-[#EAE2F7]',
-    summary: 'We built the SRJ website.',
+    person: 'SRJ',
+    quote: 'Agentosys built our website and gave our collections a clean, elegant home online.',
   },
   {
     id: 8,
@@ -94,6 +62,24 @@ export const customerStories = [
     industry: 'Commerce',
     product: 'Website',
     tone: 'bg-[#F3EEFA]',
-    summary: 'We built the Prasad Sportszone website.',
+    person: 'Prasad Sportszone',
+    role: 'Sports store',
+    quote: 'Agentosys built our website, and now customers can find Prasad Sportszone online and reach us easily.',
+  },
+  {
+    id: 9,
+    size: 'short',
+    company: 'Torfin',
+    logo: '/clients/torfin.png',
+    person: 'Torfin',
+    role: 'Game development company',
+    industry: 'Gaming',
+    product: 'Partnership',
+    tone: 'bg-[#EAE2F7]',
+    quote: 'Agentosys is a dependable technology partner for our game development work.',
   },
 ]
+
+const unique = (key) => [...new Set(customerStories.map((s) => s[key]))]
+export const industries = unique('industry')
+export const products = unique('product')

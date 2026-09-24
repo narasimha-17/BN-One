@@ -69,7 +69,7 @@ export default function StoryCard({ story }) {
         {story.person && (
           <div>
             <div className="font-semibold text-volcanoCrimson">{story.person}</div>
-            <div className="text-xs text-zinc-400">{story.role}</div>
+            {story.role && <div className="text-xs text-zinc-400">{story.role}</div>}
           </div>
         )}
         <div className="flex flex-wrap gap-2">
