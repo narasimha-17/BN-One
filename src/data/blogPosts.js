@@ -12,7 +12,7 @@ export const posts = [
     category: 'Engineering',
     date: '2026-09-15',
     readTime: 5,
-    author: 'Infortia Team',
+    author: 'Agentosys Team',
     body: [
       { type: 'p', text: 'Every project starts with the same tempting question: which framework should we use? It is the wrong first question. The right one is: what does this product need to do, for whom, and under what constraints?' },
       { type: 'h2', text: 'Start with constraints' },
@@ -31,7 +31,7 @@ export const posts = [
     category: 'AI & Data',
     date: '2026-09-08',
     readTime: 6,
-    author: 'Infortia Team',
+    author: 'Agentosys Team',
     body: [
       { type: 'p', text: 'AI can feel like a big, expensive bet. In practice, the most useful first projects are small, specific and tied to a task people already do every day.' },
       { type: 'h2', text: 'Look for repetitive, rules-light work' },
@@ -49,7 +49,7 @@ export const posts = [
     category: 'Engineering',
     date: '2026-08-28',
     readTime: 4,
-    author: 'Infortia Team',
+    author: 'Agentosys Team',
     body: [
       { type: 'p', text: 'Visitors do not measure milliseconds. They notice whether a page responds immediately and whether it jumps around while loading. Both are within your control.' },
       { type: 'h2', text: 'The habits that matter most' },
@@ -65,7 +65,7 @@ export const posts = [
     category: 'Product',
     date: '2026-08-19',
     readTime: 5,
-    author: 'Infortia Team',
+    author: 'Agentosys Team',
     body: [
       { type: 'p', text: 'Big launches usually slip because the scope keeps growing. A focused build keeps the scope small enough to finish and learn from.' },
       { type: 'h2', text: 'Our usual rhythm' },
@@ -81,7 +81,7 @@ export const posts = [
     category: 'Business',
     date: '2026-08-05',
     readTime: 4,
-    author: 'Infortia Team',
+    author: 'Agentosys Team',
     body: [
       { type: 'p', text: 'Buying software is faster and cheaper to start. Building gives you a perfect fit and full control. Neither is always right.' },
       { type: 'h2', text: 'Buy when' },

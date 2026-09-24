@@ -28,7 +28,7 @@ function FilterGroup({ title, options, selected, onToggle }) {
 }
 
 export default function CustomerStories() {
-  usePageTitle('Customer Stories — Infortia')
+  usePageTitle('Customer Stories — Agentosys')
   const [industry, setIndustry] = useState([])
   const [product, setProduct] = useState([])
 

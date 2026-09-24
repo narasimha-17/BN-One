@@ -21,7 +21,7 @@ export async function submitEnquiry(form, fields, mailtoHref) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        ...(ACCESS_KEY ? { access_key: ACCESS_KEY, subject: `Infortia enquiry: ${form}` } : {}),
+        ...(ACCESS_KEY ? { access_key: ACCESS_KEY, subject: `Agentosys enquiry: ${form}` } : {}),
         form,
         ...fields,
       }),

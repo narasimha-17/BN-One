@@ -48,7 +48,7 @@ export default function ServiceDetail() {
   const service = findService(slug)
   const [bookingOpen, setBookingOpen] = useState(false)
   const active = useSectionSpy(SECTIONS.map(([id]) => id), slug)
-  usePageTitle(service ? `${service.name} — Infortia` : 'Services — Infortia', service ? `${service.name}: ${service.tagline} ${service.intro}` : undefined)
+  usePageTitle(service ? `${service.name} — Agentosys` : 'Services — Agentosys', service ? `${service.name}: ${service.tagline} ${service.intro}` : undefined)
 
   if (!service) return <Navigate to="/services" replace />
 

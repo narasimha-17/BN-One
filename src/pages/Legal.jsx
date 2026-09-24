@@ -15,7 +15,7 @@ const slugify = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace
 
 export default function Legal({ kind }) {
   const page = legal[kind]
-  usePageTitle(`${page.title} — Infortia`)
+  usePageTitle(`${page.title} — Agentosys`)
 
   return (
     <div className="relative min-h-[100dvh] overflow-x-clip bg-transparent font-sans text-volcanoWhite antialiased selection:bg-volcanoCrimson/30">
@@ -87,7 +87,7 @@ export default function Legal({ kind }) {
             <section className="hud-card space-y-2 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-volcanoWhite">Questions?</h2>
               <p className="text-sm leading-relaxed text-zinc-400">
-                Contact Infortia, Hyderabad, India at{' '}
+                Contact Agentosys, Hyderabad, India at{' '}
                 <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-volcanoCrimson hover:underline">
                   {CONTACT_EMAIL}
                 </a>

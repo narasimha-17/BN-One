@@ -83,7 +83,7 @@ export default function PrinciplesSection() {
 
         <div className="relative mx-auto max-w-2xl space-y-3 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Our principles</p>
-          <h2 className="text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">What Infortia stands for</h2>
+          <h2 className="text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">What Agentosys stands for</h2>
         </div>
 
         <div className="relative mt-12 grid divide-y divide-white/10 md:mt-14 lg:grid-cols-5 lg:divide-x lg:divide-y-0">

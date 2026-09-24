@@ -24,7 +24,7 @@ const Legal = lazy(() => import('./pages/Legal.jsx'))
 const WhyUs = lazy(() => import('./pages/WhyUs.jsx'))
 
 function NotFound() {
-  usePageTitle('Page not found — Infortia')
+  usePageTitle('Page not found — Agentosys')
   return (
     <main className="relative z-10 mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-5 px-6 text-center">
       <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Error 404</p>

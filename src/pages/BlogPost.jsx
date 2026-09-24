@@ -7,7 +7,7 @@ import { posts, formatDate } from '../data/blogPosts.js'
 export default function BlogPost() {
   const { slug } = useParams()
   const post = posts.find((p) => p.slug === slug)
-  usePageTitle(post ? `${post.title} — Infortia` : 'Blog — Infortia', post?.excerpt)
+  usePageTitle(post ? `${post.title} — Agentosys` : 'Blog — Agentosys', post?.excerpt)
 
   if (!post) return <Navigate to="/blog" replace />
 

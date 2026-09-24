@@ -59,7 +59,7 @@ const featuredProducts = [
 ]
 
 export default function Home() {
-  usePageTitle('Infortia — Next-Gen Digital Architectures')
+  usePageTitle('Agentosys — Next-Gen Digital Architectures')
   const [bookingOpen, setBookingOpen] = useState(false)
   const [blueprintOpen, setBlueprintOpen] = useState(false)
 
@@ -165,7 +165,7 @@ export default function Home() {
                 We Engineer Pure Operational Authority.
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed font-sans">
-                We don't just patch layout visuals together. Infortia constructs high-performance
+                We don't just patch layout visuals together. Agentosys constructs high-performance
                 custom digital systems designed to cleanly capture market share, isolate
                 operational latency, and provide uncompromised accessibility metrics.
               </p>
@@ -233,7 +233,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl space-y-3 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Customer stories</p>
             <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">
-              Teams that build with Infortia
+              Teams that build with Agentosys
             </h2>
             <Link to="/customers" className="inline-flex items-center gap-1 pt-1 text-sm font-semibold text-volcanoCrimson">
               Read all customer stories <span aria-hidden="true">→</span>

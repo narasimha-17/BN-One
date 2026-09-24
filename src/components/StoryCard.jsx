@@ -10,14 +10,22 @@ export default function StoryCard({ story }) {
   const [open, setOpen] = useState(false)
   const size = story.size ?? 'medium'
   const textOnly = size === 'text'
-  const long = story.quote.length > LONG
+  // summary: a project described in our own words (no quote marks, no reviewer).
+  const isSummary = !story.quote && Boolean(story.summary)
+  const text = story.quote ?? story.summary ?? ''
+  const long = text.length > LONG
   const initial = story.company.trim().charAt(0).toUpperCase()
 
   return (
     <article className="hud-card mb-6 break-inside-avoid overflow-hidden rounded-2xl">
       {!textOnly && (
         <div className={`relative flex items-center justify-center ${HEADER_HEIGHT[size]} ${story.tone}`}>
-          {story.logo ? (
+          {story.logo && story.showName ? (
+            <span className="flex items-center gap-3 text-volcanoWhite">
+              <img src={story.logo} alt="" className="max-h-24 w-auto object-contain" />
+              <span className={`font-bold tracking-tight ${size === 'tall' ? 'text-xl' : 'text-lg'}`}>{story.company}</span>
+            </span>
+          ) : story.logo ? (
             <img src={story.logo} alt={story.company} className="max-h-16 w-auto max-w-[70%] object-contain" />
           ) : (
             <span className="flex items-center gap-3 text-volcanoWhite">
@@ -48,19 +56,24 @@ export default function StoryCard({ story }) {
             <span className="text-sm font-bold text-volcanoWhite">{story.company}</span>
           </div>
         )}
+        {isSummary && (
+          <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">What we built</p>
+        )}
         <p
           className={`leading-relaxed text-volcanoWhite ${textOnly ? 'text-xl font-medium' : 'text-base'} ${
             open || !long ? '' : 'line-clamp-4'
           }`}
         >
-          {textOnly ? story.quote : `“${story.quote}”`}
+          {textOnly || isSummary ? text : `“${text}”`}
         </p>
-        <div>
-          <div className="font-semibold text-volcanoCrimson">{story.person}</div>
-          <div className="text-xs text-zinc-400">{story.role}</div>
-        </div>
+        {story.person && (
+          <div>
+            <div className="font-semibold text-volcanoCrimson">{story.person}</div>
+            <div className="text-xs text-zinc-400">{story.role}</div>
+          </div>
+        )}
         <div className="flex flex-wrap gap-2">
-          {[story.industry, story.product].map((tag) => (
+          {[story.industry, story.product].filter(Boolean).map((tag) => (
             <span key={tag} className="rounded-full bg-[#F3EEFA] px-2.5 py-1 text-[11px] font-medium text-volcanoCrimson">
               {tag}
             </span>

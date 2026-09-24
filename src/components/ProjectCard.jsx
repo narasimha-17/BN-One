@@ -44,7 +44,7 @@ export default function ProjectCard({ proj, tier, icon }) {
           </div>
           <div className="flex items-center gap-2">
             <a
-              href={`https://demo.infortia.com/${proj.url}`}
+              href={`https://demo.agentosys.com/${proj.url}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-10 flex-1 items-center justify-center rounded-full border border-volcanoCrimson/30 px-4 text-sm font-semibold text-volcanoCrimson transition-all hover:bg-volcanoCrimson hover:text-white"

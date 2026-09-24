@@ -3,7 +3,7 @@ import DatePicker from './DatePicker.jsx'
 import { submitEnquiry } from '../lib/enquiry.js'
 import useSpeechToText from '../hooks/useSpeechToText.js'
 
-const GREETING = 'Welcome to Infortia. How can I help you? Please enter your details to confirm your slot.'
+const GREETING = 'Welcome to Agentosys. How can I help you? Please enter your details to confirm your slot.'
 
 const FEMALE_VOICE_HINTS = [
   'female',
@@ -156,7 +156,7 @@ export default function BookingModal({ open, onClose }) {
           </svg>
 
           <div className="relative space-y-6">
-            <img src="/logo-on-dark.png" alt="Infortia" className="h-9 w-auto object-contain object-left" />
+            <img src="/logo-on-dark.svg" alt="Agentosys" className="h-9 w-auto object-contain object-left" />
             <div className="space-y-2">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-white/55">Schedule a meeting</p>
               <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white">

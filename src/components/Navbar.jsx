@@ -65,8 +65,8 @@ export default function Navbar() {
                 <div className="flex items-center leading-none h-9 sm:h-12">
                   <Link to="/" className="flex items-center h-full">
                     <img
-                      src={theme === 'dark' ? '/logo-on-dark.png' : '/logo.png'}
-                      alt="Infortia Logo"
+                      src={theme === 'dark' ? '/logo-on-dark.svg' : '/logo.svg'}
+                      alt="Agentosys Logo"
                       className="h-full w-auto object-contain transition-all duration-300"
                     />
                   </Link>

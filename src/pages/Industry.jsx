@@ -18,7 +18,7 @@ function SectionHeading({ eyebrow, title, body }) {
 }
 
 export default function Industry() {
-  usePageTitle('Industries We Build For — Infortia')
+  usePageTitle('Industries We Build For — Agentosys')
   const [bookingOpen, setBookingOpen] = useState(false)
 
   return (

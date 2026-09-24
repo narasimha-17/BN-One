@@ -106,7 +106,7 @@ const RESEARCH_POINTS = [
 ]
 
 export default function Services() {
-  usePageTitle('Services — Infortia')
+  usePageTitle('Services — Agentosys')
   const [activeTier, setActiveTier] = useState('business')
   const [activeDomain, setActiveDomain] = useState('fullstack')
   const [email, setEmail] = useState('')

@@ -100,7 +100,7 @@ function Checklist({ list }) {
 }
 
 export default function Resources() {
-  usePageTitle('Resources — Infortia')
+  usePageTitle('Resources — Agentosys')
   const [bookingOpen, setBookingOpen] = useState(false)
 
   return (

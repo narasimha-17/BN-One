@@ -16,7 +16,7 @@ export default function NewsletterSignup() {
       return
     }
     setStatus('sending')
-    const subject = encodeURIComponent('Subscribe me to Infortia updates')
+    const subject = encodeURIComponent('Subscribe me to Agentosys updates')
     const body = encodeURIComponent(`Please add this address to your updates list: ${email}`)
     const result = await submitEnquiry('Newsletter signup', { email }, `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`)
     if (!result.ok) {

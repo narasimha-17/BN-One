@@ -18,7 +18,7 @@ const NEED = [
 ]
 
 export default function HowWeWork() {
-  usePageTitle('How We Work — Infortia')
+  usePageTitle('How We Work — Agentosys')
 
   return (
     <div className="relative min-h-[100dvh] overflow-x-clip bg-transparent font-sans text-volcanoWhite antialiased selection:bg-volcanoCrimson/30">

@@ -1,12 +1,26 @@
 // Customer reviews shown on the /customers page.
 // Replace the placeholder entries (placeholder: true) with real customer feedback.
 // Optional: add logo: '/clients/your-file.svg' to show a client's logo on the card.
-export const industries = ['Healthcare', 'Commerce', 'Travel', 'Finance', 'Education', 'Logistics']
-export const products = ['PowerLens', 'VIBE', 'Code Check', 'Exam+']
+// Use summary (instead of quote) to describe a project in our own words until the client sends a review.
+export const industries = ['Agriculture', 'Healthcare', 'Commerce', 'Travel', 'Finance', 'Education', 'Logistics']
+export const products = ['PowerLens', 'VIBE', 'Code Check', 'Exam+', 'E-commerce']
 
 const SAMPLE = "Sample review. Replace this with your customer's real feedback in src/data/customerStories.js."
 
 export const customerStories = [
+  {
+    id: 7,
+    size: 'medium',
+    company: 'Lakshmi Agency',
+    logo: '/clients/lakshmi-agency.png',
+    showName: true,
+    industry: 'Agriculture',
+    product: 'E-commerce',
+    tone: 'bg-[#FFF4E8]',
+    person: 'Lakshmi Agency',
+    role: 'Agri products supplier',
+    quote: 'Our customers now order agri products online and get them delivered. Agentosys built us an e-commerce site that is easy to use.',
+  },
   {
     id: 1,
     size: 'tall',
@@ -16,7 +30,7 @@ export const customerStories = [
     industry: 'Commerce',
     product: 'PowerLens',
     tone: 'bg-[#F3EEFA]',
-    quote: 'Our user engagement matrices scaled instantly within one deployment sprint cycle using Infortia.',
+    quote: 'Our user engagement matrices scaled instantly within one deployment sprint cycle using Agentosys.',
   },
   {
     id: 2,

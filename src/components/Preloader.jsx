@@ -31,8 +31,8 @@ export default function Preloader() {
       style={dismissed ? { opacity: 0, pointerEvents: 'none' } : undefined}
     >
       <img
-        src={theme === 'dark' ? '/logo-on-dark.png' : '/logo.png'}
-        alt="Infortia"
+        src={theme === 'dark' ? '/logo-on-dark.svg' : '/logo.svg'}
+        alt="Agentosys"
         className="w-64 sm:w-80 h-auto object-contain"
       />
       <div className="relative h-[3px] w-56 overflow-hidden rounded-full bg-black/10">

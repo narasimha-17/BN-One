@@ -28,7 +28,7 @@ function LinkedInIcon() {
 }
 
 export default function Leadership() {
-  usePageTitle('Leadership — Infortia')
+  usePageTitle('Leadership — Agentosys')
 
   return (
     <div className="relative min-h-[100dvh] overflow-x-clip bg-transparent font-sans text-volcanoWhite antialiased selection:bg-volcanoCrimson/30">

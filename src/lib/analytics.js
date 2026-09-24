@@ -1,5 +1,5 @@
 // Privacy-friendly analytics (Plausible). Loads only when BOTH are true:
-//   1. VITE_PLAUSIBLE_DOMAIN is set (your site's domain, e.g. infortia.com), and
+//   1. VITE_PLAUSIBLE_DOMAIN is set (your site's domain, e.g. agentosys.com), and
 //   2. the visitor has allowed "Analytics" in the cookie settings.
 // Plausible records page views (including single-page navigation) and any events sent with track().
 import { getConsent, subscribeConsent } from './consent.js'

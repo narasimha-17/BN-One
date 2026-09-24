@@ -7,7 +7,7 @@ const productLinks = ['PowerLens', 'VIBE', 'Code Check', 'Exam+']
 const industryLinks = industries.map((ind) => ({ label: ind.title, to: `/industry#${ind.key}` }))
 
 const whyUsLinks = [
-  { label: 'Why Infortia', to: '/why-us' },
+  { label: 'Why Agentosys', to: '/why-us' },
   { label: 'How we work', to: '/how-we-work' },
   { label: 'Language agnostic', to: '/industry#stack' },
   { label: 'Our values', to: '/about' },
@@ -145,7 +145,7 @@ export default function SiteFooter() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.25fr_1.1fr_1fr] lg:gap-8">
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-flex items-center">
-              <img src="/logo-on-dark.png" alt="Infortia" className="h-9 w-auto object-contain" />
+              <img src="/logo-on-dark.svg" alt="Agentosys" className="h-9 w-auto object-contain" />
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-white/65">
               Innovation. Fast &amp; Adaptive. Leadership. Connectivity. Operations.
@@ -243,7 +243,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-5 flex flex-col gap-3 border-t border-white/10 pt-5 text-sm lg:flex-row lg:items-center lg:justify-between">
-          <p className="text-white/50">Copyright © 2026 Infortia. All rights reserved.</p>
+          <p className="text-white/50">Copyright © 2026 Agentosys. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-white/65">
             {legalLinks.map((item) =>
               item.to ? (

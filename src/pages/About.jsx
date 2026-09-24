@@ -14,7 +14,7 @@ const VALUES = [
 ]
 
 export default function About() {
-  usePageTitle('About — Infortia')
+  usePageTitle('About — Agentosys')
 
   return (
     <div className="relative min-h-[100dvh] overflow-x-clip bg-transparent font-sans text-volcanoWhite antialiased selection:bg-volcanoCrimson/30">
@@ -26,7 +26,7 @@ export default function About() {
           <div className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full bg-[#6D28D9]/50 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-[#00D4C4]/25 blur-3xl" />
           <div className="relative max-w-2xl space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/60">About Infortia</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/60">About Agentosys</p>
             <h1 className="text-4xl font-black leading-[1.05] tracking-tighter text-white sm:text-5xl md:text-6xl">
               Software built with <span className="neon-text-light">care, not committees.</span>
             </h1>
@@ -51,7 +51,7 @@ export default function About() {
               and the builders, and tools chosen because they were fashionable rather than because they fit.
             </p>
             <p>
-              Infortia was set up to do it differently. Our founders work directly on every engagement, so the person
+              Agentosys was set up to do it differently. Our founders work directly on every engagement, so the person
               you talk to is the person who builds and reviews your product. We stay language agnostic, choosing the
               right tool for your problem instead of forcing your problem into our favourite tool.
             </p>

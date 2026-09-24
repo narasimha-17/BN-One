@@ -1,5 +1,5 @@
 const PHONE = '919381472064'
-const MESSAGE = encodeURIComponent("Hi Infortia, I'd like to talk about a project.")
+const MESSAGE = encodeURIComponent("Hi Agentosys, I'd like to talk about a project.")
 
 export default function WhatsAppButton() {
   return (

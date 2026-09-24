@@ -53,7 +53,7 @@ function Icon({ name, className = 'h-10 w-10' }) {
 }
 
 export default function WhyUs() {
-  usePageTitle('Why Infortia — Infortia')
+  usePageTitle('Why Agentosys — Agentosys')
 
   return (
     <div className="relative min-h-[100dvh] overflow-x-clip bg-transparent font-sans text-volcanoWhite antialiased selection:bg-volcanoCrimson/30">
@@ -63,7 +63,7 @@ export default function WhyUs() {
         <section className="mx-auto max-w-3xl space-y-5 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Why us?</p>
           <h1 className="text-4xl font-black leading-[1.05] tracking-tighter sm:text-5xl lg:text-6xl">
-            Why teams choose <span className="neon-text">Infortia.</span>
+            Why teams choose <span className="neon-text">Agentosys.</span>
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
             A small, hands-on team that builds the way we would want our own software built: clear, honest and made to last.

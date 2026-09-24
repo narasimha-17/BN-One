@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom'
 import { clients } from '../data/clients.js'
 
 function ClientItem({ client }) {
+  if (client.logo && client.showName) {
+    // For logos that are only a picture: show the brand name beside it.
+    return (
+      <span className="flex items-center gap-3">
+        <img src={client.logo} alt="" className="h-14 w-auto object-contain" />
+        <span className="whitespace-nowrap text-lg font-bold tracking-tight text-volcanoWhite">{client.name}</span>
+      </span>
+    )
+  }
   if (client.logo) {
     return (
       <img

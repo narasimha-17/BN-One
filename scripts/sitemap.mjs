@@ -1,10 +1,10 @@
 // Generates public/sitemap.xml and public/robots.txt. Runs automatically before every build.
-// Set SITE_URL (for example https://infortia.com) so the sitemap uses your real domain.
+// Set SITE_URL (for example https://agentosys.com) so the sitemap uses your real domain.
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { posts } from '../src/data/blogPosts.js'
 import { allServices } from '../src/data/serviceCatalog.js'
 
-const SITE = (process.env.SITE_URL || 'https://infortia.com').replace(/\/$/, '')
+const SITE = (process.env.SITE_URL || 'https://agentosys.com').replace(/\/$/, '')
 
 const pages = [
   '/', '/services', '/industry', '/customers', '/leadership', '/careers', '/blog', '/about', '/why-us',

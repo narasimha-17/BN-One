@@ -189,7 +189,7 @@ function Cover({ post, className = '' }) {
 }
 
 export default function Blog() {
-  usePageTitle('Blog — Infortia')
+  usePageTitle('Blog — Agentosys')
   const [category, setCategory] = useState(null)
   const [query, setQuery] = useState('')
 
@@ -217,7 +217,7 @@ export default function Blog() {
             Ideas on building <span className="neon-text">better software.</span>
           </h1>
           <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
-            Practical notes on engineering, AI, product and business from the Infortia team.
+            Practical notes on engineering, AI, product and business from the Agentosys team.
           </p>
         </section>
 

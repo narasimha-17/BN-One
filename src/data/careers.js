@@ -1,5 +1,5 @@
 // Open roles shown on /careers.
-// These are SAMPLE roles based on the kind of work Infortia does. Edit, add or delete them to match
+// These are SAMPLE roles based on the kind of work Agentosys does. Edit, add or delete them to match
 // what you are actually hiring for. If the list is empty, the page shows a "no openings right now"
 // message with a general-application option instead.
 export const HIRING_EMAIL = 'bnst17042006@gmail.com'

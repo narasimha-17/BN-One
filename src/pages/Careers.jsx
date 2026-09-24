@@ -33,7 +33,7 @@ const REASON_ICONS = [
 
 const applyHref = (title) =>
   `mailto:${HIRING_EMAIL}?subject=${encodeURIComponent(`Application: ${title}`)}&body=${encodeURIComponent(
-    'Hi Infortia team,\n\nI would like to apply for this role.\n\nName:\nLinkedIn / GitHub / Portfolio:\nCV: (attached)\n\nA few lines about me:\n',
+    'Hi Agentosys team,\n\nI would like to apply for this role.\n\nName:\nLinkedIn / GitHub / Portfolio:\nCV: (attached)\n\nA few lines about me:\n',
   )}`
 
 function RoleItem({ role, open, onToggle }) {
@@ -111,7 +111,7 @@ function RoleItem({ role, open, onToggle }) {
 }
 
 export default function Careers() {
-  usePageTitle('Careers — Infortia')
+  usePageTitle('Careers — Agentosys')
   const [department, setDepartment] = useState(null)
   const [type, setType] = useState(null)
   const [openId, setOpenId] = useState(null)
@@ -195,7 +195,7 @@ export default function Careers() {
         {/* Why join */}
         <section className="space-y-12 py-16 md:py-24">
           <div className="mx-auto max-w-2xl space-y-3 text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Why Infortia</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Why Agentosys</p>
             <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">
               A place to grow, build and be heard.
             </h2>

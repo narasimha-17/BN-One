@@ -9,12 +9,12 @@ export const legal = {
   privacy: {
     title: 'Privacy Policy',
     intro:
-      'This policy explains what personal information Infortia collects through this website, how we use it, and the choices you have.',
+      'This policy explains what personal information Agentosys collects through this website, how we use it, and the choices you have.',
     sections: [
       {
         heading: 'Who we are',
         body: [
-          'Infortia is a software company based in Hyderabad, India. When this policy says "we", "us" or "our", it means Infortia. You can reach us at any time using the contact details at the end of this page.',
+          'Agentosys is a software company based in Hyderabad, India. When this policy says "we", "us" or "our", it means Agentosys. You can reach us at any time using the contact details at the end of this page.',
         ],
       },
       {
@@ -71,7 +71,7 @@ export const legal = {
   terms: {
     title: 'Terms of Use',
     intro:
-      'These terms apply to your use of the Infortia website. By using the site you agree to them. If you do not agree, please do not use it.',
+      'These terms apply to your use of the Agentosys website. By using the site you agree to them. If you do not agree, please do not use it.',
     sections: [
       {
         heading: 'Using the website',
@@ -86,7 +86,7 @@ export const legal = {
       {
         heading: 'Intellectual property',
         body: [
-          'The design, text, logos, illustrations and code of this website belong to Infortia or its licensors and are protected by law. You may view and share pages for personal or internal business use, but you may not copy or reuse them commercially without our written permission.',
+          'The design, text, logos, illustrations and code of this website belong to Agentosys or its licensors and are protected by law. You may view and share pages for personal or internal business use, but you may not copy or reuse them commercially without our written permission.',
         ],
       },
       {
@@ -103,7 +103,7 @@ export const legal = {
       },
       {
         heading: 'Limitation of liability',
-        body: ['To the extent permitted by law, Infortia is not liable for any indirect or consequential loss arising from your use of this website. Nothing in these terms limits liability that cannot be limited by law.'],
+        body: ['To the extent permitted by law, Agentosys is not liable for any indirect or consequential loss arising from your use of this website. Nothing in these terms limits liability that cannot be limited by law.'],
       },
       {
         heading: 'Governing law',
