@@ -2,7 +2,7 @@ import Navbar from '../components/Navbar.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
-import { team } from '../data/teamData.js'
+import { team, vps } from '../data/teamData.js'
 
 const PORTRAIT_BG = [
   'from-[#EAE2F7] to-[#F3EEFA]',
@@ -24,6 +24,69 @@ function LinkedInIcon() {
     <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
       <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3V9.75zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.83-1.72-2.83-1.73 0-2 1.35-2 2.74v5.29h-4V9.75z" />
     </svg>
+  )
+}
+
+function LeaderCard({ person, i }) {
+  return (
+    <Reveal
+      style={{ transitionDelay: `${i * 90}ms` }}
+      className="group relative overflow-hidden rounded-3xl bg-white shadow-[0_1px_2px_rgba(36,17,63,0.05),0_12px_30px_-16px_rgba(109,40,217,0.25)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_34px_60px_-24px_rgba(109,40,217,0.6)]"
+    >
+      <div className="relative aspect-[4/5] overflow-hidden">
+        <div
+          className={`absolute inset-0 bg-gradient-to-b ${PORTRAIT_BG[i % PORTRAIT_BG.length]} transition-transform duration-700 ease-out group-hover:scale-110`}
+        >
+          {person.photo ? (
+            <img src={person.photo} alt={person.name} className="h-full w-full object-cover object-top" />
+          ) : (
+            <Silhouette />
+          )}
+        </div>
+
+        {/* Name bar (default state) */}
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-[#24113F] via-[#24113F]/85 to-transparent px-6 pb-6 pt-24 transition-opacity duration-500 lg:group-hover:opacity-0">
+          <div>
+            <h3 className="text-2xl font-semibold text-white">{person.name}</h3>
+            <p className="mt-0.5 text-sm text-white/70">{person.role}</p>
+          </div>
+          <a
+            href={person.linkedin || 'https://www.linkedin.com'}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${person.name} on LinkedIn`}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#24113F] transition-colors hover:bg-[#0A66C2] hover:text-white"
+          >
+            <LinkedInIcon />
+          </a>
+        </div>
+
+        {/* Hover state: photo stays visible, bio slides up over a bottom gradient */}
+        <div className="pointer-events-none absolute inset-0 hidden flex-col justify-end bg-gradient-to-t from-[#24113F] via-[#24113F]/90 to-transparent p-7 pt-40 opacity-0 transition-opacity duration-500 group-hover:opacity-100 lg:flex">
+          <p className="translate-y-3 text-sm leading-relaxed text-white/90 transition-transform duration-500 group-hover:translate-y-0">
+            {person.bio}
+          </p>
+          <div className="mt-4 flex items-end justify-between gap-3">
+            <div>
+              <h3 className="text-2xl font-semibold text-white">{person.name}</h3>
+              <p className="mt-0.5 text-sm text-white/70">{person.role}</p>
+            </div>
+            <a
+              href={person.linkedin || 'https://www.linkedin.com'}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${person.name} on LinkedIn`}
+              className="pointer-events-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#24113F] transition-colors hover:bg-[#0A66C2] hover:text-white"
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Bio below the card on screens without hover */}
+      <p className="p-6 text-sm leading-relaxed text-zinc-400 lg:hidden">{person.bio}</p>
+    </Reveal>
   )
 }
 
@@ -73,69 +136,26 @@ export default function Leadership() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {team.map((person, i) => (
-              <Reveal
-                key={person.name}
-                style={{ transitionDelay: `${i * 90}ms` }}
-                className="group relative overflow-hidden rounded-3xl bg-white shadow-[0_1px_2px_rgba(36,17,63,0.05),0_12px_30px_-16px_rgba(109,40,217,0.25)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_34px_60px_-24px_rgba(109,40,217,0.6)]"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-b ${PORTRAIT_BG[i % PORTRAIT_BG.length]} transition-transform duration-700 ease-out group-hover:scale-110`}
-                  >
-                    {person.photo ? (
-                      <img src={person.photo} alt={person.name} className="h-full w-full object-cover object-top" />
-                    ) : (
-                      <Silhouette />
-                    )}
-                  </div>
-
-                  {/* Name bar (default state) */}
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-[#24113F] via-[#24113F]/85 to-transparent px-6 pb-6 pt-24 transition-opacity duration-500 lg:group-hover:opacity-0">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-white">{person.name}</h3>
-                      <p className="mt-0.5 text-sm text-white/70">{person.role}</p>
-                    </div>
-                    <a
-                      href={person.linkedin || 'https://www.linkedin.com'}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${person.name} on LinkedIn`}
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#24113F] transition-colors hover:bg-[#0A66C2] hover:text-white"
-                    >
-                      <LinkedInIcon />
-                    </a>
-                  </div>
-
-                  {/* Hover state: photo stays visible, bio slides up over a bottom gradient */}
-                  <div className="pointer-events-none absolute inset-0 hidden flex-col justify-end bg-gradient-to-t from-[#24113F] via-[#24113F]/90 to-transparent p-7 pt-40 opacity-0 transition-opacity duration-500 group-hover:opacity-100 lg:flex">
-                    <p className="translate-y-3 text-sm leading-relaxed text-white/90 transition-transform duration-500 group-hover:translate-y-0">
-                      {person.bio}
-                    </p>
-                    <div className="mt-4 flex items-end justify-between gap-3">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white">{person.name}</h3>
-                        <p className="mt-0.5 text-sm text-white/70">{person.role}</p>
-                      </div>
-                      <a
-                        href={person.linkedin || 'https://www.linkedin.com'}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${person.name} on LinkedIn`}
-                        className="pointer-events-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#24113F] transition-colors hover:bg-[#0A66C2] hover:text-white"
-                      >
-                        <LinkedInIcon />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bio below the card on screens without hover */}
-                <p className="p-6 text-sm leading-relaxed text-zinc-400 lg:hidden">{person.bio}</p>
-              </Reveal>
+              <LeaderCard key={person.name} person={person} i={i} />
             ))}
           </div>
         </section>
 
+        {vps.length > 0 && (
+          <section className="pt-16 md:pt-24">
+            <div className="text-center">
+              <h2 className="text-3xl font-extrabold tracking-tighter sm:text-5xl">Vice Presidents</h2>
+            </div>
+            <div className="mt-8 h-[3px] w-full rounded-full bg-gradient-to-r from-[#6D28D9] via-[#4FB3E8] to-[#00D4C4]" />
+
+            {/* Same card width as the leaders grid above, centred */}
+            <div className="mx-auto mt-12 grid gap-6 md:grid-cols-2 lg:max-w-[calc(66.667%-0.5rem)]">
+              {vps.map((person, i) => (
+                <LeaderCard key={person.name} person={person} i={i} />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
       <SiteFooter />

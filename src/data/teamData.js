@@ -45,3 +45,21 @@ export const team = [
     bio: 'Leads finance, budgeting, pricing, investments and financial planning.',
   },
 ]
+
+// Vice Presidents, shown in their own section below the leadership team.
+export const vps = [
+  {
+    initial: 'M',
+    name: 'Madhav',
+    role: 'VP of Sales & Marketing',
+    photo: '/team/madhav.jpg',
+    bio: 'Brings in new clients, runs marketing and grows the Agentosys brand.',
+  },
+  {
+    initial: 'N',
+    name: 'Nandan',
+    role: 'VP of Sales & Marketing',
+    photo: '/team/nandan.jpg',
+    bio: 'Brings in new clients, runs marketing and grows the Agentosys brand.',
+  },
+]

@@ -3,9 +3,8 @@
 // Optional: add logo: '/clients/your-file.svg' to show a client's logo on the card.
 // Use summary (instead of quote) to describe a project in our own words until the client sends a review.
 export const industries = ['Agriculture', 'Healthcare', 'Commerce', 'Travel', 'Finance', 'Education', 'Logistics']
-export const products = ['PowerLens', 'VIBE', 'Code Check', 'Exam+', 'E-commerce']
+export const products = ['PowerLens', 'VIBE', 'Code Check', 'Exam+', 'E-commerce', 'Website']
 
-const SAMPLE = "Sample review. Replace this with your customer's real feedback in src/data/customerStories.js."
 
 export const customerStories = [
   {
@@ -14,6 +13,7 @@ export const customerStories = [
     company: 'Lakshmi Agency',
     logo: '/clients/lakshmi-agency.png',
     showName: true,
+    iconClass: 'max-h-24',
     industry: 'Agriculture',
     product: 'E-commerce',
     tone: 'bg-[#FFF4E8]',
@@ -58,37 +58,42 @@ export const customerStories = [
   {
     id: 4,
     size: 'medium',
-    company: 'Your client',
-    person: 'Client name',
-    role: 'Role, Company',
-    industry: 'Healthcare',
-    product: 'PowerLens',
+    company: 'LVS Mobiles',
+    logo: '/clients/lvs-mobiles.png',
+    showName: true,
+    industry: 'Commerce',
+    product: 'Website',
     tone: 'bg-[#EAE2F7]',
-    placeholder: true,
-    quote: SAMPLE,
+    summary: 'We built the LVS Mobiles website.',
   },
   {
     id: 5,
-    size: 'tall',
-    company: 'Your client',
-    person: 'Client name',
-    role: 'Role, Company',
-    industry: 'Education',
-    product: 'Exam+',
+    size: 'medium',
+    company: 'Quick Prints',
+    logo: '/clients/quick-prints.png',
+    showName: true,
+    industry: 'Commerce',
+    product: 'Website',
     tone: 'bg-[#F3EEFA]',
-    placeholder: true,
-    quote: SAMPLE,
+    summary: 'We built the Quick Prints website.',
   },
   {
     id: 6,
     size: 'short',
-    company: 'Your client',
-    person: 'Client name',
-    role: 'Role, Company',
-    industry: 'Logistics',
-    product: 'Code Check',
+    company: 'SRJ',
+    logo: '/clients/srj.png',
+    industry: 'Commerce',
+    product: 'Website',
     tone: 'bg-[#EAE2F7]',
-    placeholder: true,
-    quote: SAMPLE,
+    summary: 'We built the SRJ website.',
+  },
+  {
+    id: 8,
+    size: 'short',
+    company: 'Prasad Sportszone',
+    industry: 'Commerce',
+    product: 'Website',
+    tone: 'bg-[#F3EEFA]',
+    summary: 'We built the Prasad Sportszone website.',
   },
 ]

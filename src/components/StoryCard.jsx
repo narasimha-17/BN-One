@@ -22,11 +22,11 @@ export default function StoryCard({ story }) {
         <div className={`relative flex items-center justify-center ${HEADER_HEIGHT[size]} ${story.tone}`}>
           {story.logo && story.showName ? (
             <span className="flex items-center gap-3 text-volcanoWhite">
-              <img src={story.logo} alt="" className="max-h-24 w-auto object-contain" />
+              <img src={story.logo} alt="" className={`${story.iconClass ?? 'h-12'} w-auto object-contain`} />
               <span className={`font-bold tracking-tight ${size === 'tall' ? 'text-xl' : 'text-lg'}`}>{story.company}</span>
             </span>
           ) : story.logo ? (
-            <img src={story.logo} alt={story.company} className="max-h-16 w-auto max-w-[70%] object-contain" />
+            <img src={story.logo} alt={story.company} className="max-h-16 w-auto max-w-[70%] rounded-lg object-contain" />
           ) : (
             <span className="flex items-center gap-3 text-volcanoWhite">
               <span

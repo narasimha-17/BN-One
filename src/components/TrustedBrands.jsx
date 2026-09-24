@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { clients } from '../data/clients.js'
 
 function ClientItem({ client }) {
-  if (client.logo && client.showName) {
-    // For logos that are only a picture: show the brand name beside it.
+  if (client.showName) {
+    // Brand name in the site font, with the brand's icon beside it when there is one.
     return (
       <span className="flex items-center gap-3">
-        <img src={client.logo} alt="" className="h-14 w-auto object-contain" />
+        {client.logo && <img src={client.logo} alt="" className={`${client.iconClass ?? 'h-11'} w-auto object-contain`} />}
         <span className="whitespace-nowrap text-lg font-bold tracking-tight text-volcanoWhite">{client.name}</span>
       </span>
     )
@@ -16,7 +16,7 @@ function ClientItem({ client }) {
       <img
         src={client.logo}
         alt={client.name}
-        className="h-10 w-auto max-w-[9rem] object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+        className={`${client.logoClass ?? 'h-12'} w-auto max-w-[11rem] rounded-lg object-contain`}
       />
     )
   }
