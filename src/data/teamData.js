@@ -40,6 +40,7 @@ export const team = [
     initial: 'S',
     name: 'Sandeep',
     role: 'CFO (Chief Financial Officer)',
+    photo: '/team/sandeep.jpg',
     bio: 'Leads finance, budgeting, pricing, investments and financial planning.',
   },
 ]
