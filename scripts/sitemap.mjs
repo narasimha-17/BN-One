@@ -1,17 +1,7 @@
 // Generates public/sitemap.xml and public/robots.txt. Runs automatically before every build.
 // Set SITE_URL (for example https://www.agentosys.in) so the sitemap uses your real domain.
 import { writeFileSync, mkdirSync } from 'node:fs'
-import { posts } from '../src/data/blogPosts.js'
-import { allServices } from '../src/data/serviceCatalog.js'
-
-const SITE = (process.env.SITE_URL || 'https://www.agentosys.in').replace(/\/$/, '')
-
-const pages = [
-  '/', '/services', '/industry', '/customers', '/leadership', '/careers', '/blog', '/about', '/why-us',
-  '/how-we-work', '/resources', '/privacy', '/terms', '/cookies',
-  ...allServices.map((s) => `/services/${s.slug}`),
-  ...posts.map((p) => `/blog/${p.slug}`),
-]
+import { SITE, pages } from './routes.mjs'
 
 const today = new Date().toISOString().slice(0, 10)
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
