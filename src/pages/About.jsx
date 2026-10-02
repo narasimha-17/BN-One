@@ -51,7 +51,8 @@ export default function About() {
               and the builders, and tools chosen because they were fashionable rather than because they fit.
             </p>
             <p>
-              Agentosys was set up to do it differently. Our founders work directly on every engagement, so the person
+              Agentosys was founded by Narasimha (Founder &amp; CEO) and Manas (Co-Founder &amp; CTO) to do it differently.
+              Our founders work directly on every engagement, so the person
               you talk to is the person who builds and reviews your product. We stay language agnostic, choosing the
               right tool for your problem instead of forcing your problem into our favourite tool.
             </p>

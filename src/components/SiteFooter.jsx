@@ -150,6 +150,13 @@ export default function SiteFooter() {
             <p className="max-w-xs text-sm leading-relaxed text-white/65">
               Innovation. Fast &amp; Adaptive. Leadership. Connectivity. Operations.
             </p>
+            <p className="max-w-xs text-sm leading-relaxed text-white/65">
+              Founded in Hyderabad by Narasimha (Founder &amp; CEO) and Manas (Co-Founder &amp; CTO).{' '}
+              <Link to="/leadership" className="underline underline-offset-2 hover:text-white">
+                Meet the leadership team
+              </Link>
+              .
+            </p>
             <div className="flex flex-wrap gap-2.5" aria-label="Social links">
               {socialLinks.map((social) => (
                 <a
