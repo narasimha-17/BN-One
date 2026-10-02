@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://agentosys.com/sitemap.xml
+Sitemap: https://www.agentosys.in/sitemap.xml
