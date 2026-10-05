@@ -128,7 +128,7 @@ export default function Services() {
     }
     const subject = encodeURIComponent('Early access: research paper publishing')
     const body = encodeURIComponent(`Please add me to the early-access queue: ${email}`)
-    const result = await submitEnquiry('Research publishing early access', { email }, `mailto:bnst17042006@gmail.com?subject=${subject}&body=${body}`)
+    const result = await submitEnquiry('Research publishing early access', { email }, `mailto:agentosys@gmail.com?subject=${subject}&body=${body}`)
     if (result.ok) {
       setQueueStatus('success')
       setEmail('')

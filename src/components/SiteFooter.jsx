@@ -45,6 +45,15 @@ const socialLinks = [
     ),
   },
   {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/share/19pGpgqQqC/',
+    icon: (
+      <svg {...ICON} fill="currentColor">
+        <path d="M13.5 21v-7.5h2.5l.5-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21h3z" />
+      </svg>
+    ),
+  },
+  {
     name: 'X',
     href: 'https://x.com/NARASIMHAS75633',
     icon: (
@@ -199,7 +208,7 @@ export default function SiteFooter() {
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10">
           <ContactRow
-            href="mailto:bnst17042006@gmail.com"
+            href="mailto:agentosys@gmail.com"
             icon={
               <svg {...iconProps}>
                 <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -207,7 +216,7 @@ export default function SiteFooter() {
               </svg>
             }
           >
-            bnst17042006@gmail.com
+            agentosys@gmail.com
           </ContactRow>
           <ContactRow
             href="tel:+919381472064"
@@ -242,7 +251,7 @@ export default function SiteFooter() {
               ) : (
                 <a
                   key={item.label}
-                  href={`mailto:bnst17042006@gmail.com?subject=${item.subject}`}
+                  href={`mailto:agentosys@gmail.com?subject=${item.subject}`}
                   className="transition-colors hover:text-white"
                 >
                   {item.label}

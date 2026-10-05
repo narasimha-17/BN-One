@@ -33,7 +33,7 @@ const SLOTS = [
   { id: '21-22', label: '9:00 PM – 10:00 PM' },
 ]
 
-const CONTACT_EMAIL = 'bnst17042006@gmail.com'
+const CONTACT_EMAIL = 'agentosys@gmail.com'
 
 function todayISO() {
   const t = new Date()

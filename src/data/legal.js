@@ -3,7 +3,7 @@
 // advice. Have a qualified lawyer review it (and confirm the legal entity name, registered address and
 // governing law) before you rely on it. Update LAST_UPDATED whenever you change the text.
 export const LAST_UPDATED = '20 September 2026'
-export const CONTACT_EMAIL = 'bnst17042006@gmail.com'
+export const CONTACT_EMAIL = 'agentosys@gmail.com'
 
 export const legal = {
   privacy: {
