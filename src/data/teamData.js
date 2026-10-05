@@ -7,6 +7,7 @@ export const team = [
     name: 'Narasimha',
     role: 'Founder & CEO',
     photo: '/team/narasimha.jpg',
+    linkedin: 'https://www.linkedin.com/in/budde-narasimha-surya-teja-633935300/',
     bio: 'Sets the vision and strategy, leads the company and makes the major decisions.',
   },
   {
@@ -21,6 +22,7 @@ export const team = [
     name: 'Pavani',
     role: 'CPO (Chief Product Officer)',
     photo: '/team/pavani.jpg',
+    linkedin: 'https://www.linkedin.com/in/pavani-gangisetti-05728025a',
     bio: 'Owns products, the SaaS, PaaS and TaaS roadmap, UX and product strategy.',
   },
   {
@@ -28,6 +30,7 @@ export const team = [
     name: 'Vinay',
     role: 'CCO (Chief Consulting Officer)',
     photo: '/team/vinay.jpg',
+    linkedin: 'https://www.linkedin.com/in/vinay-krishna-reddy/',
     bio: 'Leads sales, client relationships, partnerships and revenue.',
   },
   {
@@ -35,6 +38,7 @@ export const team = [
     name: 'Thanuja',
     role: 'COO (Chief Operating Officer)',
     photo: '/team/thanuja.jpg',
+    linkedin: 'https://www.linkedin.com/in/thanuja-chopperla-052725350/',
     bio: 'Runs operations, delivery, processes and execution.',
   },
   {
@@ -53,6 +57,7 @@ export const vps = [
     name: 'Madhav',
     role: 'VP of Sales & Marketing',
     photo: '/team/madhav.jpg',
+    linkedin: 'https://www.linkedin.com/in/madhavvarmab/',
     bio: 'Brings in new clients, runs marketing and grows the Agentosys brand.',
   },
   {
@@ -60,6 +65,7 @@ export const vps = [
     name: 'Nandan',
     role: 'VP of Sales & Marketing',
     photo: '/team/nandan.jpg',
+    linkedin: 'https://www.linkedin.com/in/guduri-harsha-sri-lakshmi-nandan-750826318/',
     bio: 'Brings in new clients, runs marketing and grows the Agentosys brand.',
   },
 ]
