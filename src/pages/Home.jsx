@@ -20,67 +20,9 @@ import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import { features, disciplines, services } from '../data/homeData.js'
 import { customerStories } from '../data/customerStories.js'
-import { productUrls } from '../data/productLinks.js'
+import { products as featuredProducts } from '../data/products.js'
 
 const featuredStories = customerStories.filter((s) => s.featured && s.quote).slice(0, 3)
-
-const featuredProducts = [
-  {
-    name: 'AgentCloud',
-    href: productUrls.AgentCloud,
-    category: 'AI AGENTS / AUTOMATION',
-    accent: 'text-volcanoCrimson',
-    body: 'An AI agent marketplace and team builder. Describe a goal, and AgentCloud assembles ready-to-deploy agents, connects them to the tools you already use, and keeps every action permissioned, approved where needed, and logged.',
-    tags: ['10,000+ ready-to-deploy agents', '100+ integrations, from Gmail to Salesforce', 'Human approvals and full audit logs', 'Managed cloud, self-hosted or air-gapped'],
-  },
-  {
-    name: 'PowerLens',
-    href: productUrls.PowerLens,
-    tile: 'from-[#F3EEFA]0 to-purple-700',
-    initial: 'P',
-    category: 'INTELLIGENCE / ANALYTICS',
-    accent: 'text-volcanoCrimson',
-    body: 'Turn complex operational data into clear decisions with a live command view built around your business.',
-    tags: ['Live Insights', 'Signal Mapping', 'Decision Tools'],
-  },
-  {
-    name: 'Optiva ERP',
-    href: productUrls['Optiva ERP'],
-    category: 'OPERATIONS / ERP',
-    accent: 'text-volcanoCrimson',
-    body: 'An ERP that brings finance, inventory, sales and people operations into one connected system, so every team works from the same live numbers.',
-    tags: ['Finance and Accounting', 'Inventory and Procurement', 'Sales and Customer Orders', 'Real-time Reporting'],
-  },
-  {
-    name: 'VIBE',
-    href: productUrls.VIBE,
-    tile: 'from-fuchsia-500 to-violet-600',
-    initial: 'V',
-    category: 'EXPERIENCE / ENGAGEMENT',
-    accent: 'text-volcanoCrimson',
-    body: 'A high-energy digital experience system for brands that need attention, movement, and measurable connection.',
-    tags: ['Brand Systems', 'Interactive UI', 'Conversion Flow'],
-  },
-  {
-    name: 'Code Check',
-    tile: 'from-indigo-500 to-blue-600',
-    initial: 'C',
-    category: 'ENGINEERING / QUALITY',
-    accent: 'text-volcanoPeach',
-    body: 'Bring confidence to every release with structured code review, performance checks, and practical fixes.',
-    tags: ['Code Review', 'Runtime Health', 'Release Ready'],
-  },
-  {
-    name: 'Exam+',
-    href: productUrls['Exam+'],
-    tile: 'from-cyan-400 to-sky-600',
-    initial: 'E',
-    category: 'LEARNING / PERFORMANCE',
-    accent: 'text-volcanoCrimson',
-    body: 'An engineering practice platform with timed exams, coding problems, study PDFs and peer discussion in one place, so students can see exactly where to focus before the exam begins.',
-    tags: ['Timed Practice Exams', 'Coding in Python, Java or C++', 'PDF Library and Discussion', 'Progress Tracking by Subject'],
-  },
-]
 
 export default function Home() {
   usePageTitle('Agentosys — Next-Gen Digital Architectures')
@@ -152,6 +94,11 @@ export default function Home() {
             </p>
           </div>
           <ProductShowcase products={featuredProducts} />
+          <div className="text-center">
+            <Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-volcanoCrimson hover:underline">
+              See all products in detail <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         {/* Capabilities Matrix */}

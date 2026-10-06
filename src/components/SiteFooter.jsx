@@ -174,7 +174,7 @@ export default function SiteFooter() {
                     {name}
                   </a>
                 ) : (
-                  <Link to="/#products" className={linkClass}>
+                  <Link to="/products" className={linkClass}>
                     {name}
                   </Link>
                 )}

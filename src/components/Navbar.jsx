@@ -7,7 +7,7 @@ import { useTheme } from '../lib/theme.js'
 import { productUrls } from '../data/productLinks.js'
 
 const NAV_LINKS = [
-  { label: 'Products', to: '/#products' },
+  { label: 'Products', to: '/products' },
   { label: 'Services', to: '/services' },
   { label: 'Industry', to: '/industry' },
   { label: 'Customers', to: '/customers' },
@@ -80,7 +80,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4 lg:gap-5 xl:gap-7 whitespace-nowrap text-xs font-semibold tracking-wider uppercase text-zinc-400">
             <div className="relative group">
-              <Link to="/#products" className="inline-flex items-center gap-2 py-4 hover:text-volcanoOrange transition-colors duration-200">
+              <Link to="/products" className="inline-flex items-center gap-2 py-4 hover:text-volcanoOrange transition-colors duration-200">
                 Products
                 <svg
                   viewBox="0 0 24 24"
@@ -109,7 +109,7 @@ export default function Navbar() {
                       </p>
                     </div>
                     <Link
-                      to="/#products"
+                      to="/products"
                       className="neon-btn inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold"
                     >
                       Explore all products <span aria-hidden="true">→</span>
@@ -122,7 +122,7 @@ export default function Navbar() {
                       {PRODUCT_LINKS.map((product) => {
                         const href = productUrls[product.name]
                         const Tag = href ? 'a' : Link
-                        const linkProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : { to: '/#products' }
+                        const linkProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : { to: '/products' }
                         return (
                         <Tag
                           key={product.name}

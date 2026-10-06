@@ -10,6 +10,7 @@ import usePageTitle from './hooks/usePageTitle.js'
 import { restoreLanguage } from './lib/translate.js'
 
 const Industry = lazy(() => import('./pages/Industry.jsx'))
+const Products = lazy(() => import('./pages/Products.jsx'))
 const Services = lazy(() => import('./pages/Services.jsx'))
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail.jsx'))
 const Leadership = lazy(() => import('./pages/Leadership.jsx'))
@@ -75,6 +76,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/industry" element={<Industry />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/leadership" element={<Leadership />} />
