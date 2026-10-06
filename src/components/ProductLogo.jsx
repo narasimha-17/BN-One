@@ -1,9 +1,24 @@
 const ICONS = {
+  AgentCloud: (
+    <>
+      <path d="M7 18a4 4 0 01-.6-7.95A5.5 5.5 0 0117 8.5a4.75 4.75 0 01.5 9.5H7z" />
+      <circle cx="9.5" cy="13.5" r="0.9" />
+      <circle cx="14.5" cy="13.5" r="0.9" />
+    </>
+  ),
   PowerLens: (
     <>
       <circle cx="12" cy="12" r="7.5" />
       <circle cx="12" cy="12" r="2.8" />
       <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22" />
+    </>
+  ),
+  'Optiva ERP': (
+    <>
+      <rect x="3" y="3" width="7.5" height="7.5" rx="1.5" />
+      <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5" />
+      <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5" />
+      <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5" />
     </>
   ),
   VIBE: <path d="M2.5 12h3.5l2.5-6.5 4 13 3-9.5 1.5 3H21.5" />,

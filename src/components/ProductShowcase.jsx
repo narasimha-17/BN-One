@@ -66,10 +66,22 @@ export default function ProductShowcase({ products }) {
               </li>
             ))}
           </ul>
-          <Link to="/services" className="neon-btn inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold">
-            Explore {product.name}
-            <span aria-hidden="true">→</span>
-          </Link>
+          {product.href ? (
+            <a
+              href={product.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neon-btn inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold"
+            >
+              Explore {product.name}
+              <span aria-hidden="true">→</span>
+            </a>
+          ) : (
+            <Link to="/services" className="neon-btn inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold">
+              Explore {product.name}
+              <span aria-hidden="true">→</span>
+            </Link>
+          )}
         </div>
 
         <ProductPreview name={product.name} />

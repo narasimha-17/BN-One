@@ -28,6 +28,54 @@ function Check({ on }) {
   )
 }
 
+const TEAM = [
+  ['Research Agent', 'Finds ICP matches'],
+  ['Lead Scoring', 'Ranks by fit'],
+  ['Outreach Agent', 'Personalized emails'],
+  ['CRM Agent', 'Logs every touch'],
+]
+
+// AgentCloud: a goal turns into a team of agents that come online one by one.
+function AgentCloudBody() {
+  const [step, setStep] = useState(0) // 0 idle, 1-4 agents online, 5-6 hold
+  useTicker(() => setStep((n) => (n >= 6 ? 0 : n + 1)), 1000)
+  const online = Math.min(step, TEAM.length)
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-2 rounded-lg bg-[#F3EEFA] px-3 py-2">
+        <span className="min-w-0 flex-1 truncate text-[11px] font-medium text-[#24113F]">“Find qualified leads for my business”</span>
+        <span className="shrink-0 rounded-full bg-[#6D28D9] px-2.5 py-0.5 text-[9px] font-bold text-white">Build Team</span>
+      </div>
+      <div className="space-y-1.5">
+        {TEAM.map(([agent, task], i) => {
+          const on = i < online
+          return (
+            <div
+              key={agent}
+              className={`flex items-center gap-3 rounded-lg border px-3 py-2 transition-all duration-500 ${
+                on ? 'border-[#6D28D9]/20 bg-white opacity-100' : 'border-transparent bg-[#F3EEFA]/60 opacity-50'
+              }`}
+            >
+              <Check on={on} />
+              <span className="min-w-0 flex-1">
+                <span className="block text-[11px] font-semibold text-[#24113F]">{agent}</span>
+                <span className="block text-[10px] text-[#6B6472]">{task}</span>
+              </span>
+              {i === 2 && on && (
+                <span className="shrink-0 rounded-full bg-[#00D4C4]/20 px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider text-[#24113F]">
+                  Needs approval
+                </span>
+              )}
+            </div>
+          )
+        })}
+      </div>
+      <p className="text-right font-mono text-[10px] text-[#6B6472]">{online}/4 agents online</p>
+    </div>
+  )
+}
+
 function PowerLensBody() {
   const [bars, setBars] = useState([38, 62, 48, 78, 56, 92, 68])
   const [signals, setSignals] = useState(1248)
@@ -256,8 +304,54 @@ function ExamBody() {
   )
 }
 
+const ERP_MODULES = ['Finance', 'Inventory', 'Sales', 'People']
+
+// Optiva ERP: modules sync one after another, then the cycle repeats.
+function OptivaBody() {
+  const [step, setStep] = useState(0)
+  const [orders, setOrders] = useState(342)
+  useTicker(() => {
+    setStep((n) => (n >= ERP_MODULES.length + 1 ? 0 : n + 1))
+    setOrders((n) => n + rand(1, 6))
+  }, 1100)
+
+  return (
+    <div className="space-y-3">
+      <div className="space-y-1.5">
+        {ERP_MODULES.map((module, i) => {
+          const on = i < step
+          return (
+            <div
+              key={module}
+              className={`flex items-center gap-3 rounded-lg border px-3 py-2 transition-all duration-500 ${
+                on ? 'border-[#6D28D9]/20 bg-white opacity-100' : 'border-transparent bg-[#F3EEFA]/60 opacity-50'
+              }`}
+            >
+              <Check on={on} />
+              <span className="flex-1 text-[11px] font-semibold text-[#24113F]">{module}</span>
+              <span className="text-[10px] text-[#6B6472]">{on ? 'Synced' : 'Waiting'}</span>
+            </div>
+          )
+        })}
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        <div className="rounded-xl bg-[#F3EEFA] p-3">
+          <div className="text-[10px] font-medium text-[#6B6472]">Open orders</div>
+          <div className="mt-1 text-sm font-bold tabular-nums text-volcanoWhite">{orders}</div>
+        </div>
+        <div className="rounded-xl bg-[#F3EEFA] p-3">
+          <div className="text-[10px] font-medium text-[#6B6472]">Modules online</div>
+          <div className="mt-1 text-sm font-bold tabular-nums text-volcanoWhite">{Math.min(step, ERP_MODULES.length)}/{ERP_MODULES.length}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const BODIES = {
+  AgentCloud: AgentCloudBody,
   PowerLens: PowerLensBody,
+  'Optiva ERP': OptivaBody,
   VIBE: VibeBody,
   'Code Check': CodeCheckBody,
   'Exam+': ExamBody,

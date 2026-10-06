@@ -20,12 +20,22 @@ import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import { features, disciplines, services } from '../data/homeData.js'
 import { customerStories } from '../data/customerStories.js'
+import { productUrls } from '../data/productLinks.js'
 
 const featuredStories = customerStories.filter((s) => s.featured && s.quote).slice(0, 3)
 
 const featuredProducts = [
   {
+    name: 'AgentCloud',
+    href: productUrls.AgentCloud,
+    category: 'AI AGENTS / AUTOMATION',
+    accent: 'text-volcanoCrimson',
+    body: 'An AI agent marketplace and team builder. Describe a goal, and AgentCloud assembles ready-to-deploy agents, connects them to the tools you already use, and keeps every action permissioned, approved where needed, and logged.',
+    tags: ['10,000+ ready-to-deploy agents', '100+ integrations, from Gmail to Salesforce', 'Human approvals and full audit logs', 'Managed cloud, self-hosted or air-gapped'],
+  },
+  {
     name: 'PowerLens',
+    href: productUrls.PowerLens,
     tile: 'from-[#F3EEFA]0 to-purple-700',
     initial: 'P',
     category: 'INTELLIGENCE / ANALYTICS',
@@ -34,7 +44,16 @@ const featuredProducts = [
     tags: ['Live Insights', 'Signal Mapping', 'Decision Tools'],
   },
   {
+    name: 'Optiva ERP',
+    href: productUrls['Optiva ERP'],
+    category: 'OPERATIONS / ERP',
+    accent: 'text-volcanoCrimson',
+    body: 'An ERP that brings finance, inventory, sales and people operations into one connected system, so every team works from the same live numbers.',
+    tags: ['Finance and Accounting', 'Inventory and Procurement', 'Sales and Customer Orders', 'Real-time Reporting'],
+  },
+  {
     name: 'VIBE',
+    href: productUrls.VIBE,
     tile: 'from-fuchsia-500 to-violet-600',
     initial: 'V',
     category: 'EXPERIENCE / ENGAGEMENT',
@@ -53,12 +72,13 @@ const featuredProducts = [
   },
   {
     name: 'Exam+',
+    href: productUrls['Exam+'],
     tile: 'from-cyan-400 to-sky-600',
     initial: 'E',
     category: 'LEARNING / PERFORMANCE',
     accent: 'text-volcanoCrimson',
-    body: 'A focused preparation system that turns revision into measurable progress before the exam begins.',
-    tags: ['Study Plans', 'Practice Tests', 'Progress Signals'],
+    body: 'An engineering practice platform with timed exams, coding problems, study PDFs and peer discussion in one place, so students can see exactly where to focus before the exam begins.',
+    tags: ['Timed Practice Exams', 'Coding in Python, Java or C++', 'PDF Library and Discussion', 'Progress Tracking by Subject'],
   },
 ]
 

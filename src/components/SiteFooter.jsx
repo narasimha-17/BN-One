@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { industries } from '../data/industryData.js'
 import { openCookieSettings } from '../lib/consent.js'
+import { productUrls } from '../data/productLinks.js'
 
-const productLinks = ['PowerLens', 'VIBE', 'Code Check', 'Exam+']
+const productLinks = ['AgentCloud', 'PowerLens', 'Optiva ERP', 'VIBE', 'Code Check', 'Exam+']
 
 const industryLinks = industries.map((ind) => ({ label: ind.title, to: `/industry#${ind.key}` }))
 
@@ -168,9 +169,15 @@ export default function SiteFooter() {
           <Column title="Products">
             {productLinks.map((name) => (
               <li key={name}>
-                <Link to="/#products" className={linkClass}>
-                  {name}
-                </Link>
+                {productUrls[name] ? (
+                  <a href={productUrls[name]} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    {name}
+                  </a>
+                ) : (
+                  <Link to="/#products" className={linkClass}>
+                    {name}
+                  </Link>
+                )}
               </li>
             ))}
           </Column>

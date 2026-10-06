@@ -4,6 +4,7 @@ import ProductLogo from './ProductLogo.jsx'
 import { serviceCatalog } from '../data/serviceCatalog.js'
 import { ThemeToggle, LanguageSwitcher } from './SiteControls.jsx'
 import { useTheme } from '../lib/theme.js'
+import { productUrls } from '../data/productLinks.js'
 
 const NAV_LINKS = [
   { label: 'Products', to: '/#products' },
@@ -24,7 +25,9 @@ const COMPANY_LINKS = [
 ]
 
 const PRODUCT_LINKS = [
+  { name: 'AgentCloud', type: 'AI Agents / Automation', description: 'Put your work on autopilot with an AI team.', accent: 'text-volcanoCrimson' },
   { name: 'PowerLens', type: 'Intelligence / Analytics', description: 'See the signal inside your operations.', accent: 'text-volcanoCrimson' },
+  { name: 'Optiva ERP', type: 'Operations / ERP', description: 'Run every department from one system.', accent: 'text-volcanoCrimson' },
   { name: 'VIBE', type: 'Experience / Engagement', description: 'Make every interaction feel alive.', accent: 'text-volcanoCrimson' },
   { name: 'Code Check', type: 'Engineering / Quality', description: 'Ship with confidence, every time.', accent: 'text-volcanoPeach' },
   { name: 'Exam+', type: 'Learning / Performance', description: 'Turn preparation into progress.', accent: 'text-volcanoCrimson' },
@@ -100,7 +103,7 @@ export default function Navbar() {
                   <div className="flex flex-col justify-between gap-8 bg-[#F3EEFA] p-6">
                     <div className="space-y-2">
                       <p className="text-[11px] font-semibold uppercase tracking-widest text-volcanoCrimson">Products</p>
-                      <h3 className="text-lg font-bold leading-snug text-volcanoWhite">One platform, four focused products</h3>
+                      <h3 className="text-lg font-bold leading-snug text-volcanoWhite">One platform, six focused products</h3>
                       <p className="text-xs leading-relaxed text-zinc-400">
                         Pick one product or run them together. Each is built to solve a real operational problem.
                       </p>
@@ -116,10 +119,14 @@ export default function Navbar() {
                   <div className="p-3">
                     <p className="px-3 pb-2 pt-2 text-[11px] font-semibold uppercase tracking-widest text-zinc-500">Our products</p>
                     <div className="grid gap-1 sm:grid-cols-2">
-                      {PRODUCT_LINKS.map((product) => (
-                        <Link
+                      {PRODUCT_LINKS.map((product) => {
+                        const href = productUrls[product.name]
+                        const Tag = href ? 'a' : Link
+                        const linkProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : { to: '/#products' }
+                        return (
+                        <Tag
                           key={product.name}
-                          to="/#products"
+                          {...linkProps}
                           className="group/product relative flex items-start gap-3 overflow-hidden rounded-xl p-3 transition-colors duration-200 before:absolute before:inset-y-2 before:left-0 before:w-[3px] before:origin-center before:scale-y-0 before:rounded-full before:bg-volcanoCrimson before:transition-transform before:duration-200 hover:bg-[#F3EEFA] hover:before:scale-y-100"
                         >
                           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F3EEFA] text-volcanoCrimson transition-colors duration-200 group-hover/product:bg-volcanoCrimson group-hover/product:text-white">
@@ -129,8 +136,9 @@ export default function Navbar() {
                             <span className="flex items-center gap-1 text-sm font-semibold text-volcanoWhite transition-colors duration-200 group-hover/product:text-volcanoCrimson">{product.name}<span aria-hidden="true" className="-translate-x-1 text-volcanoCrimson opacity-0 transition-all duration-200 group-hover/product:translate-x-0 group-hover/product:opacity-100">→</span></span>
                             <span className="mt-0.5 block text-xs leading-relaxed text-zinc-400">{product.description}</span>
                           </span>
-                        </Link>
-                      ))}
+                        </Tag>
+                        )
+                      })}
                     </div>
                     <div className="mt-2 flex items-center justify-between border-t border-[#24113F]/10 px-3 pb-1 pt-3 text-xs">
                       <span className="text-zinc-500">Looking for something else?</span>
