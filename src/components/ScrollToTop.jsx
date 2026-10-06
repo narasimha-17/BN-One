@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation()
+  // `key` changes on every navigation, even to the same URL, so re-clicking a /#anchor link scrolls again.
+  const { pathname, hash, key } = useLocation()
 
   useEffect(() => {
     if (hash) {
@@ -13,7 +14,7 @@ export default function ScrollToTop() {
       }
     }
     window.scrollTo(0, 0)
-  }, [pathname, hash])
+  }, [pathname, hash, key])
 
   return null
 }
