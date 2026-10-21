@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { submitEnquiry } from '../lib/enquiry.js'
 
-const CONTACT_EMAIL = 'agentosys@gmail.com'
+const CONTACT_EMAIL = 'contact@agentosys.in'
 
 const PERKS = ['Build breakdowns and practical lessons', 'New capabilities as they launch', 'Early access to consultation slots']
 

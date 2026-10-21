@@ -22,8 +22,8 @@ const CONTACTS = [
   },
   {
     label: 'Email us',
-    value: 'agentosys@gmail.com',
-    href: 'mailto:agentosys@gmail.com',
+    value: 'contact@agentosys.in',
+    href: 'mailto:contact@agentosys.in',
     icon: (
       <svg {...ICON}>
         <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -81,7 +81,7 @@ export default function ContactSection({ onBook }) {
                 Book free consultation
               </button>
               <a
-                href="mailto:agentosys@gmail.com"
+                href="mailto:contact@agentosys.in"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-8 text-sm font-bold text-white transition-all hover:border-white/60 hover:bg-white/10"
               >
                 Send an email

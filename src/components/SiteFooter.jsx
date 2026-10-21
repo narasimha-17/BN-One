@@ -215,7 +215,7 @@ export default function SiteFooter() {
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10">
           <ContactRow
-            href="mailto:agentosys@gmail.com"
+            href="mailto:contact@agentosys.in"
             icon={
               <svg {...iconProps}>
                 <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -223,7 +223,7 @@ export default function SiteFooter() {
               </svg>
             }
           >
-            agentosys@gmail.com
+            contact@agentosys.in
           </ContactRow>
           <ContactRow
             href="tel:+919381472064"
@@ -258,7 +258,7 @@ export default function SiteFooter() {
               ) : (
                 <a
                   key={item.label}
-                  href={`mailto:agentosys@gmail.com?subject=${item.subject}`}
+                  href={`mailto:contact@agentosys.in?subject=${item.subject}`}
                   className="transition-colors hover:text-white"
                 >
                   {item.label}
