@@ -34,8 +34,8 @@ export const products = [
     tags: ['Brand Systems', 'Interactive UI', 'Conversion Flow'],
   },
   {
-    name: 'Code Check',
-    slug: 'code-check',
+    name: 'Raftor',
+    slug: 'raftor',
     category: 'ENGINEERING / QUALITY',
     body: 'Bring confidence to every release with structured code review, performance checks, and practical fixes.',
     tags: ['Code Review', 'Runtime Health', 'Release Ready'],

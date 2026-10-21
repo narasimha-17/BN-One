@@ -22,7 +22,7 @@ const ICONS = {
     </>
   ),
   VIBE: <path d="M2.5 12h3.5l2.5-6.5 4 13 3-9.5 1.5 3H21.5" />,
-  'Code Check': (
+  'Raftor': (
     <>
       <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
       <path d="M9.8 12.4l1.6 1.6 3-3.6" />

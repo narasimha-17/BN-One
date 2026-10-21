@@ -240,7 +240,7 @@ function VibeBody() {
   )
 }
 
-function CodeCheckBody() {
+function RaftorBody() {
   const [step, setStep] = useState(0)
   useTicker(() => setStep((s) => (s >= 6 ? 0 : s + 1)), 850)
   const rows = [70, 46, 82, 58]
@@ -353,7 +353,7 @@ const BODIES = {
   PowerLens: PowerLensBody,
   'Optiva ERP': OptivaBody,
   VIBE: VibeBody,
-  'Code Check': CodeCheckBody,
+  'Raftor': RaftorBody,
   'Exam+': ExamBody,
 }
 

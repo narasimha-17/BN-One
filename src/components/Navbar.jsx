@@ -29,7 +29,7 @@ const PRODUCT_LINKS = [
   { name: 'PowerLens', type: 'Intelligence / Analytics', description: 'See the signal inside your operations.', accent: 'text-volcanoCrimson' },
   { name: 'Optiva ERP', type: 'Operations / ERP', description: 'Run every department from one system.', accent: 'text-volcanoCrimson' },
   { name: 'VIBE', type: 'Experience / Engagement', description: 'Make every interaction feel alive.', accent: 'text-volcanoCrimson' },
-  { name: 'Code Check', type: 'Engineering / Quality', description: 'Ship with confidence, every time.', accent: 'text-volcanoPeach' },
+  { name: 'Raftor', type: 'Engineering / Quality', description: 'Ship with confidence, every time.', accent: 'text-volcanoPeach' },
   { name: 'Exam+', type: 'Learning / Performance', description: 'Turn preparation into progress.', accent: 'text-volcanoCrimson' },
 ]
 

@@ -3,7 +3,7 @@ import { industries } from '../data/industryData.js'
 import { openCookieSettings } from '../lib/consent.js'
 import { productUrls } from '../data/productLinks.js'
 
-const productLinks = ['AgentCloud', 'PowerLens', 'Optiva ERP', 'VIBE', 'Code Check', 'Exam+']
+const productLinks = ['AgentCloud', 'PowerLens', 'Optiva ERP', 'VIBE', 'Raftor', 'Exam+']
 
 const industryLinks = industries.map((ind) => ({ label: ind.title, to: `/industry#${ind.key}` }))
 
