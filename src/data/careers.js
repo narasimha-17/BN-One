@@ -1,121 +1,156 @@
 // Open roles shown on /careers.
-// These are SAMPLE roles based on the kind of work Agentosys does. Edit, add or delete them to match
-// what you are actually hiring for. If the list is empty, the page shows a "no openings right now"
-// message with a general-application option instead.
+// If the list is empty, the page shows a "no openings right now" message with a general-application option.
+//
+// APPLICATION_FORM_URL: paste the application form link here once you have it. While it is empty,
+// every "Apply" button falls back to emailing HIRING_EMAIL.
 export const HIRING_EMAIL = 'contact@agentosys.in'
+export const APPLICATION_FORM_URL = ''
 
-export const departments = ['Engineering', 'AI & Data', 'Design']
+export const LOCATION = 'Rajahmundry, Andhra Pradesh'
+
+export const internshipInfo = {
+  stipend: '₹11,000 / month',
+  duration: '6 months',
+}
+
+export const departments = ['Engineering', 'AI & Data', 'Cloud & DevOps', 'Design']
 export const jobTypes = ['Full-time', 'Internship']
 
 export const roles = [
   {
-    id: 'frontend-engineer',
-    title: 'Frontend Engineer',
+    id: 'forward-deployed-engineer',
+    title: 'Forward Deployed Engineer',
     department: 'Engineering',
     type: 'Full-time',
-    location: 'Hyderabad, India',
-    summary: 'Build fast, polished interfaces for client products using React and Tailwind CSS.',
+    location: LOCATION,
+    openings: 1,
+    pay: '₹4 LPA',
+    summary: 'Work directly with clients to turn their problems into working software, from first call to production.',
     responsibilities: [
-      'Turn designs into responsive, accessible React interfaces',
-      'Own features from first sketch to production release',
-      'Review code and keep performance and quality high',
+      'Understand client needs and shape them into technical solutions',
+      'Build, integrate and deploy features on real client projects',
+      'Stay close to users after launch and keep improving what you shipped',
     ],
     requirements: [
-      'Solid JavaScript and React fundamentals',
-      'Good eye for layout, spacing and detail',
-      'Comfortable working directly with clients and teammates',
+      'Solid programming fundamentals and the habit of building things',
+      'Clear communication with both technical and non-technical people',
+      'Comfortable learning new tools and domains quickly',
     ],
   },
   {
-    id: 'backend-engineer',
-    title: 'Backend Engineer',
-    department: 'Engineering',
-    type: 'Full-time',
-    location: 'Hyderabad, India',
-    summary: 'Design APIs, data models and services that stay reliable under real traffic.',
-    responsibilities: [
-      'Build and maintain APIs and background services',
-      'Model data and keep databases fast and safe',
-      'Monitor, debug and improve production systems',
-    ],
-    requirements: [
-      'Strong in at least one backend language (Python, Node.js or similar)',
-      'Experience with SQL databases',
-      'Care about clean, testable code',
-    ],
-  },
-  {
-    id: 'ai-ml-engineer',
-    title: 'AI / ML Engineer',
+    id: 'ai-native-developer',
+    title: 'AI-Native Developer',
     department: 'AI & Data',
     type: 'Full-time',
-    location: 'Hyderabad, India',
-    summary: 'Ship practical machine-learning features, from data pipelines to deployed models.',
+    location: LOCATION,
+    openings: 1,
+    pay: '₹3.7 LPA',
+    summary: 'Build AI-powered applications and intelligent automation, using AI tools as part of how you work every day.',
     responsibilities: [
-      'Prototype and productionise ML and computer-vision models',
-      'Build data pipelines and evaluation tooling',
-      'Explain results clearly to non-technical teammates',
+      'Build applications and automations on top of modern AI models and APIs',
+      'Use AI-assisted development to ship faster without lowering quality',
+      'Test, evaluate and improve AI features for real-world reliability',
     ],
     requirements: [
-      'Hands-on Python with ML tooling (TensorFlow, PyTorch or scikit-learn)',
-      'Understanding of model evaluation and data quality',
-      'Curiosity about applying AI to real business problems',
+      'Good grounding in programming (Python or JavaScript preferred)',
+      'Hands-on experience building with LLMs or AI APIs, even on personal projects',
+      'Curiosity and a bias for shipping working products',
     ],
   },
   {
-    id: 'ui-ux-designer',
-    title: 'UI / UX Designer',
-    department: 'Design',
-    type: 'Full-time',
-    location: 'Hyderabad, India',
-    summary: 'Shape clean, usable product experiences from research through to final visuals.',
+    id: 'ai-ml-intern',
+    title: 'AI / ML Intern',
+    department: 'AI & Data',
+    type: 'Internship',
+    location: LOCATION,
+    openings: 2,
+    summary: 'Learn by building real machine-learning and AI features alongside the engineering team.',
     responsibilities: [
-      'Create flows, wireframes and high-fidelity designs',
-      'Work with engineers to ship what you design',
-      'Maintain a consistent visual system across products',
+      'Prototype AI and ML features on live projects',
+      'Prepare data and help evaluate model results',
+      'Present what you built and learned to the team',
     ],
     requirements: [
-      'A portfolio showing real product or web design work',
-      'Proficiency in Figma or a similar tool',
-      'Clear thinking about users and usability',
+      'Basics of Python and machine learning concepts',
+      'Studying or recently graduated in a technical field',
+      'Eagerness to learn, ask questions and build',
     ],
   },
   {
-    id: 'software-intern',
-    title: 'Software Engineering Intern',
+    id: 'full-stack-intern',
+    title: 'Full-Stack Developer Intern',
     department: 'Engineering',
     type: 'Internship',
-    location: 'Hyderabad, India',
-    summary: 'Learn by building. Work on real projects alongside the founding team.',
+    location: LOCATION,
+    openings: 2,
+    summary: 'Build real features across the frontend and backend of client and product work.',
     responsibilities: [
-      'Contribute to live client and product work',
+      'Contribute to web applications, from interface to API',
       'Get code reviews and mentoring from senior engineers',
-      'Present what you built to the team',
+      'Ship work that real users will see',
     ],
     requirements: [
+      'Basics of web development (HTML, CSS, JavaScript; React or Node.js is a plus)',
       'Studying or recently graduated in a technical field',
-      'Basics of programming in any language',
-      'Eagerness to learn and ask questions',
+      'A project or two you built yourself',
+    ],
+  },
+  {
+    id: 'cloud-devops-intern',
+    title: 'Cloud / DevOps Intern',
+    department: 'Cloud & DevOps',
+    type: 'Internship',
+    location: LOCATION,
+    openings: 1,
+    summary: 'Learn how production software is deployed, monitored and kept running in the cloud.',
+    responsibilities: [
+      'Help set up deployments, CI/CD pipelines and environments',
+      'Work with cloud services and monitoring tools',
+      'Document and improve how the team ships software',
+    ],
+    requirements: [
+      'Basic understanding of Linux, Git and cloud concepts',
+      'Studying or recently graduated in a technical field',
+      'Interest in automation and infrastructure',
+    ],
+  },
+  {
+    id: 'ui-ux-intern',
+    title: 'UI / UX Developer Intern',
+    department: 'Design',
+    type: 'Internship',
+    location: LOCATION,
+    openings: 1,
+    summary: 'Design and build clean, usable interfaces, taking ideas from sketch to working code.',
+    responsibilities: [
+      'Create wireframes and designs, and turn them into front-end code',
+      'Work with engineers to ship what you design',
+      'Help keep a consistent visual system across products',
+    ],
+    requirements: [
+      'Working knowledge of HTML and CSS, and a design tool such as Figma',
+      'A few design or front-end samples to show',
+      'Attention to detail and care about users',
     ],
   },
 ]
 
 export const reasons = [
   {
-    title: 'Real ownership',
-    body: 'A small team means your work ships and your decisions matter, from the first week.',
+    title: 'A path to full-time',
+    body: 'High-performing interns are considered for full-time roles with the team.',
   },
   {
-    title: 'Projects across industries',
-    body: 'Healthcare, finance, logistics, education and more. You will not get bored.',
+    title: 'Real-world projects',
+    body: 'Work on live client and product projects, not practice exercises.',
   },
   {
-    title: 'Any language, right tool',
-    body: 'We pick the best tool for the problem, so you keep learning instead of repeating one stack.',
+    title: 'AI, software and cloud',
+    body: 'Hands-on experience across AI, software engineering and cloud technologies.',
   },
   {
-    title: 'Direct access',
-    body: 'Work side by side with the founders. No layers of management between you and the product.',
+    title: 'Mentorship',
+    body: 'Learn directly from the founders and senior engineers, with regular code reviews and feedback.',
   },
 ]
 

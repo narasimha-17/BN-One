@@ -348,6 +348,50 @@ function OptivaBody() {
   )
 }
 
+const RESEARCH_STAGES = [
+  ['Literature', 'Found 42 relevant papers'],
+  ['Architecture', 'Method design drafted'],
+  ['Code', 'Experiment code generated'],
+  ['Experiments', 'Runs logged and compared'],
+  ['Manuscript', 'Draft ready for the team'],
+]
+
+// PaperLabs: the research journey moves stage by stage, from literature to manuscript.
+function PaperLabsBody() {
+  const [step, setStep] = useState(0) // 0 idle, 1-5 stages done, 6 hold
+  useTicker(() => setStep((n) => (n >= 6 ? 0 : n + 1)), 1000)
+  const done = Math.min(step, RESEARCH_STAGES.length)
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-2 rounded-lg bg-[#F3EEFA] px-3 py-2">
+        <span className="min-w-0 flex-1 truncate text-[11px] font-medium text-[#24113F]">“Explain how X improves Y in low-data settings”</span>
+        <span className="shrink-0 rounded-full bg-[#6D28D9] px-2.5 py-0.5 text-[9px] font-bold text-white">Start</span>
+      </div>
+      <div className="space-y-1.5">
+        {RESEARCH_STAGES.map(([stage, note], i) => {
+          const on = i < done
+          return (
+            <div
+              key={stage}
+              className={`flex items-center gap-3 rounded-lg border px-3 py-2 transition-all duration-500 ${
+                on ? 'border-[#6D28D9]/20 bg-white opacity-100' : 'border-transparent bg-[#F3EEFA]/60 opacity-50'
+              }`}
+            >
+              <Check on={on} />
+              <span className="min-w-0 flex-1">
+                <span className="block text-[11px] font-semibold text-[#24113F]">{stage}</span>
+                <span className="block text-[10px] text-[#6B6472]">{on ? note : 'Waiting'}</span>
+              </span>
+            </div>
+          )
+        })}
+      </div>
+      <p className="text-right font-mono text-[10px] text-[#6B6472]">{done}/{RESEARCH_STAGES.length} stages complete</p>
+    </div>
+  )
+}
+
 const BODIES = {
   AgentCloud: AgentCloudBody,
   PowerLens: PowerLensBody,
@@ -355,6 +399,7 @@ const BODIES = {
   VIBE: VibeBody,
   'Raftor': RaftorBody,
   'Exam+': ExamBody,
+  PaperLabs: PaperLabsBody,
 }
 
 export default function ProductPreview({ name }) {

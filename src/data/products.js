@@ -48,4 +48,12 @@ export const products = [
     body: 'An engineering practice platform with timed exams, coding problems, study PDFs and peer discussion in one place, so students can see exactly where to focus before the exam begins.',
     tags: ['Timed Practice Exams', 'Coding in Python, Java or C++', 'PDF Library and Discussion', 'Progress Tracking by Subject'],
   },
+  {
+    name: 'PaperLabs',
+    slug: 'paperlabs',
+    href: productUrls.PaperLabs,
+    category: 'RESEARCH / PUBLICATION',
+    body: 'An AI-powered research platform that helps researchers turn ideas into impactful publications. From finding the right literature to preparing the final manuscript, the whole research journey lives in one intelligent workspace.',
+    tags: ['Literature Discovery', 'Research Architecture Design', 'Code Generation and Experiments', 'Team Collaboration and Manuscripts'],
+  },
 ]

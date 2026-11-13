@@ -3,7 +3,19 @@ import Navbar from '../components/Navbar.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
-import { HIRING_EMAIL, departments, jobTypes, roles, reasons, process } from '../data/careers.js'
+import {
+  APPLICATION_FORM_URL,
+  HIRING_EMAIL,
+  LOCATION,
+  departments,
+  internshipInfo,
+  jobTypes,
+  roles,
+  reasons,
+  process,
+} from '../data/careers.js'
+
+const totalOpenings = roles.reduce((sum, r) => sum + (r.openings || 1), 0)
 
 const ICON = {
   viewBox: '0 0 24 24',
@@ -32,9 +44,14 @@ const REASON_ICONS = [
 ]
 
 const applyHref = (title) =>
+  APPLICATION_FORM_URL ||
   `mailto:${HIRING_EMAIL}?subject=${encodeURIComponent(`Application: ${title}`)}&body=${encodeURIComponent(
     'Hi Agentosys team,\n\nI would like to apply for this role.\n\nName:\nLinkedIn / GitHub / Portfolio:\nCV: (attached)\n\nA few lines about me:\n',
   )}`
+
+const applyProps = APPLICATION_FORM_URL ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+
+const openingsLabel = (n) => `${n} ${n === 1 ? 'opening' : 'openings'}`
 
 function RoleItem({ role, open, onToggle }) {
   const panelId = `role-${role.id}`
@@ -57,6 +74,14 @@ function RoleItem({ role, open, onToggle }) {
             <span>{role.type}</span>
             <span aria-hidden="true" className="h-1 w-1 rounded-full bg-zinc-500/50" />
             <span>{role.location}</span>
+          </span>
+          <span className="flex flex-wrap items-center gap-2 pt-1">
+            <span className="rounded-full bg-[#F3EEFA] px-3 py-1 text-xs font-semibold text-volcanoCrimson">
+              {openingsLabel(role.openings)}
+            </span>
+            <span className="rounded-full bg-[#F3EEFA] px-3 py-1 text-xs font-semibold text-volcanoCrimson">
+              {role.pay ?? `${internshipInfo.stipend} · ${internshipInfo.duration}`}
+            </span>
           </span>
         </span>
         <span
@@ -100,7 +125,7 @@ function RoleItem({ role, open, onToggle }) {
                 </div>
               ))}
             </div>
-            <a href={applyHref(role.title)} className="neon-btn inline-flex h-11 items-center gap-2 rounded-full px-7 text-sm font-bold">
+            <a href={applyHref(role.title)} {...applyProps} className="neon-btn inline-flex h-11 items-center gap-2 rounded-full px-7 text-sm font-bold">
               Apply for this role <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -161,8 +186,8 @@ export default function Careers() {
                 Build what&apos;s next <span className="neon-text-light">with us.</span>
               </h1>
               <p className="max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
-                We are a small, hands-on team building software for real businesses. Join us and do the best work of
-                your career.
+                We&apos;re expanding our engineering team. If you want to build real-world AI-powered applications,
+                intelligent automation and next-generation software, we&apos;d love to meet you.
               </p>
               <div className="flex flex-col gap-3 pt-2 sm:flex-row">
                 <a href="#roles" className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-[#24113F] shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#F3EEFA]">
@@ -170,6 +195,7 @@ export default function Careers() {
                 </a>
                 <a
                   href={applyHref('General application')}
+                  {...applyProps}
                   className="inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-8 text-sm font-bold text-white transition-all hover:border-white/60 hover:bg-white/10"
                 >
                   Send your CV
@@ -179,9 +205,9 @@ export default function Careers() {
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {[
+                [String(totalOpenings), 'Openings'],
                 [String(roles.length), 'Open roles'],
-                [String(departments.length), 'Teams'],
-                ['Hyderabad', 'Based in'],
+                ['Rajahmundry', 'Hiring in'],
               ].map(([value, label], i) => (
                 <div key={label} className={`min-w-0 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 backdrop-blur transition-colors hover:bg-white/10 sm:px-5 sm:py-4 ${i === 2 ? 'col-span-2 sm:col-span-1' : ''}`}>
                   <div className="text-xl font-extrabold text-white sm:text-3xl">{value}</div>
@@ -199,6 +225,13 @@ export default function Careers() {
             <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">
               A place to grow, build and be heard.
             </h2>
+          </div>
+          <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-3 rounded-2xl border border-[#24113F]/10 bg-[#F3EEFA]/60 px-6 py-4 text-center text-sm font-semibold text-volcanoWhite sm:flex-row sm:gap-8">
+            <span>Internship stipend: {internshipInfo.stipend}</span>
+            <span className="hidden h-1 w-1 rounded-full bg-zinc-500/50 sm:block" aria-hidden="true" />
+            <span>Duration: {internshipInfo.duration}</span>
+            <span className="hidden h-1 w-1 rounded-full bg-zinc-500/50 sm:block" aria-hidden="true" />
+            <span>Location: {LOCATION}</span>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {reasons.map((reason, i) => (
@@ -347,6 +380,7 @@ export default function Careers() {
               </p>
               <a
                 href={applyHref('General application')}
+                {...applyProps}
                 className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-[#24113F] shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#F3EEFA]"
               >
                 Send a general application

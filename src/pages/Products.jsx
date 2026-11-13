@@ -18,7 +18,7 @@ export default function Products() {
         <section className="mx-auto max-w-3xl space-y-5 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Products</p>
           <h1 className="text-4xl font-black leading-[1.05] tracking-tighter sm:text-5xl lg:text-6xl">
-            Six products, one <span className="neon-text">Agentosys.</span>
+            Seven products, one <span className="neon-text">Agentosys.</span>
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
             Each product solves one real operational problem. Use one on its own, or run them together.

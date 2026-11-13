@@ -35,6 +35,13 @@ const ICONS = {
       <path d="M22 9v5.5" />
     </>
   ),
+  PaperLabs: (
+    <>
+      <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z" />
+      <path d="M14 3v5h5" />
+      <path d="M9 13h6M9 17h4" />
+    </>
+  ),
 }
 
 export default function ProductLogo({ name, className = 'h-6 w-6' }) {

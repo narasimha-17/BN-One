@@ -31,6 +31,7 @@ const PRODUCT_LINKS = [
   { name: 'VIBE', type: 'Experience / Engagement', description: 'Make every interaction feel alive.', accent: 'text-volcanoCrimson' },
   { name: 'Raftor', type: 'Engineering / Quality', description: 'Ship with confidence, every time.', accent: 'text-volcanoPeach' },
   { name: 'Exam+', type: 'Learning / Performance', description: 'Turn preparation into progress.', accent: 'text-volcanoCrimson' },
+  { name: 'PaperLabs', type: 'Research / Publication', description: 'From idea to published paper.', accent: 'text-volcanoCrimson' },
 ]
 
 export default function Navbar() {
@@ -103,7 +104,7 @@ export default function Navbar() {
                   <div className="flex flex-col justify-between gap-8 bg-[#F3EEFA] p-6">
                     <div className="space-y-2">
                       <p className="text-[11px] font-semibold uppercase tracking-widest text-volcanoCrimson">Products</p>
-                      <h3 className="text-lg font-bold leading-snug text-volcanoWhite">One platform, six focused products</h3>
+                      <h3 className="text-lg font-bold leading-snug text-volcanoWhite">One platform, seven focused products</h3>
                       <p className="text-xs leading-relaxed text-zinc-400">
                         Pick one product or run them together. Each is built to solve a real operational problem.
                       </p>
