@@ -10,18 +10,21 @@ const ACCESS_KEY = import.meta.env.VITE_FORM_ACCESS_KEY
 
 export const enquiryStorageEnabled = Boolean(ENDPOINT)
 
-export async function submitEnquiry(form, fields, mailtoHref) {
-  if (!ENDPOINT) {
+// `fallbackEndpoint` is used only when VITE_FORM_ENDPOINT is not set. It lets a single form (the contact
+// form) deliver by email without a configured form service. Without either, we open the mail app.
+export async function submitEnquiry(form, fields, mailtoHref, fallbackEndpoint) {
+  const endpoint = ENDPOINT || fallbackEndpoint
+  if (!endpoint) {
     window.location.href = mailtoHref
     track('Enquiry', { form, via: 'email' })
     return { ok: true, stored: false }
   }
   try {
-    const res = await fetch(ENDPOINT, {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        ...(ACCESS_KEY ? { access_key: ACCESS_KEY, subject: `Agentosys enquiry: ${form}` } : {}),
+        ...(ENDPOINT && ACCESS_KEY ? { access_key: ACCESS_KEY, subject: `Agentosys enquiry: ${form}` } : {}),
         form,
         ...fields,
       }),

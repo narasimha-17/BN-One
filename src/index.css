@@ -493,3 +493,113 @@ main:focus { outline: none; }
 [data-theme="dark"] .text-\[\#6D28D9\] { color: #bda8fc; }
 [data-theme="dark"] .text-\[\#24113F\]:not(.bg-white) { color: #f3eefa; }
 [data-theme="dark"] .hover\:text-volcanoCrimson:hover { color: #d6c8ff; }
+
+/* Contact form (premium glass card) */
+.contact-card {
+  position: relative;
+  border-radius: 1.75rem;
+  padding: 1px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04) 40%, rgba(0, 212, 196, 0.35));
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.6), 0 0 60px -20px rgba(109, 40, 217, 0.5);
+}
+.contact-card-inner {
+  border-radius: calc(1.75rem - 1px);
+  background: linear-gradient(160deg, rgba(40, 20, 70, 0.92), rgba(24, 11, 46, 0.92));
+  backdrop-filter: blur(14px);
+}
+.contact-submit {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(110deg, #7c3aed 0%, #6d28d9 45%, #0fb5a8 100%);
+  background-size: 140% 100%;
+  box-shadow: 0 18px 36px -14px rgba(109, 40, 217, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.4s ease;
+}
+.contact-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow: 0 22px 44px -14px rgba(0, 212, 196, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.contact-submit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+.contact-submit:hover:not(:disabled)::after {
+  transform: translateX(120%);
+  transition: transform 0.8s ease;
+}
+@keyframes contact-pop {
+  0% { opacity: 0; transform: scale(0.6); }
+  70% { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes contact-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.contact-pop { animation: contact-pop 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.contact-rise { animation: contact-rise 0.5s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  .contact-pop, .contact-rise { animation: none; }
+  .contact-submit, .contact-submit::after { transition: none; }
+}
+
+/* CTA background lines: a glowing pulse travels along each curve while the set gently sways */
+@keyframes cta-line-flow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -1000; }
+}
+@keyframes cta-line-sway {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-24px, 10px, 0); }
+}
+.cta-line-flow {
+  stroke-dasharray: 130 870;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 196, 0.55));
+  animation: cta-line-flow 10s linear infinite;
+}
+.cta-line-sway {
+  animation: cta-line-sway 12s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-line-flow, .cta-line-sway { animation: none; }
+  .cta-line-flow { display: none; }
+}
+
+/* Leadership banner: orbiting dots, breathing rings, ripple, glow and staggered text entrance */
+@keyframes lead-orbit { to { transform: rotate(360deg); } }
+@keyframes lead-breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.035); opacity: 0.6; }
+}
+@keyframes lead-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+}
+@keyframes lead-ripple {
+  0% { transform: scale(0.15); opacity: 0.45; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes lead-glow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: 0.7; }
+}
+@keyframes lead-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.lead-orbit, .lead-ring, .lead-core, .lead-ripple { transform-origin: 290px 150px; }
+.lead-orbit { animation: lead-orbit 24s linear infinite; }
+.lead-ring { animation: lead-breathe 6s ease-in-out infinite; }
+.lead-core { animation: lead-pulse 3s ease-in-out infinite; }
+.lead-ripple { animation: lead-ripple 6s ease-out infinite; }
+.lead-glow { animation: lead-glow 9s ease-in-out infinite; }
+.lead-rise { animation: lead-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .lead-orbit, .lead-ring, .lead-core, .lead-glow, .lead-rise { animation: none; }
+  .lead-ripple { display: none; }
+}

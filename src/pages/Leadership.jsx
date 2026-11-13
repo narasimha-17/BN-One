@@ -100,7 +100,7 @@ export default function Leadership() {
       <main className="relative z-10 mx-auto max-w-6xl px-4 pb-8 pt-28 sm:px-6 md:pt-36">
         {/* Banner */}
         <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#EAE2F7] via-[#F3EEFA] to-white px-6 py-16 sm:px-12 md:py-24">
-          <div className="pointer-events-none absolute -right-20 -top-24 h-96 w-96 rounded-full bg-[#6D28D9]/25 blur-3xl" />
+          <div className="lead-glow pointer-events-none absolute -right-20 -top-24 h-96 w-96 rounded-full bg-[#6D28D9]/25 blur-3xl" />
           <svg
             className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-1/2 md:block"
             viewBox="0 0 400 300"
@@ -108,19 +108,31 @@ export default function Leadership() {
             fill="none"
             aria-hidden="true"
           >
-            <circle cx="290" cy="150" r="60" stroke="#6D28D9" strokeOpacity="0.35" />
-            <circle cx="290" cy="150" r="105" stroke="#6D28D9" strokeOpacity="0.22" />
-            <circle cx="290" cy="150" r="150" stroke="#6D28D9" strokeOpacity="0.14" />
-            <circle cx="290" cy="150" r="9" fill="#6D28D9" />
-            <circle cx="235" cy="62" r="6" fill="#6D28D9" fillOpacity="0.7" />
-            <circle cx="352" cy="208" r="6" fill="#6D28D9" fillOpacity="0.7" />
+            {/* Ripple radiating from the centre */}
+            <circle className="lead-ripple" cx="290" cy="150" r="60" stroke="#6D28D9" strokeWidth="1.5" />
+            <circle className="lead-ripple" cx="290" cy="150" r="60" stroke="#6D28D9" strokeWidth="1.5" style={{ animationDelay: '-3s' }} />
+            {/* Rings breathe gently, out of step with each other */}
+            <circle className="lead-ring" cx="290" cy="150" r="60" stroke="#6D28D9" strokeOpacity="0.35" />
+            <circle className="lead-ring" cx="290" cy="150" r="105" stroke="#6D28D9" strokeOpacity="0.22" style={{ animationDelay: '-2s' }} />
+            <circle className="lead-ring" cx="290" cy="150" r="150" stroke="#6D28D9" strokeOpacity="0.14" style={{ animationDelay: '-4s' }} />
+            <circle className="lead-core" cx="290" cy="150" r="9" fill="#6D28D9" />
+            {/* Dots travel along their rings */}
+            <g className="lead-orbit" style={{ animationDuration: '26s' }}>
+              <circle cx="235" cy="62" r="6" fill="#6D28D9" fillOpacity="0.7" />
+            </g>
+            <g className="lead-orbit" style={{ animationDuration: '16s', animationDirection: 'reverse' }}>
+              <circle cx="350" cy="150" r="5" fill="#00D4C4" fillOpacity="0.85" />
+            </g>
+            <g className="lead-orbit" style={{ animationDuration: '44s' }}>
+              <circle cx="184" cy="256" r="4" fill="#6D28D9" fillOpacity="0.5" />
+            </g>
           </svg>
           <div className="relative max-w-xl space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Leadership</p>
-            <h1 className="text-4xl font-black leading-[1.05] tracking-tighter sm:text-5xl md:text-6xl">
+            <p className="lead-rise text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Leadership</p>
+            <h1 className="lead-rise text-4xl font-black leading-[1.05] tracking-tighter sm:text-5xl md:text-6xl" style={{ animationDelay: '120ms' }}>
               Led by people who build.
             </h1>
-            <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+            <p className="lead-rise text-base leading-relaxed text-zinc-400 md:text-lg" style={{ animationDelay: '240ms' }}>
               A small, hands-on team. Every engagement is built and reviewed personally, not routed through a
               queue of contractors.
             </p>
