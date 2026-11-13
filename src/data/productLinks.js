@@ -5,4 +5,5 @@ export const productUrls = {
   'Optiva ERP': 'https://optiva-erp.agentosys.in/',
   VIBE: 'https://vibe.agentosys.in/',
   'Exam+': 'https://xamplus-frontend.onrender.com/',
+  PaperLabs: 'https://paperlabs.agentosys.in/',
 }
