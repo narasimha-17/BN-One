@@ -14,7 +14,7 @@ function resolveStep(step) {
   }
   if (step.kind === 'checklist') {
     const list = checklists.find((c) => c.id === step.id)
-    return list && { label: 'Checklist', title: list.title, meta: `${list.items.length} items`, to: { hash: '#checklists', state: { checklist: list.id } } }
+    return list && { label: 'Checklist', title: list.title, meta: `${list.items.length} items`, to: '#checklists', state: { checklist: list.id } }
   }
   if (step.kind === 'service') {
     const service = findService(step.slug)
@@ -77,7 +77,7 @@ function LearningPaths() {
               <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-volcanoCrimson text-sm font-bold text-white shadow-[0_8px_20px_-8px_rgba(109,40,217,0.8)]">
                 {i + 1}
               </span>
-              <Link to={step.to} className="hud-card group flex flex-1 items-center justify-between gap-4 rounded-2xl p-4 hover:-translate-y-0.5 sm:p-5">
+              <Link to={step.to} state={step.state} className="hud-card group flex flex-1 items-center justify-between gap-4 rounded-2xl p-4 hover:-translate-y-0.5 sm:p-5">
                 <div className="min-w-0">
                   <p className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-volcanoCrimson">
                     {step.label}

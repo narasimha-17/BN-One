@@ -95,7 +95,8 @@ function GetStarted({ onBook }) {
               Book free consultation
             </button>
             <Link
-              to={{ hash: '#checklists', state: { checklist: 'project-brief' } }}
+              to="#checklists"
+              state={{ checklist: 'project-brief' }}
               className="inline-flex h-12 items-center justify-center whitespace-nowrap rounded-full border border-white/25 px-7 text-sm font-bold text-white transition-all hover:border-white/60 hover:bg-white/10"
             >
               Start your brief
