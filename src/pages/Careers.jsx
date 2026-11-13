@@ -8,6 +8,7 @@ import {
   HIRING_EMAIL,
   LOCATION,
   departments,
+  eligibility,
   internshipInfo,
   jobTypes,
   roles,
@@ -110,7 +111,7 @@ function RoleItem({ role, open, onToggle }) {
             <div className="grid gap-6 sm:grid-cols-2">
               {[
                 ['What you will do', role.responsibilities],
-                ['What we look for', role.requirements],
+                ['Required skills', role.requirements],
               ].map(([heading, items]) => (
                 <div key={heading} className="space-y-3">
                   <h3 className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">{heading}</h3>
@@ -125,6 +126,18 @@ function RoleItem({ role, open, onToggle }) {
                 </div>
               ))}
             </div>
+            {role.niceToHave?.length > 0 && (
+              <div className="space-y-3">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Good to have</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {role.niceToHave.map((item) => (
+                    <li key={item} className="rounded-full border border-[#24113F]/15 bg-white px-3 py-1 text-xs font-medium text-volcanoWhite">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <a href={applyHref(role.title)} {...applyProps} className="neon-btn inline-flex h-11 items-center gap-2 rounded-full px-7 text-sm font-bold">
               Apply for this role <span aria-hidden="true">→</span>
             </a>
@@ -336,6 +349,25 @@ export default function Careers() {
                 </div>
               )}
             </div>
+          </div>
+        </section>
+
+        {/* Eligibility */}
+        <section className="border-t border-zinc-900/60 py-16 md:py-24">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-volcanoCrimson">Eligibility</p>
+              <h2 className="text-3xl font-extrabold tracking-tighter text-volcanoWhite sm:text-4xl">Who can apply.</h2>
+              <p className="text-sm text-zinc-400">Work location: {LOCATION}.</p>
+            </div>
+            <ul className="space-y-3">
+              {eligibility.map((item) => (
+                <li key={item} className="flex gap-3 text-sm leading-relaxed text-volcanoWhite">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volcanoCrimson" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

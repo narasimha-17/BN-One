@@ -25,17 +25,25 @@ export const roles = [
     location: LOCATION,
     openings: 1,
     pay: '₹4 LPA',
-    summary: 'Work directly with clients to turn their problems into working software, from first call to production.',
+    summary:
+      'Work closely with clients to understand business requirements and turn them into practical technology solutions. Build, integrate and deploy AI-powered applications and custom software.',
     responsibilities: [
-      'Understand client needs and shape them into technical solutions',
-      'Build, integrate and deploy features on real client projects',
-      'Stay close to users after launch and keep improving what you shipped',
+      'Understand client requirements and translate them into technical solutions',
+      'Develop backend applications and REST APIs using Python, FastAPI or Flask',
+      'Integrate LLMs, AI models, databases and third-party APIs',
+      'Build AI agents, chatbots and business automation workflows',
+      'Prototype, test, deploy and troubleshoot applications',
+      'Collaborate with engineering teams and explain technical solutions to clients',
     ],
     requirements: [
-      'Solid programming fundamentals and the habit of building things',
-      'Clear communication with both technical and non-technical people',
-      'Comfortable learning new tools and domains quickly',
+      'Strong Python programming',
+      'FastAPI / Flask and REST APIs',
+      'SQL and database fundamentals',
+      'Git and software development fundamentals',
+      'Understanding of LLMs, RAG and AI integrations',
+      'Strong analytical and communication skills',
     ],
+    niceToHave: ['LangChain', 'LangGraph', 'MCP', 'Docker', 'React', 'Cloud platforms'],
   },
   {
     id: 'ai-native-developer',
@@ -45,17 +53,25 @@ export const roles = [
     location: LOCATION,
     openings: 1,
     pay: '₹3.7 LPA',
-    summary: 'Build AI-powered applications and intelligent automation, using AI tools as part of how you work every day.',
+    summary:
+      'Design and develop modern full-stack applications with AI capabilities. Work on intelligent products, agentic workflows, SaaS platforms and AI-powered business solutions.',
     responsibilities: [
-      'Build applications and automations on top of modern AI models and APIs',
-      'Use AI-assisted development to ship faster without lowering quality',
-      'Test, evaluate and improve AI features for real-world reliability',
+      'Develop responsive frontend and backend applications',
+      'Build LLM-powered applications and agentic workflows',
+      'Implement RAG pipelines, tool calling and AI integrations',
+      'Develop APIs, dashboards, authentication and database integrations',
+      'Work on scalable and reusable software components',
+      'Test, debug and optimise application performance',
     ],
     requirements: [
-      'Good grounding in programming (Python or JavaScript preferred)',
-      'Hands-on experience building with LLMs or AI APIs, even on personal projects',
-      'Curiosity and a bias for shipping working products',
+      'Python and/or JavaScript / TypeScript',
+      'React / Next.js fundamentals',
+      'FastAPI / Flask or an equivalent backend framework',
+      'SQL and database management',
+      'REST APIs and Git',
+      'Understanding of AI / LLMs and application development',
     ],
+    niceToHave: ['LangChain', 'LangGraph', 'Vector databases', 'FAISS', 'Docker', 'Prompt engineering'],
   },
   {
     id: 'ai-ml-intern',
@@ -66,15 +82,14 @@ export const roles = [
     openings: 2,
     summary: 'Learn by building real machine-learning and AI features alongside the engineering team.',
     responsibilities: [
-      'Prototype AI and ML features on live projects',
-      'Prepare data and help evaluate model results',
-      'Present what you built and learned to the team',
+      'Develop and experiment with machine learning and deep learning models',
+      'Perform data preprocessing, EDA and feature engineering',
+      'Work with LLMs, RAG pipelines and AI applications',
+      'Evaluate models and improve their performance',
+      'Assist in building intelligent, AI-powered solutions',
     ],
-    requirements: [
-      'Basics of Python and machine learning concepts',
-      'Studying or recently graduated in a technical field',
-      'Eagerness to learn, ask questions and build',
-    ],
+    requirements: ['Python', 'NumPy and Pandas', 'scikit-learn', 'Machine learning fundamentals'],
+    niceToHave: ['PyTorch', 'TensorFlow', 'Transformers', 'LangChain'],
   },
   {
     id: 'full-stack-intern',
@@ -85,15 +100,14 @@ export const roles = [
     openings: 2,
     summary: 'Build real features across the frontend and backend of client and product work.',
     responsibilities: [
-      'Contribute to web applications, from interface to API',
-      'Get code reviews and mentoring from senior engineers',
-      'Ship work that real users will see',
+      'Develop frontend and backend components',
+      'Build responsive web applications and dashboards',
+      'Integrate REST APIs and databases',
+      'Implement authentication and application workflows',
+      'Debug, test and maintain applications',
     ],
-    requirements: [
-      'Basics of web development (HTML, CSS, JavaScript; React or Node.js is a plus)',
-      'Studying or recently graduated in a technical field',
-      'A project or two you built yourself',
-    ],
+    requirements: ['HTML, CSS and JavaScript', 'React', 'Python or Node.js', 'SQL and Git'],
+    niceToHave: ['Next.js', 'FastAPI', 'Flask', 'Docker'],
   },
   {
     id: 'cloud-devops-intern',
@@ -104,15 +118,14 @@ export const roles = [
     openings: 1,
     summary: 'Learn how production software is deployed, monitored and kept running in the cloud.',
     responsibilities: [
-      'Help set up deployments, CI/CD pipelines and environments',
-      'Work with cloud services and monitoring tools',
-      'Document and improve how the team ships software',
+      'Assist with application deployment and cloud infrastructure',
+      'Work with Linux servers and cloud services',
+      'Build and maintain CI/CD pipelines',
+      'Work with Docker and deployment automation',
+      'Monitor applications and troubleshoot infrastructure issues',
     ],
-    requirements: [
-      'Basic understanding of Linux, Git and cloud concepts',
-      'Studying or recently graduated in a technical field',
-      'Interest in automation and infrastructure',
-    ],
+    requirements: ['Linux', 'Git', 'Networking fundamentals', 'Basic cloud knowledge'],
+    niceToHave: ['AWS', 'Docker', 'GitHub Actions', 'Kubernetes', 'Terraform'],
   },
   {
     id: 'ui-ux-intern',
@@ -123,35 +136,41 @@ export const roles = [
     openings: 1,
     summary: 'Design and build clean, usable interfaces, taking ideas from sketch to working code.',
     responsibilities: [
-      'Create wireframes and designs, and turn them into front-end code',
-      'Work with engineers to ship what you design',
-      'Help keep a consistent visual system across products',
+      'Design modern, user-friendly web interfaces',
+      'Create wireframes, prototypes and design systems',
+      'Develop responsive layouts and reusable UI components',
+      'Collaborate with developers to implement designs',
+      'Improve user experience through usability and visual consistency',
     ],
-    requirements: [
-      'Working knowledge of HTML and CSS, and a design tool such as Figma',
-      'A few design or front-end samples to show',
-      'Attention to detail and care about users',
-    ],
+    requirements: ['Figma', 'UI / UX fundamentals', 'Wireframing', 'Responsive design', 'Basic HTML / CSS'],
+    niceToHave: ['React', 'Design systems', 'Prototyping'],
   },
 ]
 
 export const reasons = [
   {
     title: 'A path to full-time',
-    body: 'High-performing interns are considered for full-time roles with the team.',
+    body: 'High-performing interns may be considered for full-time employment, based on performance and business requirements.',
   },
   {
     title: 'Real-world projects',
-    body: 'Work on live client and product projects, not practice exercises.',
+    body: 'Work on real products and client projects, not practice exercises.',
   },
   {
     title: 'AI, software and cloud',
     body: 'Hands-on experience across AI, software engineering and cloud technologies.',
   },
   {
-    title: 'Mentorship',
-    body: 'Learn directly from the founders and senior engineers, with regular code reviews and feedback.',
+    title: 'Mentorship and startup exposure',
+    body: 'A collaborative engineering culture, with exposure to product development in a startup environment.',
   },
+]
+
+export const eligibility = [
+  'Final-year students and recent graduates in CSE, IT, AI/ML or related disciplines are encouraged to apply for internships',
+  'Practical project experience and a GitHub portfolio are an advantage',
+  'Strong problem-solving and learning ability',
+  'Full-time candidates should have the relevant technical skills and be available for the role',
 ]
 
 export const process = [
